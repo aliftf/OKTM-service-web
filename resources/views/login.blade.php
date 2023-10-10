@@ -3,18 +3,39 @@
 @section('container')
 
 	<div class="bg-overlay" style="height: 100vh">
-		<div class="color-bg-overlay">
+		<div class="color-bg-overlay overlay">
 			<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-				<div class="row justify-content-center border-0 rounded bg-white" style="width: 50%; height: fit-content;">
+				<div class="row justify-content-center border-0 rounded-4 bg-white" style="width: 65%; height: fit-content;">
 
 					{{-- Left Side --}}
 					<div class="col-md-7 col-xs-12 pt-2 px-4">
-						<img src="{{ asset('images/login-telkom-logo.png') }}" class="mx-auto img-fluid" width="40%" alt="">
+						<img src="{{ asset('images/login-telkom-logo.png') }}" class="d-flex mx-auto img-fluid py-3" width="40%" alt="">
+						<p class="text-center fw-bold fs-5 mt-3">
+							Online KTM Service
+						</p>
+						<p class="mt-3 ps-3">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ratione blanditiis animi dolore nesciunt, ullam, culpa atque harum, eos dignissimos illo dolor repudiandae quos. Maxime, dolor doloribus nostrum incidunt accusantium, placeat dolorem omnis ratione, alias tenetur ipsam beatae veniam sit.
+						</p>
 					</div>
 
 					{{-- Right Side --}}
-					<div class="col-md-12 col-xs-12 ">
-
+					<div class="col-md-5 col-xs-12 py-4 px-4 border-0 rounded-4" style="background-color: #9F0000;">
+						<p class="text-center fw-bold fs-2 mt-3 text-white">
+							SSO Login
+						</p>
+						<div class="px-4">
+							<form action="">
+								<div class="mt-5 mb-3">
+									<input type="text" class="form-control" name="username" id="username" placeholder="Username">
+								</div>
+								<div class="mb-5">
+									<input type="password" class="form-control" name="password" id="password" placeholder="Password">
+								</div>
+								<div class="d-flex flex-row-reverse">
+									<button type="submit" class="btn btn-light">Login</button>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,6 @@
     background: url('/images/login-bg.png');
     background-size: cover;
     position: relative;
-    overflow: hidden;
 }
 
 .color-bg-overlay {
