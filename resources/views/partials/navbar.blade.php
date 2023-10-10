@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #9D0000;" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #9D0000;" data-bs-theme="dark">
   <div class="container-fluid">
     <span>
 			<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
