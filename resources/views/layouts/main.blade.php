@@ -12,7 +12,7 @@
     
     @include('partials.navbar')
 
-    <div class="container">
+    <div>
         @yield('container')
     </div>
 
