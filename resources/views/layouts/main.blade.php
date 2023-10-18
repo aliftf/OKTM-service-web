@@ -16,6 +16,8 @@
         @yield('container')
     </div>
 
+    @include('partials.footer')
+
     <script src="js/bootstrap.bundle.js"></script>
 </body>
 </html>

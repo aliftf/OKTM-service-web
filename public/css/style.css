@@ -1,3 +1,12 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 .nav-bg-primary {
     background-color: #FF5733;
+}
+
+.main-footer {
+    background-color: #1B1A1A;
 }
