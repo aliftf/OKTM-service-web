@@ -1,5 +1,10 @@
 /* Custom CSS Class */
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 .bg-overlay {
     background: url('/images/login-bg.png');
     background-size: cover;
@@ -13,4 +18,12 @@
     width: 100%;
     height: 100%;
     background: rgba(255,255,255,.4);
+}
+
+.nav-bg-primary {
+    background-color: #FF5733;
+}
+
+.main-footer {
+    background-color: #1B1A1A;
 }
