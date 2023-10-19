@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/list-pengajuan-ktm', function () {
+    return view('list-pengajuan-ktm');
+});
