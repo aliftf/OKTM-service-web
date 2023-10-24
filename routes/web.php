@@ -21,6 +21,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/pengajuanBermasalah', function () {
+    return view('pengajuanBermasalah');
+});
+
 Route::get('/penggantianKTM', function(){
     return view('pengajuanPenggantian');
 });
