@@ -2,17 +2,21 @@
 
 @section('container')
 <div class="bg-pengajuan-perbaikan pt-5 pb-5">
+    {{-- Information --}}
     <div class="px-5 mx-5">
+        {{-- Title --}}
         <div class="py-4 pt-5">
             <h2 class=" fw-bold align-middle d-inline">Pengajuan Perbaikan KTM |</h2><span class="fs-2 fst-italic ps-3 align-middle">Informasi dan Syarat Pengajuan Perbaikan KTM</span>
         </div>
+        {{-- Information Header --}}
         <div class="border border-secondary-subtle rounded-5 pb-3 mb-5 shadow bg-body-tertiary rounded">
             <div class="header-color ps-4 h-25 rounded-top-5">
                 <div class="fs-5 fw-bold py-3 px-2">
-                    <img src="{{ asset('images/information-icon.png') }}" alt="" width="28">
+                    <img src="{{ asset('images/icon-information.png') }}" alt="" width="26">
                     Information
                 </div>
             </div>
+            {{-- Information Content --}}
             <div class="pt-5 pb-2 px-5 mx-5">
                 <div class="fs-4 fw-bold pb-3 mt-1">Ketentuan dapat mengajukan Perbaikan KTM</div>
                 <ul class="list-unstyled">
@@ -33,16 +37,22 @@
             </div>
         </div>
     </div>
+
+    {{-- Filing Form --}}
     <div class="px-5 mx-5">
+        {{-- Title --}}
         <div class="py-4 pt-5">
             <h3 class="fs-2 fw-bold mb-4 align-middle d-inline">Pengajuan Perbaikan KTM |</h3><span class="fs-2 fst-italic ps-3 align-middle">Form Pengajuan Perbaikan</span>
         </div>
         <div class="border border-secondary-subtle rounded-5 mb-5 shadow bg-body-tertiary rounded">
+            {{-- Filing Form Header --}}
             <div class="header-color ps-4 h-25 rounded-top-5">
                 <div class="fs-5 fw-bold py-3 px-2">
                     Filing Form
                 </div>
             </div>
+            {{-- Filing Form Content --}}
+            {{-- Data Mahasiswa --}}
             <div class="py-3">
                 <div class="mx-5 ps-5 pt-5 row">
                     <div class="col-3 text-left fs-5 fw-bold">
@@ -59,6 +69,7 @@
                     </div>
                 </div>
             </div>
+            {{-- Form --}}
             <div class="mt-4">
                 <form action="" method="post" enctype="multipart/form-data">
                     @csrf
@@ -93,7 +104,7 @@
                             </div>
                         </div>
 
-                        <!-- Upload KSM -->
+                        <!-- Input KSM -->
                         <div class="w-75 row d-flex justify-content-between align-items-center mb-3">
                             <div class="col-sm-3">
                                 <label for="formFile" class="form-label fs-6">Upload KSM</label>
@@ -108,7 +119,7 @@
                             </div>
                         </div>
 
-                        <!-- Upload KTM -->
+                        <!-- Input KTM -->
                         <div class="w-75 row d-flex justify-content-between align-items-center mb-3">
                             <div class="col-sm-3">
                                 <label for="formFile" class="form-label fs-6">Upload KTM</label>
@@ -123,7 +134,7 @@
                             </div>
                         </div>
 
-                        <!-- Upload Pembayaran -->
+                        <!-- Input Pembayaran -->
                         <div class="w-75 row d-flex justify-content-between align-items-center mb-3">
                             <div class="col-sm-3">
                                 <label for="formFile" class="form-label fs-6">Upload Bukti Pembayaran</label>
