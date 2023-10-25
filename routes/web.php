@@ -28,3 +28,7 @@ Route::get('/penggantianKTM', function(){
 Route::get('/list-pengajuan-ktm', function () {
     return view('list-pengajuan-ktm');
 });
+
+Route::get('/verifikasi-pengajuan-ktm', function () {
+    return view('verifikasiPengajuanKtm');
+});
