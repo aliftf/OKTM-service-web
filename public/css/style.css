@@ -13,11 +13,10 @@ footer {
 .bg-overlay {
     background: url('/images/login-bg.png');
     background-size: cover;
-    position: relative;
+    min-height: 100vh;
 }
 
 .color-bg-overlay {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
