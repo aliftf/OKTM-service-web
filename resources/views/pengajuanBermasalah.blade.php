@@ -18,8 +18,28 @@
     <div class="row">
         <div class="container">
             <div class= "border rounded">
-                <div class="">
-                    Ketentuan
+                
+                {{-- container header --}}
+                <div class="border p-2 text-white rounded bg-danger">
+                    information
+                </div>
+
+                {{--content--}}
+                <div class="p-5">
+                    <h3 class="fw-bold">
+                        Ketentuan dapat mengajukan permasalahan
+                    </h3>
+                    <ul>
+                        <li>
+                            Terdaftar sebagai mahasiswa yang masih menempuh pendidikan di Telkom University.
+                        </li>
+                        <li>
+                            KTM yang ingin diperbaiki masih ada secara fisik.
+                        </li>
+                    </ul>
+                    <h3 class="pt-3 fw-bold">
+                        Persyaratan Lampiran
+                    </h3>
                 </div>
             </div>
         </div>
