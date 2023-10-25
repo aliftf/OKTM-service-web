@@ -36,48 +36,6 @@ footer {
     background-color: ##9d0000;
 }
 
-.crud-overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 9999;
-}
-
-.crud-overlay:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.nav-overlay {
-    height: 40px;
-    width: 100%;
-    background-color: #9d0000;
-}
-
-.crud-wrapper {
-    background-color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-    border: 1px solid black;
-    width: 35%;
-    transition: all 2s ease-in-out;
-    overflow: hidden;
-}
-
-.crud-wrapper .crud-content {
-    overflow: auto;
-    overflow-x: hidden;
-}
-
 .btn-custom-ani {
     box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #9E0000 0 -4px 0 inset;
     transition: box-shadow .15s,transform .15s;
@@ -128,3 +86,4 @@ footer {
     padding: 10px 50px 10px 50px;
     background-color: #C41B1B;
 }
+
