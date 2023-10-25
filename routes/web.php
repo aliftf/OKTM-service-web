@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/list-pengajuan-ktm', function () {
+    return view('list-pengajuan-ktm');
+});
+
+Route::get('/pengajuan-perbaikan-ktm', function () {
+    return view('pengajuan-perbaikan-ktm');
+});
