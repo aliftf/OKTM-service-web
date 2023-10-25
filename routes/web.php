@@ -24,3 +24,7 @@ Route::get('/login', function () {
 Route::get('/penggantianKTM', function(){
     return view('pengajuanPenggantian');
 });
+
+Route::get('/list-pengajuan-ktm', function () {
+    return view('list-pengajuan-ktm');
+});
