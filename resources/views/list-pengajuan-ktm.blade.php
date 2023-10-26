@@ -4,11 +4,9 @@
 <div class="p-5 mt-5" style="min-height: 70.4vh">
   <h1 class="mb-5">List Pengajuan KTM</h1>
   <div class="d-flex flex-row justify-content-between">
-    <a href="#addPengajuan" class="text-decoration-none text-white">
-      <button type="button" class="btn btn-danger">
-        Tambah
-      </button>
-    </a>
+    <button type="button" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#addModal">
+      Tambah
+    </button>
     <div class="input-group" style="width: 25%">
       <input type="text" name="search" id="search" placeholder="Search" class="form-control">
       <button class="btn btn-danger" type="button" id="button-addon2">
@@ -33,28 +31,25 @@
           <td>1 Januari 2023</td>
           <td>Belum diproses</td>
           <td>
-            <a href="#viewPengajuan" class="badge bg-info"><img src="{{ asset('svg/eye.svg') }}" alt=""></a>
-            <a href="#editPengajuan" class="badge bg-warning"><img src="{{ asset('svg/pencil-square.svg') }}" alt=""></a>
-            <a href="#deletePengajuan" class="badge bg-danger"><img src="{{ asset('svg/trash.svg') }}" alt=""></a>
+            <button type="button" class="border-0 badge bg-info" data-bs-toggle="modal" data-bs-target="#viewModal"><img src="{{ asset('svg/eye.svg') }}" alt=""></button>
+            <button type="button" class="border-0 badge bg-warning" data-bs-toggle="modal" data-bs-target="#editModal"><img src="{{ asset('svg/pencil-square.svg') }}" alt=""></button>
+            <button type="button" class="border-0 badge bg-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><img src="{{ asset('svg/trash.svg') }}" alt=""></button>
           </td>
         </tr>
       </tbody>
   </table>
 
   {{-- Start-Add --}}
-  <div class="crud-overlay" id="addPengajuan">
-    <div class="crud-wrapper">
-      <div class="nav-overlay"></div>
-      <div class="p-5">
-        <div class="row mb-3">
-          <div class="col col-9">
-            <h4>Tambah Pengajuan KTM</h4>
-          </div>
-          <div class="col col-lg-3 col-md-4 d-flex justify-content-end">
-            <a href="#" class="fs-3 fw-bold text-decoration-none text-black">&times;</a>
-          </div>
+
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content overflow-hidden">
+        <div class="nav-overlay"></div>
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="addModalLabel">Tambah Pengajuan KTM</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="crud-content">
+        <div class="modal-body">
           <form action="">
             @csrf
             
@@ -94,34 +89,28 @@
 
             <label for="addBukti" id="labelAddBukti">Upload Bukti Pembayaran</label>
             <input type="file" name="addBukti" id="addBukti" class="form-control mb-3">
-
-            <div class="d-flex flex-row-reverse mt-5">
-              <button type="button" class="btn btn-danger">
-                Tambah
-              </button>
-            </div>
           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">Add</button>
         </div>
       </div>
     </div>
   </div>
   {{-- End-Add --}}
+  
 
   {{-- Start-View --}}
-  <div class="crud-overlay" id="viewPengajuan">
-    <div class="crud-wrapper">
-      <div class="nav-overlay"></div>
-      <div class="p-5">
-        <div class="row mb-3">
-          <div class="col col-9">
-            <h4>Lihat Pengajuan KTM</h4>
-          </div>
-          <div class="col col-lg-3 col-md-4 d-flex justify-content-end">
-            <a href="#" class="fs-3 fw-bold text-decoration-none text-black">&times;</a>
-          </div>
+  <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content overflow-hidden">
+        <div class="nav-overlay"></div>
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="viewModalLabel">Lihat Pengajuan KTM</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="crud-content">
-
+        <div class="modal-body">
           <label for="viewNIM">NIM</label>
           <input type="number" name="viewNIM" id="viewNIM" placeholder="NIM" class="form-control mb-3" readonly>
   
@@ -157,25 +146,24 @@
             Download
           </button>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
   {{-- End-View --}}
 
   {{-- Start-Edit --}}
-  <div class="crud-overlay" id="editPengajuan">
-    <div class="crud-wrapper">
-      <div class="nav-overlay"></div>
-      <div class="p-5">
-        <div class="row mb-3">
-          <div class="col col-9">
-            <h4>Edit Pengajuan KTM</h4>
-          </div>
-          <div class="col col-lg-3 col-md-4 d-flex justify-content-end">
-            <a href="#" class="fs-3 fw-bold text-decoration-none text-black">&times;</a>
-          </div>
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content overflow-hidden">
+        <div class="nav-overlay"></div>
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editModalLabel">Edit Pengajuan KTM</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="crud-content">
+        <div class="modal-body">
           <form action="">
             @csrf
             
@@ -235,13 +223,11 @@
               </button>
               <input type="file" name="editBukti" id="editBukti" class="form-control">
             </div>
-
-            <div class="d-flex flex-row-reverse mt-5">
-              <button type="button" class="btn btn-danger">
-                Edit
-              </button>
-            </div>
           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">Save changes</button>
         </div>
       </div>
     </div>
@@ -249,24 +235,25 @@
   {{-- End-Edit --}}
 
   {{-- Start-Delete --}}
-  <div class="crud-overlay" id="deletePengajuan">
-    <div class="crud-wrapper" style="width: 18%">
-      <div class="nav-overlay"></div>
-      <div class="py-3 px-3">
-      <p class="text-center text-black mb-3">Apakah anda yakin?</p>
-        <form action="">
-          @csrf
-          <div class="d-flex flex-row justify-content-between">
-            <a href="#" class="btn btn-outline-danger text-decoration-none">
-              Cancel
-            </a>
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </div>
-        </form>
+  <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content overflow-hidden">
+        <div class="nav-overlay"></div>
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteModalLabel">Hapus Pengajuan KTM</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2 class="fs-5 text-center text-black mb-3">Apakah anda yakin?</h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
       </div>
     </div>
   </div>
-  {{-- Start-Delete --}}
+  {{-- End-Delete --}}
 </div>
 
 <script>

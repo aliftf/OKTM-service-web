@@ -14,17 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/penggantianKTM', function(){
+    return view('pengajuanPenggantian');
+});
+
 Route::get('/list-pengajuan-ktm', function () {
     return view('list-pengajuan-ktm');
 });
 
+
 Route::get('/pengajuan-perbaikan-ktm', function () {
     return view('pengajuan-perbaikan-ktm');
 });
+
+Route::get('/pengajuan-ktm', function () {
+    return view('pengajuanKTM');
+});
+
