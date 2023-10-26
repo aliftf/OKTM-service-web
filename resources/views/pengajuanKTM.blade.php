@@ -3,7 +3,7 @@
 @section('container')
 <div class="d-flex flex-column align-items-center gap-5" style="padding: 9rem 0 4.5rem 0; height: 73.5vh;">
   <h1>Pilih Tipe Pengajuan</h1>
-  <div class="d-flex gap-5">
+  <div class="d-flex gap-5 flex-column flex-md-row">
     <a href="#" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
