@@ -33,7 +33,7 @@ footer {
 }
 
 .btn-custom {
-    background-color: ##9d0000;
+    background-color: #9d0000;
 }
 
 .btn-custom-ani {
@@ -88,3 +88,17 @@ footer {
     background-color: #C41B1B;
 }
 
+.bg-pengajuan-perbaikan {
+    background-color: #f8f8f8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-color {
+    background-color: #9f0000;
+    color: #ffffff;
+}
+
+.btn-color {
+    background-color: #9f0000;
+    color: #f8f8f8;
+}

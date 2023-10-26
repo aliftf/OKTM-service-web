@@ -29,6 +29,12 @@ Route::get('/list-pengajuan-ktm', function () {
     return view('list-pengajuan-ktm');
 });
 
+
+Route::get('/pengajuan-perbaikan-ktm', function () {
+    return view('pengajuan-perbaikan-ktm');
+});
+
 Route::get('/pengajuan-ktm', function () {
     return view('pengajuanKTM');
 });
+
