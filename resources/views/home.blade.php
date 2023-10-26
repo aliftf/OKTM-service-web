@@ -33,7 +33,7 @@
 
   {{-- start-button --}}
   {{-- @auth --}}
-  <div class="d-flex gap-sm-2 gap-md-5 ">
+  <div class="d-flex gap-2 gap-md-5 flex-column flex-md-row">
     <a href="#" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
