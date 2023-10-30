@@ -114,12 +114,14 @@ class="container pt-5 px-5">
         </div>
     </div>
     <!-- Selesai verifikasi -->
-    <div class="pd-5">
+    <div>
         <hr class="border border-black"></hr>
         <label for="noteForm" class="fs-4 fw-bold">Dengan menekan submit, request akan di update</label>
+    </div>
+    <div class="pt-3">
         <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Submit</button>
     </div>
-    <div class="px-5"></div>
+    <div class="py-5"></div>
 </div>
 
 
