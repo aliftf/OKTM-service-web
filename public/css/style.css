@@ -82,15 +82,14 @@ footer {
 
 .bg-pengajuan-perbaikan {
     background-color: #f8f8f8;
-    font-family: 'Poppins', sans-serif;
 }
 
-.header-color {
+.box-header-color {
     background-color: #9f0000;
     color: #ffffff;
 }
 
-.btn-color {
+.filing-form-btn-color {
     background-color: #9f0000;
     color: #f8f8f8;
 }
