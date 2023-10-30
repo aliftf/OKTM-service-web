@@ -37,3 +37,6 @@ Route::get('/pengajuan-ktm', function () {
     return view('pengajuanKTM');
 });
 
+Route::get('/informasi-hasil', function () {
+    return view('informasi-hasil');
+});
