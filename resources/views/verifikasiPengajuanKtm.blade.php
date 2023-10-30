@@ -117,7 +117,7 @@ class="container pt-5 px-5">
     <div class="pd-5">
         <hr class="border border-black"></hr>
         <label for="noteForm" class="fs-4 fw-bold">Dengan menekan submit, request akan di update</label>
-        <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Disetujui</button>
+        <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Submit</button>
     </div>
     <div class="px-5"></div>
 </div>
