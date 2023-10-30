@@ -12,16 +12,25 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link active fw-bold text-white" aria-current="page" href="#">Home</a>
+            <a class="nav-link active fw-bold text-white" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Pengajuan</a>
+            <a class="nav-link text-white" href="/pengajuan-ktm">Pengajuan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Hasil</a>
+            <a class="nav-link text-white" href="/hasil">Hasil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Masalah</a>
+            <a class="nav-link text-white" href="/pengajuan-ktm-bermasalah">Masalah</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/verifikasi-pengajuan-ktm">Verifikasi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/finalisasi-pengajuan-ktm">Finalisasi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/list-pengajuan-ktm">List</a>
           </li>
         </ul>
         <a href="" class="navbar-text d-flex justify-content-between" style="text-decoration: none;">

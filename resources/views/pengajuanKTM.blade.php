@@ -4,7 +4,7 @@
 <div class="d-flex flex-column align-items-center gap-5" style="padding: 9rem 0 4.5rem 0; height: 73.5vh;">
   <h1>Pilih Tipe Pengajuan</h1>
   <div class="d-flex gap-5 flex-column flex-md-row">
-    <a href="#" class="text-decoration-none">
+    <a href="/pengajuan-penggantian-ktm" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">
@@ -14,7 +14,7 @@
         </div>
       </div>
     </a>
-    <a href="#" class="text-decoration-none">
+    <a href="/pengajuan-perbaikan-ktm" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">

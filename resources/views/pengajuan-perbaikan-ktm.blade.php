@@ -21,9 +21,8 @@
                 <div class="fs-4 fw-bold pb-3 mt-1">Ketentuan dapat mengajukan Perbaikan KTM</div>
                 <ul class="list-unstyled">
                     <ul>
-                        <li class="mb-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam quia praesentium beatae totam veritatis distinctio natus explicabo cumque repellat voluptatem! Temporibus, corrupti? Odit nesciunt itaque illum corrupti architecto a blanditiis.</li>
-                        <li class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium doloribus saepe aut voluptatem numquam obcaecati eius consequuntur, autem dignissimos quidem totam assumenda aspernatur blanditiis minima quas in, labore sint qui.</li>
-                        <li class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat omnis blanditiis tenetur ex animi tempore laborum officiis excepturi nesciunt deserunt, eveniet cupiditate quaerat aliquid incidunt cum sunt, assumenda officia error.</li>
+                        <li class="mb-1">Terdaftar sebagai mahasiswa yang masih menempuh pendidikan di Telkom University.</li>
+                        <li class="mb-1">KTM yang ingin diperbaiki masih ada secara fisik.</li>
                     </ul>
                 </ul>
                 <div class="fs-4 fw-bold pb-3 mt-5">Persyaratan Lampiran</div>
