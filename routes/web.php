@@ -21,14 +21,13 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/penggantianKTM', function(){
+Route::get('/pengajuan-penggantian-ktm', function(){
     return view('pengajuanPenggantian');
 });
 
 Route::get('/list-pengajuan-ktm', function () {
     return view('list-pengajuan-ktm');
 });
-
 
 Route::get('/pengajuan-perbaikan-ktm', function () {
     return view('pengajuan-perbaikan-ktm');
