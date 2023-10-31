@@ -2,9 +2,9 @@
 
 @section('container')
 
-	<div class="bg-overlay" style="height: 100vh">
+	<div class="bg-overlay">
 		<div class="color-bg-overlay overlay">
-			<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+			<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh; padding: 6.4rem 0 3.2rem 0">
 				<div class="row justify-content-center border-0 rounded-4 bg-white" style="width: 65%; height: fit-content;">
 
 					{{-- Left Side --}}
