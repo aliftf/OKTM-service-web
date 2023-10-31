@@ -44,7 +44,7 @@
         </div>
       </div>
     </a>
-    <a href="/hasil" class="text-decoration-none">
+    <a href="/informasi-hasil" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">
@@ -81,7 +81,7 @@
         </div>
       </div>
     </a>
-    <a href="/finalisasi-pengajuan-ktm" class="text-decoration-none">
+    <a href="/penerimaan-pengajuan-ktm" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">
