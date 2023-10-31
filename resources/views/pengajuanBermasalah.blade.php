@@ -20,7 +20,7 @@
         {{-- CONTAINER --}}
         <div class="row">
         <div class="container">
-        <div class= "border rounded-4">
+        <div class= "border rounded-4 shadow-sm">
             
             {{-- container header --}}
             <div class="p-2 border text-white rounded-top-4 bg-danger">
@@ -68,7 +68,7 @@
     {{-- Form Pengajuan perbaikan --}}
     <div class="pt-5">
         {{--JUDUL--}}
-        <div class="row pb-3">
+        <div class="row pb-3 ">
             <div class="col-12 col-lg-auto ">
                 <h2 class="fw-bold">Pengajuan Perbaikan KTM |</h1>
             </div>
@@ -80,7 +80,7 @@
         {{--CONTAINER--}}
         <div class="row">
         <div class="container">
-        <div class= "border rounded-4">
+        <div class= "border rounded-4 shadow-sm">
             
             {{-- container header --}}
             <div class="p-2 border text-white rounded-top-4 bg-danger">
@@ -133,8 +133,8 @@
                     
                     <div class="form-group row pt-5">
                         <div class="col-sm-12 col-lg-8">
-                            <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-danger" style="width:200px">Submit</button>
+                            <div class="d-flex justify-content-end ">
+                                <button type="submit" class="btn btn-danger shadow" style="width:200px">Submit</button>
 
                             </div>
                         </div>
