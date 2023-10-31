@@ -21,6 +21,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/pengajuan-ktm-bermasalah', function () {
+    return view('pengajuanBermasalah');
+});
+
 Route::get('/pengajuan-penggantian-ktm', function(){
     return view('pengajuanPenggantian');
 });
@@ -29,13 +33,16 @@ Route::get('/list-pengajuan-ktm', function () {
     return view('list-pengajuan-ktm');
 });
 
+Route::get('/verifikasi-pengajuan-ktm', function () {
+    return view('verifikasiPengajuanKtm');
+});
+
 Route::get('/pengajuan-perbaikan-ktm', function () {
     return view('pengajuan-perbaikan-ktm');
 });
 
 Route::get('/pengajuan-ktm', function () {
     return view('pengajuanKTM');
-});
 
 Route::get('/informasi-hasil', function () {
     return view('informasi-hasil');
