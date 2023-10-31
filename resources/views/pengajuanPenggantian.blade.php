@@ -6,28 +6,32 @@
     <div class="d-flex flex-column justify-content-center align-items-center mb-5" style="width:190vh">
         <h2 class="text-center m-4" style="font-weight:bold;">Pengajuan Penggantian KTM Baru |<span style="font-style:italic; font-weight:lighter;"> Informasi dan Syarat Pengajuan Penggantian KTM</span></h2>
         <div class="container">
-            <div class="d-lg-flex shadow-lg p-3 bg-danger rounded text-white">
-                <h5 style="font-weight: bold color: white">(i) Information</h5>
+            <div class="d-lg-flex shadow-lg p-3 bg-danger rounded rounded-bottom-0 text-white">
+                <img src="{{ asset('images/info_outline_white_24dp.svg') }}" class="me-2" alt="infomation-icon">
+                <h5 class="pt-2" style="font-weight: bold; color: white;">Information</h5>
             </div>
-            <div class="d-lg-flex flex-column shadow-lg p-3 ps-5 bg-body-tertiary rounded">
+            <div class="d-lg-flex flex-column shadow-lg p-3 ps-5 bg-body-tertiary rounded rounded-top-0">
                 <h4 style="font-weight: bold;">Ketentuan Dapat Mengajukan Penggantian KTM</h4>
-                <p class="ps-3">- Terdaftar sebagai mahasiswa yang masih menempuh pendidikan di telkom university<br>
-                - Terdaftar sebagai mahasiswa yang masih menempuh pendidikan di telkom university</p>
+                    <ul class="ps-4">
+                        <li>Terdaftar sebagai mahasiswa yang masih menempuh pendidikan di telkom university</li>
+                        <li>KTM yang diperbaiki masih ada secara fisik</li>
+                    </ul>
                 <h4 style="font-weight: bold;">Persyaratan Lampiran</h4>
-                <p class="ps-3">- KSM<br>
-                - Surat Kehilangan Dari Polisi<br>
-                - Bukti Pembayaran
-                </p>
+                    <ul class="ps-4">
+                            <li>KSM</li>
+                            <li>Surat Kehilangan Dari Polisi</li>
+                            <li>Bukti Pembayaran</li>
+                    </ul>
             </div>
         </div>
     </div>
-    <div class="d-flex flex-column justify-content-center align-items-center mt-5" style="width:190vh">
+    <div class="d-flex flex-column justify-content-center align-items-center mt-5" style="width:190vh;">
         <h2 class="text-center m-4" style="font-weight:bold;">Pengajuan Penggantian KTM Baru |<span style="font-style:italic; font-weight:lighter;"> Form Pengajuan Penggantian KTM</span></h2>
         <div class="container">
-            <div class="d-lg-flex shadow-lg p-3 bg-danger rounded text-white">
-                <h5 style="font-weight: bold color: white">Filling Form</h5>
+            <div class="d-lg-flex shadow-lg p-3 bg-danger rounded rounded-bottom-0 text-white">
+                <h5 class="pt-2" style="font-weight: bold; color: white;">Filling Form</h5>
             </div>
-            <div class="container shadow-lg p-3 ps-5 bg-body-tertiary rounded">
+            <div class="container shadow-lg p-3 ps-5 bg-body-tertiary rounded rounded-top-0">
                 <form action="/Nunggubackend" method="post">
                     <div class="container row">
                         <div class="row  fs-5">

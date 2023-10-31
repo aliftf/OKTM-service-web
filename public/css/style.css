@@ -13,11 +13,10 @@ footer {
 .bg-overlay {
     background: url('/images/login-bg.png');
     background-size: cover;
-    position: relative;
+    min-height: 100vh;
 }
 
 .color-bg-overlay {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -34,47 +33,72 @@ footer {
 }
 
 .btn-custom {
-    background-color: ##9d0000;
-}
-
-.crud-overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 9999;
-}
-
-.crud-overlay:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.nav-overlay {
-    height: 40px;
-    width: 100%;
     background-color: #9d0000;
 }
 
-.crud-wrapper {
-    background-color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-    border: 1px solid black;
-    width: 35%;
-    transition: all 2s ease-in-out;
-    overflow: hidden;
+.btn-custom-ani {
+    box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #9E0000 0 -4px 0 inset;
+    transition: box-shadow .15s,transform .15s;
+    will-change: box-shadow,transform;
 }
 
-.crud-wrapper .crud-content {
-    overflow: auto;
-    overflow-x: hidden;
+.btn-custom-ani:focus {
+    box-shadow: #9E0000 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #9E0000 0 -4px 0 inset;
+}
+
+.btn-custom-ani:hover {
+    box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px, rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #9E0000 0 -4px 0 inset;
+    transform: translateY(-2px);
+}
+
+.btn-custom-ani:active {
+    box-shadow: #9E0000 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.btn-card-container {
+    border: 0;
+    border-radius: 1rem;
+    background-color: #C41B1B;
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+}
+
+.btn-card-container .btn-card-logo {
+    width: 100%;
+    border: 0;
+    border-radius: 1rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.btn-card-container .btn-card-text {
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+.home-login-btn {
+    text-align: center;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 50px 10px 50px;
+    background-color: #C41B1B;
+}
+
+.bg-pengajuan-perbaikan {
+    background-color: #f8f8f8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-color {
+    background-color: #9f0000;
+    color: #ffffff;
+}
+
+.btn-color {
+    background-color: #9f0000;
+    color: #f8f8f8;
 }
