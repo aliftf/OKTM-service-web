@@ -102,3 +102,43 @@ footer {
     background-color: #9f0000;
     color: #f8f8f8;
 }
+
+.bg-hasil {
+    background-color: #f8f8f8;
+}
+
+.hasil-min-height {
+    min-height: 79vh;
+}
+
+.hasil-table {
+    border-radius: 17px !important;
+}
+
+.hasil-table th {
+    background-color: #9f0000;
+    color: #ffffff;
+}
+
+.hasil-table th{
+    padding: 11px;
+}
+
+.hasil-table td {
+    padding: 25px;
+}
+
+.hasil-table tr:first-child th:first-child {
+    border-top-left-radius: 17px;
+}
+.hasil-table tr:first-child th:last-child {
+    border-top-right-radius: 17px;
+}
+
+.hasil-table tr:last-child td:first-child {
+    border-bottom-left-radius: 17px;
+}
+
+.hasil-table tr:last-child td:last-child {
+    border-bottom-right-radius: 17px;
+}
