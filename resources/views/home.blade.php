@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="d-flex flex-column align-items-center justify-content-center" style="padding-top: 3.5rem">
+<div class="d-flex flex-column align-items-center justify-content-center" style="padding-top: 3.5rem; gap: 2rem;">
   {{-- start-carousel --}}
-  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" style="width: 75%; padding: 2rem 0 2rem 0;" data-bs-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" style="width: 75%; padding-top: 2rem;" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -31,10 +31,10 @@
   </div>
   {{-- end-carousel --}}
 
-  {{-- start-button --}}
+  {{-- start-mahasiswa-button --}}
   {{-- @auth --}}
   <div class="d-flex gap-2 gap-md-5 flex-column flex-md-row">
-    <a href="#" class="text-decoration-none">
+    <a href="/pengajuan-ktm" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">
@@ -44,7 +44,7 @@
         </div>
       </div>
     </a>
-    <a href="#" class="text-decoration-none">
+    <a href="/hasil" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">
@@ -54,7 +54,7 @@
         </div>
       </div>
     </a>
-    <a href="#" class="text-decoration-none">
+    <a href="/pengajuan-ktm-bermasalah" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-ktm-bermasalah.png') }}" style="height: 70px" alt="">
@@ -66,17 +66,54 @@
     </a>
   </div>
   {{-- @endauth --}}
-  {{-- end-button --}}
+  {{-- end-mahasiswa-button --}}
+
+  {{-- start-admin-button --}}
+  {{-- @auth --}}
+  <div class="d-flex gap-2 gap-md-5 flex-column flex-md-row">
+    <a href="/verifikasi-pengajuan-ktm" class="text-decoration-none">
+      <div class="btn-card-container btn-custom-ani">
+        <div class="btn-card-logo">
+          <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">
+        </div>
+        <div class="btn-card-text">
+          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Request Baru</p>
+        </div>
+      </div>
+    </a>
+    <a href="/finalisasi-pengajuan-ktm" class="text-decoration-none">
+      <div class="btn-card-container btn-custom-ani">
+        <div class="btn-card-logo">
+          <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">
+        </div>
+        <div class="btn-card-text">
+          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Finalisasi Request</p>
+        </div>
+      </div>
+    </a>
+    <a href="/list-pengajuan-ktm" class="text-decoration-none">
+      <div class="btn-card-container btn-custom-ani">
+        <div class="btn-card-logo">
+          <img src="{{ asset('images/logo-ktm-bermasalah.png') }}" style="height: 70px" alt="">
+        </div>
+        <div class="btn-card-text">
+          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">List Pengajuan</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  {{-- @endauth --}}
+  {{-- end-admin-button --}}
 
   {{-- start-login-button --}}
   {{-- @guest --}}
-  @auth
+  {{-- @auth --}}
   <a href="/login" class="text-decoration-none my-4">
     <button class="home-login-btn btn-custom-ani">
       <span class="fw-bold fs-6">Login</span>
     </button>
   </a>
-  @endauth
+  {{-- @endauth --}}
   {{-- @endguest --}}
   {{-- end-login-button --}}
 
