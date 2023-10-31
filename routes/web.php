@@ -43,6 +43,11 @@ Route::get('/pengajuan-perbaikan-ktm', function () {
 
 Route::get('/pengajuan-ktm', function () {
     return view('pengajuanKTM');
+});
+
+Route::get('/penerimaan-pengajuan-ktm', function () {
+    return view('penerimaanPengajuanKtm');
+});
 
 Route::get('/informasi-hasil', function () {
     return view('informasi-hasil');
