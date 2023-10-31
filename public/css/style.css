@@ -110,40 +110,6 @@ footer {
 .hasil-min-height {
     min-height: 79vh;
 }
-/*
-.custom-table {
-    border-spacing: 0;
-    width: 100%;
-}
-
-.custom-table tr:first-child th:first-child {
-    border-top-left-radius: 15px;
-}
-
-.custom-table tr:first-child th:last-child {
-    border-top-right-radius: 15px;
-}
-
-.custom-table tr:last-child td:first-child {
-    border-bottom-left-radius: 15px;
-}
-
-.custom-table tr:last-child td:last-child {
-    border-bottom-right-radius: 15px;
-}
-.custom-table td, th{
-    text-align: center;
-    padding: 10px 130px 10px 130px;
-}
-
-.custom-table th {
-    background-color: #9f0000;
-    color: #ffffff;
-} */
-
-
-
-/* CSS page hasil */
 
 .hasil-table {
     border-radius: 17px !important;
