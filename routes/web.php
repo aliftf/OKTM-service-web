@@ -21,7 +21,7 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/pengajuanBermasalah', function () {
+Route::get('/pengajuan-ktm-bermasalah', function () {
     return view('pengajuanBermasalah');
 });
 
