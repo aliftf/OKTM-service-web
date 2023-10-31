@@ -92,37 +92,41 @@
                 <div>
                 <form>
                     <div class="form-group row ">
-                        <label for="inputNama" class="col-lg-2 col-form-label">Nama</label>
-                        <div class="col-lg-5">
-                        <input type="Text" class="form-control" id="inputNama" placeholder="Nama">
+                        <label for="inputNama" class="fw-bold col-lg-2 col-form-label">Nama Mahasiswa</label>
+                        <div class="col-lg-5 ">
+                            <span class="align-middle text-uppercase">Regy Renanda Rahman<span>
+                        </div>
+                        <label for="inputNIM" class="fw-bold col-lg-1 col-form-label">NIM</label>
+                        <div class="col-lg-4">
+                            <span class="align-middle text-uppercase">1302213117<span>
                         </div>
                     </div>
                     <div class="form-group row pt-2">
-                        <label for="inputTahun" class="col-lg-2 col-form-label">Tahun Ajaran</label>
+                        <label for="inputTahun" class="fw-bold col-lg-2 col-form-label">Tahun Ajaran</label>
                         <div class="col-lg-5">
-                        <input type="Text" class="form-control" id="inputTahun" placeholder="Tahun Ajaran">
+                            <span class="align-middle text-uppercase">2021<span>
                         </div>
                     </div>
                     <div class="form-group row pt-2">
-                        <label for="inputProgram" class="col-lg-2 col-form-label">Program Study</label>
+                        <label for="inputProgram" class="fw-bold col-lg-2 col-form-label">Program Study</label>
                         <div class="col-lg-5">
-                        <input type="Text" class="form-control" id="inputProgram" placeholder="Program Study">
+                            <span class="align-middle text-uppercase">S1 Rekayasa Perangkat Lunak<span>
                         </div>
                     </div>
                     <div class="form-group row pt-2">
-                        <label for="inputKSM" class="col-lg-2 col-form-label">Upload KSM</label>
+                        <label for="inputKSM" class="fw-bold col-lg-2 col-form-label">Upload KSM</label>
                         <div class="col-lg-5">
                         <input type="file" class="form-control" id="inputKSM" placeholder="KSM">
                         </div>
                     </div>
                     <div class="form-group row pt-2">
-                        <label for="inputKSM" class="col-lg-2 col-form-label">Upload KTM</label>
+                        <label for="inputKSM" class="fw-bold col-lg-2 col-form-label">Upload KTM</label>
                         <div class="col-lg-5">
                         <input type="file" class="form-control" id="inputKTM" placeholder="KTM">
                         </div>
                     </div>
                     <div class="form-group row pt-2 ">
-                        <label for="inputBukti" class="col-lg-2 col-form-label">Upload Bukti Pembayaran</label>
+                        <label for="inputBukti" class="fw-bold col-lg-2 col-form-label">Upload Bukti Pembayaran</label>
                         <div class="col-lg-5">
                             <div class="d-flex justify-content-center">
                             <input type="file" class="form-control" id="inputBukti" placeholder="Bukti">
@@ -148,5 +152,9 @@
     </div>
 </div>
 </div>
+
+
+
+</style>
 
 @endsection
