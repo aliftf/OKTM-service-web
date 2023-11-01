@@ -32,10 +32,6 @@ footer {
     background-color: #1B1A1A;
 }
 
-.btn-custom {
-    background-color: #9d0000;
-}
-
 .btn-custom-ani {
     box-shadow: rgba(45, 35, 66, 0.2) 0 2px 4px,rgba(45, 35, 66, 0.15) 0 7px 13px -3px, #9E0000 0 -4px 0 inset;
     transition: box-shadow .15s,transform .15s;
@@ -90,15 +86,14 @@ footer {
 
 .bg-pengajuan-perbaikan {
     background-color: #f8f8f8;
-    font-family: 'Poppins', sans-serif;
 }
 
-.header-color {
+.box-header-color {
     background-color: #9f0000;
     color: #ffffff;
 }
 
-.btn-color {
+.filing-form-btn-color {
     background-color: #9f0000;
     color: #f8f8f8;
 }
@@ -106,4 +101,44 @@ footer {
 .table-header th {
     background-color: #9f0000;
     color: #f8f8f8;
+}
+
+.bg-hasil {
+    background-color: #f8f8f8;
+}
+
+.hasil-min-height {
+    min-height: 79vh;
+}
+
+.hasil-table {
+    border-radius: 17px !important;
+}
+
+.hasil-table th {
+    background-color: #9f0000;
+    color: #ffffff;
+}
+
+.hasil-table th{
+    padding: 11px;
+}
+
+.hasil-table td {
+    padding: 25px;
+}
+
+.hasil-table tr:first-child th:first-child {
+    border-top-left-radius: 17px;
+}
+.hasil-table tr:first-child th:last-child {
+    border-top-right-radius: 17px;
+}
+
+.hasil-table tr:last-child td:first-child {
+    border-bottom-left-radius: 17px;
+}
+
+.hasil-table tr:last-child td:last-child {
+    border-bottom-right-radius: 17px;
 }

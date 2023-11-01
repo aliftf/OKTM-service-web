@@ -48,3 +48,7 @@ Route::get('/pengajuan-ktm', function () {
 Route::get('/penerimaan-pengajuan-ktm', function () {
     return view('penerimaanPengajuanKtm');
 });
+
+Route::get('/informasi-hasil', function () {
+    return view('informasi-hasil');
+});
