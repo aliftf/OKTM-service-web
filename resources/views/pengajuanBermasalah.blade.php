@@ -23,7 +23,7 @@
         <div class= "border rounded-4 shadow-sm">
             
             {{-- container header --}}
-            <div class="p-2 border text-white rounded-top-4 bg-danger">
+            <div class="p-2 border text-white rounded-top-4"  style="background-color: #9D0000;">
                 <i class="bi bi-info-circle">information</i>
             </div>
     
@@ -83,7 +83,7 @@
         <div class= "border rounded-4 shadow-sm">
             
             {{-- container header --}}
-            <div class="p-2 border text-white rounded-top-4 bg-danger">
+            <div class="p-2 border text-white rounded-top-4"  style="background-color: #9D0000;">
                 <i class="bi bi-info-circle">Filing Form</i>
             </div>
 
@@ -138,7 +138,7 @@
                     <div class="form-group row pt-5">
                         <div class="col-sm-12 col-lg-8">
                             <div class="d-flex justify-content-end ">
-                                <button type="submit" class="btn btn-danger shadow" style="width:200px">Submit</button>
+                                <button type="submit" class="btn shadow text-white" style="width:200px ; background-color: #9D0000;">Submit</button>
 
                             </div>
                         </div>
