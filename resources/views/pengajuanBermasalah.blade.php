@@ -2,8 +2,8 @@
 
 @section('container')
 
-<div class="p-5">
-<div class="p-5">
+<div class="px-3 pt-5 px-sm-5">
+<div class="pt-5 px-sm-3">
 
     {{--KTM BERMASALAH--}}
     <div>
@@ -28,7 +28,7 @@
             </div>
     
             {{--content--}}
-            <div class="p-5">
+            <div class="p-4 p-sm-5">
                 <div>
                     <h3 class="fw-bold">
                         Ketentuan dapat mengajukan permasalahan
@@ -88,7 +88,7 @@
             </div>
 
             {{--content--}}
-            <div class="p-5">
+            <div class="p-4 p-sm-5">
                 <div>
                 <form>
                     <div class="form-group row ">
