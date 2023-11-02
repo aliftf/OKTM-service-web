@@ -2,8 +2,8 @@
 
 @section('container')
 
-<div class="p-5">
-<div class="p-5">
+<div class="px-3 pt-5 px-sm-5">
+<div class="pt-5 px-sm-3">
 
     {{--KTM BERMASALAH--}}
     <div>
@@ -23,12 +23,12 @@
         <div class= "border rounded-4 shadow-sm">
             
             {{-- container header --}}
-            <div class="p-2 border text-white rounded-top-4 bg-danger">
+            <div class="p-2 border text-white rounded-top-4"  style="background-color: #9D0000;">
                 <i class="bi bi-info-circle">information</i>
             </div>
     
             {{--content--}}
-            <div class="p-5">
+            <div class="p-4 p-sm-5">
                 <div>
                     <h3 class="fw-bold">
                         Ketentuan dapat mengajukan permasalahan
@@ -83,12 +83,12 @@
         <div class= "border rounded-4 shadow-sm">
             
             {{-- container header --}}
-            <div class="p-2 border text-white rounded-top-4 bg-danger">
+            <div class="p-2 border text-white rounded-top-4"  style="background-color: #9D0000;">
                 <i class="bi bi-info-circle">Filing Form</i>
             </div>
 
             {{--content--}}
-            <div class="p-5">
+            <div class="p-4 p-sm-5">
                 <div>
                 <form>
                     <div class="form-group row ">
@@ -138,7 +138,7 @@
                     <div class="form-group row pt-5">
                         <div class="col-sm-12 col-lg-8">
                             <div class="d-flex justify-content-end ">
-                                <button type="submit" class="btn btn-danger shadow" style="width:200px">Submit</button>
+                                <button type="submit" class="btn shadow text-white" style="width:200px ; background-color: #9D0000;">Submit</button>
 
                             </div>
                         </div>

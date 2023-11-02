@@ -98,6 +98,11 @@ footer {
     color: #f8f8f8;
 }
 
+.table-header th {
+    background-color: #9f0000;
+    color: #f8f8f8;
+}
+
 .bg-hasil {
     background-color: #f8f8f8;
 }
