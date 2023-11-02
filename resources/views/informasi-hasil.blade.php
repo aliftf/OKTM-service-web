@@ -5,7 +5,7 @@
         <div class="container">
             <h3 class="fw-bold pb-4 pt-5">Informasi Hasil</h3>
             <div class="table-responsive">
-                <table class="table table-borderless text-center hasil-table shadow bg-body-tertiary rounded">
+                <table class="table table-borderless text-center hasil-table shadow-sm bg-body-tertiary rounded">
                     <thead class="align-middle">
                         <tr>
                             <th>Nama Mahasiswa</th>
