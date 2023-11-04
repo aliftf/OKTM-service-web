@@ -116,7 +116,7 @@
                         </div>
                         <div class="col-12 text-center my-5">
                             <button type="submit"
-                                class="btn filing-form-btn-color px-5 fw-bold border border-danger">Submit</button>
+                                class="btn primary-btn-color px-5 fw-bold border border-danger">Submit</button>
                         </div>
                     </form>
                 </div>
