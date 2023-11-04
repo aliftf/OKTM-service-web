@@ -93,7 +93,7 @@ footer {
     color: #ffffff;
 }
 
-.filing-form-btn-color {
+.primary-btn-color {
     background-color: #9f0000;
     color: #f8f8f8;
 }
@@ -126,6 +126,16 @@ footer {
 
 .hasil-table td {
     padding: 25px;
+}
+
+.primary-text-color {
+    color: #9E0000;
+}
+
+.primary-text-color:hover,
+.primary-text-color:active  {
+    background-color: #9e0000;
+    color: #fff;
 }
 
 .hasil-table tr:first-child th:first-child {
