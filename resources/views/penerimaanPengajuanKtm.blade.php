@@ -4,61 +4,70 @@
 
 <div class="container pt-5 px-5">
     <h2 class="pt-5 fw-bold">Verifikasi Pengajuan KTM</h1>
-    <div class="py-5 container-auto">
-        <div class="shadow p-0 border border-2 rounded-4 bg-light shadow p-0 border border-2 rounded-4 bg-light" style="min-width:600px;">
-            <!-- Header tabel -->
-            <div class="text-white px-5 pt-3 pb-1 rounded-top-4 col" style="background-color: #9F0000">
-                <table class="table-responsive table table-header table text-center table-borderless">
-                    <thead class="h5 fw-bold align-middle">
-                        <tr>
-                            <th class="col w-25">Nama Mahasiswa</th>
-                            <th></th>
-                            <th class="col w-25">Tanggal Pengajuan</th>
-                            <th></th>
-                            <th class="col w-25">Jenis Pengajuan</th>
-                            <th></th>
-                            <th class="col w-25">Progress</th>
-                        </tr>
-                    </thead>
-                </table>
-                </div>
-                <!-- Isi tabel -->
-                <div class="container-auto px-5 py-3">
-                    <table class="table table-borderless text-center">
-                        <tbody class="fs-5 align-middle">
-                            <tr class="table-light">
-                                <td class="py-4 w-25">Regy Renanda Rahman</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25">01-12-2025</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25">Penggantian</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></td>
-                            </tr>
-                            <tr class="table-light">
-                                <td class="py-4 w-25">Rahma Sakti Rahardian</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25">01-12-2025</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25">Penggantian</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></td>
-                            </tr>
-                            <tr class="table-light">
-                                <td class="py-4 w-25">Iqro Banyuanto</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25">01-12-2025</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25">Perbaikan</td>
-                                <td class="py-4"><div class="vr" style="height: 75px; width:2px"></div></td>
-                                <td class="py-4 w-25"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <!-- Table -->
+    <div class="py-5">
+        <table class="table-list table-responsive table table-header text-center table-borderless hasil-table shadow">
+            <thead class="h5 fw-bold align-middle m">
+                <tr>
+                    <th class="w-25">Nama Mahasiswa</th>
+                    <th class="w-25">Tanggal Pengajuan</th>
+                    <th class="w-25">Jenis Pengajuan</th>
+                    <th class="w-25">Progress</th>
+                </tr>
+            </thead>
+            <tbody class="fs-5 align-middle">
+                <tr class="table-light">
+                    <td><div class="py-3 px-2 border-end border-3">Regy Renanda Rahman</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
+                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
+                </tr>
+                <tr class="table-light">
+                    <td><div class="py-3 px-2 border-end border-3">Rahma Sakti Rahardian</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
+                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
+                </tr>
+                <tr class="table-light">
+                    <td><div class="py-3 px-2 border-end border-3">Iqro Banyuanto</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">Perbaikan</div></td>
+                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
+                </tr>
+                <tr class="table-light">
+                    <td><div class="py-3 px-2 border-end border-3">Deva Angela Felisitas Toding</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
+                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
+                </tr>
+                <tr class="table-light">
+                    <td><div class="py-3 px-2 border-end border-3">Alif Taufiqurrahman</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
+                    <td><div class="py-3 px-2 border-end border-3">Perbaikan</div></td>
+                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Pagination -->
+        <div class="d-flex justify-content-end py-2">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination shadow">
+                    <li class="page-item">
+                        <a class="page-link text-danger" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link text-danger" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link text-danger" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="py-5"></div>
     </div>
 </div>
 
