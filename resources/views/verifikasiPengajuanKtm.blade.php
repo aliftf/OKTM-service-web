@@ -20,12 +20,8 @@ class="container pt-5 px-5">
                         <img src="{{ asset('images/ksm-1.jpg') }}" class="img-fluid w-100" alt="Ini KSM">
                         <p class="text-center"><a class="link-opacity-100" href="#">KSM-test.jpg</a></p>
                     </div>
-                    <!-- Divider -->
-                    <div class="col-sm-1 text-center text-dark my-auto">
-                        <div class="vr" style="height: 400px; width:2px"></div>
-                    </div>
                     <!-- Form -->
-                    <div class="col-sm my-auto">
+                    <div class="col-sm my-auto border-start border-3 px-5">
                         <h3 class="fw-bold">Status</h3>
                         <p id="statusKsm" class="fs-4">Belum disetujui</p>
                         <!-- Text box untuk note -->
@@ -59,12 +55,8 @@ class="container pt-5 px-5">
                         <img src="{{ asset('images/ktm-1.jpg') }}" class="img-fluid w-100" alt="Ini KSM">
                         <p class="text-center"><a class="link-opacity-100" href="#">KTM-test.jpg</a></p>
                     </div>
-                    <!-- Divider -->
-                    <div class="col-sm-1 text-center text-dark my-auto">
-                        <div class="vr" style="height: 400px; width:2px"></div>
-                    </div>
                     <!-- Form -->
-                    <div class="col-sm my-auto">
+                    <div class="col-sm my-auto border-start border-3 px-5">
                         <h3 class="fw-bold">Status</h3>
                         <p id="statusKsm" class="fs-4">Belum disetujui</p>
                         <!-- Text box untuk note -->
@@ -98,12 +90,8 @@ class="container pt-5 px-5">
                         <img src="{{ asset('images/bukti-pembayaran-1.jpg') }}" class="img-fluid w-100" alt="Ini KSM">
                         <p class="text-center"><a class="link-opacity-100" href="#">bukti-pembayaran-test.jpg</a></p>
                     </div>
-                    <!-- Divider -->
-                    <div class="col-sm-1 text-center text-dark my-auto">
-                        <div class="vr" style="height: 400px; width:2px"></div>
-                    </div>
                     <!-- Form -->
-                    <div class="col-sm my-auto">
+                    <div class="col-sm my-auto border-start border-3 px-5">
                         <h3 class="fw-bold">Status</h3>
                         <p id="statusKsm" class="fs-4">Belum disetujui</p>
                         <!-- Text box untuk note -->
