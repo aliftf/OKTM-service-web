@@ -125,7 +125,7 @@ class="container pt-5 px-5">
         <label for="noteForm" class="fs-4 fw-bold">Dengan menekan submit, request akan di update</label>
     </div>
     <div class="pt-3">
-        <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Submit</button>
+        <a href="/penerimaan-pengajuan-ktm"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Submit</button></a>
     </div>
     <div class="py-5"></div>
 </div>
