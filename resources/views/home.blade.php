@@ -81,7 +81,7 @@
         </div>
       </div>
     </a>
-    <a href="/verifikasi-pengajuan-ktm" class="text-decoration-none">
+    <a href="/finalisasi-pengajuan-ktm" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">

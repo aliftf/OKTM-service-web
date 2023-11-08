@@ -27,7 +27,7 @@
             <a class="nav-link {{ Request::is('verifikasi-pengajuan-ktm') ? 'active fw-bold' : '' }} text-white" href="/verifikasi-pengajuan-ktm">Verifikasi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ Request::is('penerimaan-pengajuan-ktm') ? 'active fw-bold' : '' }} text-white" href="/penerimaan-pengajuan-ktm">Finalisasi</a>
+            <a class="nav-link {{ Request::is('finalisasi-pengajuan-ktm') ? 'active fw-bold' : '' }} text-white" href="/finalisasi-pengajuan-ktm">Finalisasi</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ Request::is('list-pengajuan-ktm') ? 'active fw-bold' : '' }} text-white" href="/list-pengajuan-ktm">List</a>
