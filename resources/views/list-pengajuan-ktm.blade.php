@@ -78,13 +78,13 @@
           @enderror
 
           <label for="addProdi">Program Studi</label>
-          <input type="text" name="addProdi" id="addProdi" placeholder="Nama Lengkap" class="form-control mb-3 @error('addProdi') is-invalid @enderror" value="{{ old('addProdi') }}">
+          <input type="text" name="addProdi" id="addProdi" placeholder="Program Studi" class="form-control mb-3 @error('addProdi') is-invalid @enderror" value="{{ old('addProdi') }}">
           @error('addProdi')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
 
           <label for="addTahun">Tahun</label>
-          <input type="number" name="addTahun" id="addTahun" placeholder="NIM" class="form-control mb-3 @error('addTahun') is-invalid @enderror" value="{{ old('addTahun') }}">
+          <input type="number" name="addTahun" id="addTahun" placeholder="Tahun" class="form-control mb-3 @error('addTahun') is-invalid @enderror" value="{{ old('addTahun') }}">
           @error('addTahun')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
