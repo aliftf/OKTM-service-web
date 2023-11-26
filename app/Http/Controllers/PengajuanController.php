@@ -30,17 +30,17 @@ class PengajuanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'addNIM' => 'required|digits:10|numeric',
+            'addNIM' => '',
             'addNama' => 'required|max:50',
             'addProdi' => 'required',
             'addTahun' => 'required|digits:4|numeric',
             'addTipe' => 'required',
             'addStatus' => 'required',
             'addTanggal' => 'required',
-            'addKSM' => 'required|mimes:jpg,png|max:5000',
-            'addKTM' => 'mimes:jpg,png|max:5000',
-            'addSurat' => 'mimes:jpg,png|max:5000',
-            'addBukti' => 'required|mimes:jpg,png|max:5000',
+            'addKSM' => 'required|mimes:pdf,jpg,png',
+            'addKTM' => 'mimes:pdf,jpg,png',
+            'addSurat' => 'mimes:jpg,png',
+            'addBukti' => 'required|mimes:jpg,png',
         ], [
             'addNama.max' => 'Panjang maksimum untuk Nama adalah :max karakter.',
             'addKSM.max' => 'Ukuran maksimum untuk KSM adalah 5MB.',
@@ -57,7 +57,7 @@ class PengajuanController extends Controller
         if ($request->file('addKSM')) {
             $fileKSM = $request->file('addKSM');
             $fileNameKSM = $fileKSM->getClientOriginalName();
-            $fileKSM->move(public_path('file/ksm'), $fileNameKSM);
+            $fileKSM->move(public_path('file/ktm'), $fileNameKSM);
         }
     
         if ($request->file('addKTM')) {
