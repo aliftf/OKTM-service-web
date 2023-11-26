@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Form;
 use App\Models\Account;
 use App\Models\Mahasiswa;
 use Illuminate\Database\Seeder;
@@ -37,6 +38,16 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Alif Taufiqurrahman',
             'prodi' => 'S1 Rekayasa Perangkat Lunak',
             'tahun' => 2013,
+        ]);
+
+        Form::create([
+            'nim' => '1302213011',
+            'tipe' => 'perbaikan',
+            'status'=> 'proses perbaikan',
+            'image_1' => file_get_contents("C:\Users\ASUS\OneDrive\Pictures\Screenshot\Screenshot 2023-11-04 144208.png"),
+            'image_2' => file_get_contents("C:\Users\ASUS\OneDrive\Pictures\Screenshot\Screenshot 2023-11-04 144208.png"),
+            'image_3' => file_get_contents("C:\Users\ASUS\OneDrive\Pictures\Screenshot\Screenshot 2023-11-04 144208.png"),
+            'komentar' => 'kemaluan pria',
         ]);
     }
 }

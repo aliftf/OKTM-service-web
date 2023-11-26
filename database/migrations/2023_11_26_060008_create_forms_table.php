@@ -18,13 +18,12 @@ return new class extends Migration
 
             $table->string('tipe');
             $table->string('status');
-            $table->string('ktm');
-            $table->string('ksm');
-            $table->string('surat_kehilangan');
-            $table->string('bukti_pembayaran');
             $table->string('komentar');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE forms ADD image_1 LONGBLOB");
+        DB::statement("ALTER TABLE forms ADD image_2 LONGBLOB");
+        DB::statement("ALTER TABLE forms ADD image_3 LONGBLOB");
     }
 
     /**
