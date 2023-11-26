@@ -11,8 +11,12 @@ class Mahasiswa extends Model
 
     protected $primaryKey = 'nim';
 
-    protected $guarded = [
+    protected $fillable = [
         'nim',
+        'nama',
+        'prodi',
+        'tahun',
+        'acc_id',
     ];
 
     public function form(){

@@ -2,7 +2,20 @@
 
 @section('container')
 <div class="p-5 mt-5" style="min-height: 70.4vh">
-  <h1 class="mb-5">List Pengajuan KTM</h1>
+  <div class="d-flex justify-content-between">
+    <h1 class="mb-5">List Pengajuan KTM</h1>
+    @if (Session::has('success'))
+      <div class="alert alert-success h-50" role="alert">
+          {{ Session::get('success') }}
+          <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @elseif ($errors->any())
+      <div class="alert alert-danger h-50">
+          {{ $errors->first() }}
+          <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    @endif
+  </div>
   <div class="d-flex flex-row justify-content-between">
     <button type="button" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#addModal">
       Tambah
@@ -43,6 +56,8 @@
 
   <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
+      <form method="POST" action="/list-pengajuan-ktm" enctype="multipart/form-data">
+      @csrf
       <div class="modal-content overflow-hidden">
         <div class="nav-overlay"></div>
         <div class="modal-header">
@@ -50,52 +65,79 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="">
-            @csrf
-            
-            <label for="addNIM">NIM</label>
-            <input type="number" name="addNIM" id="addNIM" placeholder="NIM" class="form-control mb-3">
-    
-            <label for="addNama">Nama Lengkap</label>
-            <input type="text" name="addNama" id="addNama" placeholder="Nama Lengkap" class="form-control mb-3">
-    
-            <label for="addTipe">Tipe Pengajuan</label>
-            <select name="addTipe" id="addTipe" class="form-select mb-3">
-              <option selected disabled>Pilih tipe pengajuan</option>
-              <option value="1">Pengajuan Penggantian KTM</option>
-              <option value="2">Pengajuan Perbaikan KTM</option>
-              <option value="3">Pengajuan KTM masih bermasalah</option>
-            </select>
+          <label for="addNIM">NIM</label>
+          <input type="number" name="addNIM" id="addNIM" placeholder="NIM" class="form-control mb-3 @error('addNIM') is-invalid @enderror" value="{{ old('addNIM') }}">
+          @error('addNIM')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+  
+          <label for="addNama">Nama Lengkap</label>
+          <input type="text" name="addNama" id="addNama" placeholder="Nama Lengkap" class="form-control mb-3 @error('addNama') is-invalid @enderror" value="{{ old('addNama') }}">
+          @error('addNama')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
 
-            <label for="addStatus">Status Pengajuan</label>
-            <select name="addStatus" id="addStatus" class="form-select mb-3">
-              <option selected disabled>Pilih status pengajuan</option>
-              <option value="1">Belum diproses</option>
-              <option value="2">Sedang diproses</option>
-              <option value="3">Sudah diproses</option>
-            </select>
-    
-            <label for="addTanggal">Tanggal</label>
-            <input type="date" name="addTanggal" id="addTanggal" class="form-control mb-3">
+          <label for="addProdi">Program Studi</label>
+          <input type="text" name="addProdi" id="addProdi" placeholder="Nama Lengkap" class="form-control mb-3 @error('addProdi') is-invalid @enderror" value="{{ old('addProdi') }}">
+          @error('addProdi')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
 
-            <label for="addKSM" id="labelAddKSM">Upload Kartu Studi Mahasiswa (KSM)</label>
-            <input type="file" name="addKSM" id="addKSM" class="form-control mb-3">
+          <label for="addTahun">Tahun</label>
+          <input type="number" name="addTahun" id="addTahun" placeholder="NIM" class="form-control mb-3 @error('addTahun') is-invalid @enderror" value="{{ old('addTahun') }}">
+          @error('addTahun')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+  
+          <label for="addTipe">Tipe Pengajuan</label>
+          <select name="addTipe" id="addTipe" class="form-select mb-3">
+            <option selected disabled>Pilih tipe pengajuan</option>
+            <option value="1">Pengajuan Penggantian KTM</option>
+            <option value="2">Pengajuan Perbaikan KTM</option>
+            <option value="3">Pengajuan KTM masih bermasalah</option>
+          </select>
 
-            <label for="addKTM" id="labelAddKTM">Upload Kartu Tanda Mahasiswa (KTM)</label>
-            <input type="file" name="addKTM" id="addKTM" class="form-control mb-3">
+          <label for="addStatus">Status Pengajuan</label>
+          <select name="addStatus" id="addStatus" class="form-select mb-3">
+            <option selected disabled>Pilih status pengajuan</option>
+            <option value="1">Belum diproses</option>
+            <option value="2">Sedang diproses</option>
+            <option value="3">Sudah diproses</option>
+          </select>
+  
+          <label for="addTanggal">Tanggal</label>
+          <input type="date" name="addTanggal" id="addTanggal" class="form-control mb-3">
 
-            <label for="addSurat" id="labelAddSurat">Upload Surat Kehilangan Kepolisian</label>
-            <input type="file" name="addSurat" id="addSurat" class="form-control mb-3">
+          <label for="addKSM" id="labelAddKSM">Upload Kartu Studi Mahasiswa (KSM)</label>
+          <input type="file" name="addKSM" id="addKSM" class="form-control mb-3 @error('addKSM') is-invalid @enderror" value="{{ old('addKSM') }}">
+          @error('addKSM')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
 
-            <label for="addBukti" id="labelAddBukti">Upload Bukti Pembayaran</label>
-            <input type="file" name="addBukti" id="addBukti" class="form-control mb-3">
-          </form>
+          <label for="addKTM" id="labelAddKTM">Upload Kartu Tanda Mahasiswa (KTM)</label>
+          <input type="file" name="addKTM" id="addKTM" class="form-control mb-3 @error('addKTM') is-invalid @enderror" value="{{ old('addKTM') }}">
+          @error('addKTM')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+
+          <label for="addSurat" id="labelAddSurat">Upload Surat Kehilangan Kepolisian</label>
+          <input type="file" name="addSurat" id="addSurat" class="form-control mb-3 @error('addSurat') is-invalid @enderror" value="{{ old('addSurat') }}">
+          @error('addSurat')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+
+          <label for="addBukti" id="labelAddBukti">Upload Bukti Pembayaran</label>
+          <input type="file" name="addBukti" id="addBukti" class="form-control mb-3 @error('addBukti') is-invalid @enderror" value="{{ old('addBukti') }}">
+          @error('addBukti')
+              <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger">Add</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-danger">Add</button>
         </div>
       </div>
+      </form>
     </div>
   </div>
   {{-- End-Add --}}

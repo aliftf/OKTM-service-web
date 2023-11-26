@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('ksm');
             $table->string('surat_kehilangan');
             $table->string('bukti_pembayaran');
-            $table->string('komentar');
+            $table->string('komentar')->nullable();
             $table->timestamps();
         });
     }

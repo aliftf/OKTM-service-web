@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->unsignedBigInteger( 'nim' )->primary();
 
-            $table->foreignId('acc_id')->constrained('accounts','acc_id')->onDelete('cascade');
+            $table->foreignId('acc_id')->nullable()->constrained('accounts','acc_id')->onDelete('cascade');
 
             $table->string('nama');
             $table->string('prodi');
