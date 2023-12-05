@@ -71,7 +71,7 @@
   {{-- start-admin-button --}}
   {{-- @auth --}}
   <div class="d-flex gap-2 gap-md-5 flex-column flex-md-row">
-    <a href="/verifikasi-pengajuan-ktm" class="text-decoration-none">
+    <a href="/penerimaan-pengajuan-ktm" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">
@@ -81,7 +81,7 @@
         </div>
       </div>
     </a>
-    <a href="/penerimaan-pengajuan-ktm" class="text-decoration-none">
+    <a href="/finalisasi-pengajuan-ktm" class="text-decoration-none">
       <div class="btn-card-container btn-custom-ani">
         <div class="btn-card-logo">
           <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">

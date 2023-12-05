@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="container pt-5 px-5">
-    <h2 class="pt-5 fw-bold">Verifikasi Pengajuan KTM</h1>
+    <h2 class="pt-5 fw-bold">Finalisasi</h1>
     <!-- Table -->
     <div class="py-5">
         <table class="table-list table-responsive table table-header text-center table-borderless hasil-table shadow">
@@ -20,31 +20,13 @@
                     <td><div class="py-3 px-2 border-end border-3">Regy Renanda Rahman</div></td>
                     <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
                     <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
-                    <td><div class="py-3 px-2"><a href="/verifikasi-pengajuan-ktm"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></a></div></td>
+                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Done</button></div></td>
                 </tr>
                 <tr class="table-light">
                     <td><div class="py-3 px-2 border-end border-3">Rahma Sakti Rahardian</div></td>
                     <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
                     <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
-                </tr>
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Iqro Banyuanto</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Perbaikan</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
-                </tr>
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Deva Angela Felisitas Toding</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
-                </tr>
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Alif Taufiqurrahman</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Perbaikan</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
+                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Done</button></div></td>
                 </tr>
             </tbody>
         </table>

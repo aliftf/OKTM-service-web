@@ -138,8 +138,9 @@
                     <div class="form-group row pt-5">
                         <div class="col-sm-12 col-lg-8">
                             <div class="d-flex justify-content-end ">
-                                <button type="submit" class="btn shadow text-white" style="width:200px ; background-color: #9D0000;">Submit</button>
-
+                                <a href="/informasi-hasil">
+                                    <button type="button" class="btn shadow text-white" style="width:200px ; background-color: #9D0000;">Submit</button>
+                                </a>
                             </div>
                         </div>
                     </div>
