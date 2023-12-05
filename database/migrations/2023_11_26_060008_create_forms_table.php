@@ -18,10 +18,10 @@ return new class extends Migration
 
             $table->string('tipe');
             $table->string('status');
-            $table->string('ktm');
-            $table->string('ksm');
-            $table->string('surat_kehilangan');
-            $table->string('bukti_pembayaran');
+            $table->string('ktm')->nullable();
+            $table->string('ksm')->nullable();
+            $table->string('surat_kehilangan')->nullable();
+            $table->string('bukti_pembayaran')->nullable();
             $table->string('komentar')->nullable();
             $table->timestamps();
         });

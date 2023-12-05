@@ -1,0 +1,30 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Form;
+use App\Models\Mahasiswa;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Form>
+ */
+class FormFactory extends Factory
+{
+    protected $model = Form::class;
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $nim = $this->faker->unique()->randomElement(Mahasiswa::pluck('nim')->toArray());
+
+        return [
+            'nim' => $nim,
+            'tipe' => $this->faker->randomElement(['Pengajuan Penggantian KTM', 'Pengajuan Perbaikan KTM', 'Pengajuan KTM Masih Bermasalah']),
+            'status' => $this->faker->randomElement(['Permintaan Diproses', 'Menunggu Permintaan Disetujui', 'Permintaan Ditolak', 'Selesai']),
+        ];
+    }
+}

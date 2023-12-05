@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\ListPengajuanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,10 +30,6 @@ Route::get('/pengajuan-penggantian-ktm', function(){
     return view('pengajuanPenggantian');
 });
 
-/*Route::get('/list-pengajuan-ktm', function () {
-    return view('list-pengajuan-ktm');
-});*/
-
 Route::get('/verifikasi-pengajuan-ktm', function () {
     return view('verifikasiPengajuanKtm');
 });
@@ -58,4 +54,4 @@ Route::get('/informasi-hasil', function () {
     return view('informasi-hasil');
 });
 
-Route::resource('/list-pengajuan-ktm', PengajuanController::class);
+Route::resource('/list-pengajuan-ktm', ListPengajuanController::class);
