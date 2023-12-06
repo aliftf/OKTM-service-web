@@ -39,6 +39,7 @@
                             <th>Tanggal Pengajuan</th>
                             <th>Jenis Pengajuan</th>
                             <th>Progress</th>
+                            <th>Note</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +54,10 @@
                                 <div class="border-end border-2 p-4" style="height: 100px;">Penggantian</div>
                             </td>
                             <td class="px-0">
-                                <div class="p-4">Menunggu Permintaan Disetujui</div>
+                                <div class="border-end border-2 p-4" style="height: 100px;">Menunggu Permintaan Disetujui</div>
+                            </td>
+                            <td class="px-0">
+                                <div class="p-4">Note1</div>
                             </td>
                         </tr>
                         <tr>
@@ -67,7 +71,10 @@
                                 <div class="border-end border-2 p-4" style="height: 100px;">Perbaikan</div>
                             </td>
                             <td class="px-0">
-                                <div class="p-4">Menunggu Permintaan Disetujui</div>
+                                <div class="border-end border-2 p-4" style="height: 100px;">Menunggu Permintaan Disetujui</div>
+                            </td>
+                            <td class="px-0">
+                                <div class="p-4">Note2</div>
                             </td>
                         </tr>
                     </tbody>
