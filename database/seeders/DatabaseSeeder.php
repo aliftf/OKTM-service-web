@@ -19,21 +19,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Account::create([
-            'username' => 'alif',
-            'password' => Hash::make('123'),
-            'role' => 'mahasiswa',
-        ]);
+        // Account::create([
+        //     'username' => 'alif',
+        //     'password' => Hash::make('123'),
+        //     'role' => 'mahasiswa',
+        // ]);
 
-        Mahasiswa::create([
-            'nim' => '1302213011',
-            'acc_id' => 1,
-            'nama' => 'Alif Taufiqurrahman',
-            'prodi' => 'S1 Rekayasa Perangkat Lunak',
-            'tahun' => 2021,
-        ]);
+        // Mahasiswa::create([
+        //     'nim' => '1302213011',
+        //     'acc_id' => 1,
+        //     'nama' => 'Alif Taufiqurrahman',
+        //     'prodi' => 'S1 Rekayasa Perangkat Lunak',
+        //     'tahun' => 2021,
+        // ]);
 
-        Mahasiswa::factory(5)->create();
-        Form::factory(6)->create();
+        // Mahasiswa::factory(5)->create();
+        // Form::factory(6)->create();
     }
 }

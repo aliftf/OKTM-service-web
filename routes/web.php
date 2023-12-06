@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ListPengajuanController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\ListPengajuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,5 @@ Route::get('/informasi-hasil', function () {
 });
 
 Route::resource('/list-pengajuan-ktm', ListPengajuanController::class);
+
+Route::get('/list-pengajuan-ktm/download/{formId}/{fileType}', [DownloadController::class, 'downloadFile']);

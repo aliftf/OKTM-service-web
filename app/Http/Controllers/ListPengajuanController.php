@@ -68,25 +68,25 @@ class ListPengajuanController extends Controller
 
         if ($request->file('addKSM')) {
             $fileKSM = $request->file('addKSM');
-            $fileNameKSM = $fileKSM->getClientOriginalName();
+            $fileNameKSM = pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKSM->extension();
             $fileKSM->move(public_path('file/ksm'), $fileNameKSM);
         }
     
         if ($request->file('addKTM')) {
             $fileKTM = $request->file('addKTM');
-            $fileNameKTM = $fileKTM->getClientOriginalName();
+            $fileNameKTM = pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKTM->extension();
             $fileKTM->move(public_path('file/ktm'), $fileNameKTM);
         }
     
         if ($request->file('addSurat')) {
             $fileSurat = $request->file('addSurat');
-            $fileNameSurat = $fileSurat->getClientOriginalName();
+            $fileNameSurat = pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileSurat->extension();
             $fileSurat->move(public_path('file/surat-kehilangan'), $fileNameSurat);
         }
     
         if ($request->file('addBukti')) {
             $fileBukti = $request->file('addBukti');
-            $fileNameBukti = $fileBukti->getClientOriginalName();
+            $fileNameBukti = pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileBukti->extension();
             $fileBukti->move(public_path('file/bukti-pembayaran'), $fileNameBukti);
         }
 
@@ -121,13 +121,16 @@ class ListPengajuanController extends Controller
      */
     public function show(string $id)
     {
-        $form = Form::where('nim', $id)->first();
+        $form = Form::where('id', $id)->first();
 
         $tanggal_format = Carbon::parse($form->updated_at)->translatedFormat('j F Y');
 
         if ($form){
             return response()->json([
+                'nim' => $form->nim,
                 'nama' => $form->mahasiswa->nama,
+                'prodi' => $form->mahasiswa->prodi,
+                'tahun' => $form->mahasiswa->tahun,
                 'tipe' => $form->tipe,
                 'status' => $form->status,
                 'tanggal' => $form->updated_at,
@@ -155,7 +158,24 @@ class ListPengajuanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $mahasiswas = Mahasiswa::all();
+        $forms = Form::where('id', $id)->with('mahasiswa')->get();
+
+        $rules = [
+            'editNIM' => 'required|digits:10|numeric',
+            'editNama' => 'required|max:50',
+            'editTipe' => 'required',
+            'editStatus' => 'required',
+            'editTanggal' => 'required',
+            'addKSM' => 'required|mimes:jpg,png|max:5000',
+            'addKTM' => 'mimes:jpg,png|max:5000',
+            'addSurat' => 'mimes:jpg,png|max:5000',
+            'addBukti' => 'required|mimes:jpg,png|max:5000',
+        ];
+
+        $validatedData = $request->validate($rules, [
+            'required' => ''
+        ]);
     }
 
     /**
@@ -164,17 +184,5 @@ class ListPengajuanController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function download(string $id)
-    {
-        $form = Form::where('id', $id)->first();
-
-        if ($form){
-            $file = public_path('file/ksm/' . $form->ksm);
-            return response()->download($file);
-        }
-
-        return response()->json(['error' => 'Data not found.'], 404);
     }
 }

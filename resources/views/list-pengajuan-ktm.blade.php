@@ -77,8 +77,8 @@
             <td>{{ $form->tipe }}</td>
             <td>{{ $form->status }}</td>
             <td>
-              <button type="button" class="border-0 badge bg-info view-btn" data-bs-toggle="modal" data-bs-target="#viewModal" data-nim="{{ $form->nim }}"><img src="{{ asset('svg/eye.svg') }}" alt=""></button>
-              <button type="button" class="border-0 badge bg-warning edit-btn" data-bs-toggle="modal" data-bs-target="#editModal" data-nim="{{ $form->nim }}"><img src="{{ asset('svg/pencil-square.svg') }}" alt=""></button>
+              <button type="button" class="border-0 badge bg-info view-btn" data-bs-toggle="modal" data-bs-target="#viewModal" data-id="{{ $form->id }}"><img src="{{ asset('svg/eye.svg') }}" alt=""></button>
+              <button type="button" class="border-0 badge bg-warning edit-btn" data-bs-toggle="modal" data-bs-target="#editModal" data-id="{{ $form->id }}"><img src="{{ asset('svg/pencil-square.svg') }}" alt=""></button>
               <button type="button" class="border-0 badge bg-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><img src="{{ asset('svg/trash.svg') }}" alt=""></button>
             </td>
           </tr>
@@ -214,6 +214,12 @@
           <label for="viewNama">Nama Lengkap</label>
           <input type="text" name="viewNama" id="viewNama" placeholder="Nama Lengkap" class="form-control mb-3" readonly>
   
+          <label for="viewProdi">Program Studi</label>
+          <input type="text" name="viewProdi" id="viewProdi" placeholder="Program Studi" class="form-control mb-3" readonly>
+  
+          <label for="viewTahun">Tahun</label>
+          <input type="text" name="viewTahun" id="viewTahun" placeholder="Tahun" class="form-control mb-3" readonly>
+  
           <label for="viewTipe">Tipe Pengajuan</label>
           <input type="text" name="viewTipe" id="viewTipe" class="form-control mb-3" value="Tipe pengajuan" readonly>
   
@@ -224,22 +230,30 @@
           <input type="text" name="viewTanggal" id="viewTanggal" class="form-control mb-3" value="1 Januari 2023" readonly>
 
           <label id="labelViewKSM">Upload Kartu Studi Mahasiswa (KSM)</label>
-          <button id="viewKSM" type="button" class="btn btn-outline-dark mb-3" style="display: block;">Download</button>
+          <a id="viewDownloadKSM" class="text-decoration-none">
+            <button id="viewKSM" type="button" class="btn btn-outline-dark mb-3" style="display: block;">Download</button>
+          </a>
 
           <label id="labelViewKTM">Upload Kartu Tanda Mahasiswa (KTM)</label>
-          <button type="button" id="viewKTM" class="btn btn-outline-dark mb-3" style="display: block;">
-            Download
-          </button>
+          <a id="viewDownloadKTM" class="text-decoration-none">
+            <button type="button" id="viewKTM" class="btn btn-outline-dark mb-3" style="display: block;">
+              Download
+            </button>
+          </a>
 
           <label id="labelViewSurat">Upload Surat Kehilangan Kepolisian</label>
-          <button type="button" id="viewSurat" class="btn btn-outline-dark mb-3" style="display: block;">
-            Download
-          </button>
+          <a id="viewDownloadSurat" class="text-decoration-none">
+            <button type="button" id="viewSurat" class="btn btn-outline-dark mb-3" style="display: block;">
+              Download
+            </button>
+          </a>
 
           <label id="labelViewBukti">Upload Bukti Pembayaran</label>
-          <button type="button" id="viewBukti" class="btn btn-outline-dark" style="display: block;">
-            Download
-          </button>
+          <a id="viewDownloadBukti" class="text-decoration-none">
+            <button type="button" id="viewBukti" class="btn btn-outline-dark" style="display: block;">
+              Download
+            </button>
+          </a>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn primary-btn-color fw-bold" data-bs-dismiss="modal">Close</button>
@@ -259,14 +273,21 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="">
+          <form action="/list-pengajuan-ktm" method="post">
             @csrf
+            @method('put')
             
             <label for="editNIM">NIM</label>
             <input type="number" name="editNIM" id="editNIM" placeholder="NIM" class="form-control mb-3">
     
             <label for="editNama">Nama Lengkap</label>
             <input type="text" name="editNama" id="editNama" placeholder="Nama Lengkap" class="form-control mb-3">
+    
+            <label for="editProdi">Program Study</label>
+            <input type="text" name="editProdi" id="editProdi" placeholder="Program Study" class="form-control mb-3">
+    
+            <label for="editTahun">Tahun</label>
+            <input type="number" name="editTahun" id="editTahun" placeholder="Tahun" class="form-control mb-3">
     
             <label for="editTipe">Tipe Pengajuan</label>
             <select name="editTipe" id="editTipe" class="form-select mb-3">
@@ -290,40 +311,48 @@
 
             <label for="editKSM" id="labelEditKSM">Upload Kartu Studi Mahasiswa (KSM)</label>
             <div class="input-group mb-3" id="divKSM">
-              <button type="button" class="btn btn-outline-secondary" id="editDownloadKSM">
-                Download
-              </button>
+              <a id="editDownloadKSM" class="text-decoration-none">
+                <button type="button" class="btn btn-outline-secondary">
+                  Download
+                </button>
+              </a>
               <input type="file" name="editKSM" id="editKSM" class="form-control">
             </div>
 
             <label for="editKTM" id="labelEditKTM">Upload Kartu Tanda Mahasiswa (KTM)</label>
             <div class="input-group mb-3" id="divKTM">
-              <button type="button" class="btn btn-outline-secondary" id="editDownloadKTM">
-                Download
-              </button>
+              <a id="editDownloadKTM" class="text-decoration-none">
+                <button type="button" class="btn btn-outline-secondary">
+                  Download
+                </button>
+              </a>
               <input type="file" name="editKTM" id="editKTM" class="form-control">
             </div>
 
             <label for="editSurat" id="labelEditSurat">Upload Surat Kehilangan Kepolisian</label>
             <div class="input-group mb-3" id="divSurat">
-              <button type="button" class="btn btn-outline-secondary" id="editDownloadSurat">
-                Download
-              </button>
+              <a id="editDownloadSurat" class="text-decoration-none">
+                <button type="button" class="btn btn-outline-secondary">
+                  Download
+                </button>
+              </a>
               <input type="file" name="editSurat" id="editSurat" class="form-control">
             </div>
 
             <label for="editBukti" id="labelEditBukti">Upload Bukti Pembayaran</label>
             <div class="input-group mb-3" id="divBukti">
-              <button type="button" class="btn btn-outline-secondary" id="editDownloadBukti">
-                Download
-              </button>
+              <a id="editDownloadBukti" class="text-decoration-none">
+                <button type="button" class="btn btn-outline-secondary">
+                  Download
+                </button>
+              </a>
               <input type="file" name="editBukti" id="editBukti" class="form-control">
             </div>
+            <button type="button" class="btn secondary-btn-color" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn primary-btn-color">Save changes</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn secondary-btn-color" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn primary-btn-color">Save changes</button>
         </div>
       </div>
     </div>
@@ -376,7 +405,7 @@
       const aDate = parseDate(aColText);
       const bDate = parseDate(bColText);
 
-      if (column == 2){
+      if (column == 3){
         return aDate > bDate ? (1 * dirModifier) : (-1 * dirModifier);
       } else {
         return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
@@ -404,7 +433,7 @@
       const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
       const currentIsAscending = headerCell.classList.contains("th-sort-asc");
       
-      if(headerIndex != 4){
+      if(headerIndex != 6){
         sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
       }
 
@@ -418,9 +447,9 @@
 
     viewButtons.forEach(function (button) {
       button.addEventListener('click', function () {
-        const nim = button.getAttribute('data-nim');
+        const id = button.getAttribute('data-id');
 
-        fetch(`/list-pengajuan-ktm/${nim}`)
+        fetch(`/list-pengajuan-ktm/${id}`)
           .then(response => {
             if (!response.ok) {
               throw new Error(`HTTP error! Status: ${response.status}`);
@@ -428,8 +457,10 @@
             return response.json();
           })
           .then(data => {
-            document.getElementById('viewNIM').value = nim;
+            document.getElementById('viewNIM').value = data.nim;
             document.getElementById('viewNama').value = data.nama;
+            document.getElementById('viewProdi').value = data.prodi;
+            document.getElementById('viewTahun').value = data.tahun;
             document.getElementById('viewTipe').value = data.tipe;
             document.getElementById('viewStatus').value = data.status;
             document.getElementById('viewTanggal').value = data.tanggal_format;
@@ -442,6 +473,10 @@
               $('#viewSurat, #labelViewSurat').hide();
             }
 
+            document.getElementById('viewDownloadKSM').setAttribute('href', `/list-pengajuan-ktm/download/${id}/ksm`);
+            document.getElementById('viewDownloadKTM').setAttribute('href', `/list-pengajuan-ktm/download/${id}/ktm`);
+            document.getElementById('viewDownloadSurat').setAttribute('href', `/list-pengajuan-ktm/download/${id}/surat-kehilangan`);
+            document.getElementById('viewDownloadBukti').setAttribute('href', `/list-pengajuan-ktm/download/${id}/bukti-pembayaran`);
           })
           .catch(error => console.error('Error fetching data:', error));
       });
@@ -449,9 +484,9 @@
 
     editButtons.forEach(function (button) {
       button.addEventListener('click', function () {
-        const nim = button.getAttribute('data-nim');
+        const id = button.getAttribute('data-id');
 
-        fetch(`/list-pengajuan-ktm/${nim}`)
+        fetch(`/list-pengajuan-ktm/${id}`)
           .then(response => {
             if (!response.ok) {
               throw new Error(`HTTP error! Status: ${response.status}`);
@@ -459,8 +494,10 @@
             return response.json();
           })
           .then(data => {
-            document.getElementById('editNIM').value = nim;
+            document.getElementById('editNIM').value = data.nim;
             document.getElementById('editNama').value = data.nama;
+            document.getElementById('editProdi').value = data.prodi;
+            document.getElementById('editTahun').value = data.tahun;
             document.getElementById('editTanggal').value = data.tanggal.substring(0, 10);
 
             var editTipeSelect = document.getElementById('editTipe');
@@ -487,6 +524,11 @@
               $('#editSurat, #labelEditSurat, #divSurat').hide();
             }
 
+            document.getElementById('editDownloadKSM').setAttribute('href', `/list-pengajuan-ktm/download/${id}/ksm`);
+            document.getElementById('editDownloadKTM').setAttribute('href', `/list-pengajuan-ktm/download/${id}/ktm`);
+            document.getElementById('editDownloadSurat').setAttribute('href', `/list-pengajuan-ktm/download/${id}/surat-kehilangan`);
+            document.getElementById('editDownloadBukti').setAttribute('href', `/list-pengajuan-ktm/download/${id}/bukti-pembayaran`);
+
           })
           .catch(error => console.error('Error fetching data:', error));
       });
@@ -508,8 +550,6 @@
       }
 
     });
-
-
 
     function hideAddUpload(){
       $('#addKSM, #addKTM, #addSurat, #addBukti, #labelAddKSM, #labelAddKTM, #labelAddSurat, #labelAddBukti').hide();
