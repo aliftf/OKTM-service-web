@@ -73,13 +73,13 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $form->mahasiswa->nim }}</td>
             <td>{{ $form->mahasiswa->nama }}</td>
-            <td>{{ $form->formatted_updated_at }}</td>
+            <td>{{ $form->formatted_tanggal }}</td>
             <td>{{ $form->tipe }}</td>
             <td>{{ $form->status }}</td>
             <td>
               <button type="button" class="border-0 badge bg-info view-btn" data-bs-toggle="modal" data-bs-target="#viewModal" data-id="{{ $form->id }}"><img src="{{ asset('svg/eye.svg') }}" alt=""></button>
               <button type="button" class="border-0 badge bg-warning edit-btn" data-bs-toggle="modal" data-bs-target="#editModal" data-id="{{ $form->id }}"><img src="{{ asset('svg/pencil-square.svg') }}" alt=""></button>
-              <button type="button" class="border-0 badge bg-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><img src="{{ asset('svg/trash.svg') }}" alt=""></button>
+              <button type="button" class="border-0 badge bg-danger delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{ $form->id }}"><img src="{{ asset('svg/trash.svg') }}" alt=""></button>
             </td>
           </tr>
         @endforeach
@@ -108,11 +108,11 @@
   {{-- End-List --}}
 
   {{-- Start-Add --}}
-
   <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <form method="POST" action="/list-pengajuan-ktm" enctype="multipart/form-data">
       @csrf
+      @method('POST')
       <div class="modal-content overflow-hidden">
         <div class="nav-overlay"></div>
         <div class="modal-header">
@@ -155,34 +155,35 @@
           <label for="addStatus">Status Pengajuan</label>
           <select name="addStatus" id="addStatus" class="form-select mb-3">
             <option selected disabled>Pilih status pengajuan</option>
-            <option value="1">Belum diproses</option>
-            <option value="2">Sedang diproses</option>
-            <option value="3">Sudah diproses</option>
+            <option value="Menunggu Permintaan Disetujui">Menunggu Permintaan Disetujui</option>
+            <option value="Permintaan Diproses">Permintaan Diproses</option>
+            <option value="Permintaan Ditolak">Permintaan Ditolak</option>
+            <option value="Selesai">Selesai</option>
           </select>
   
           <label for="addTanggal">Tanggal</label>
           <input type="date" name="addTanggal" id="addTanggal" class="form-control mb-3">
 
           <label for="addKSM" id="labelAddKSM">Upload Kartu Studi Mahasiswa (KSM)</label>
-          <input type="file" name="addKSM" id="addKSM" class="form-control mb-3 @error('addKSM') is-invalid @enderror" value="{{ old('addKSM') }}">
+          <input type="file" name="addKSM" id="addKSM" class="form-control mb-3 @error('addKSM') is-invalid @enderror">
           @error('addKSM')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
 
           <label for="addKTM" id="labelAddKTM">Upload Kartu Tanda Mahasiswa (KTM)</label>
-          <input type="file" name="addKTM" id="addKTM" class="form-control mb-3 @error('addKTM') is-invalid @enderror" value="{{ old('addKTM') }}">
+          <input type="file" name="addKTM" id="addKTM" class="form-control mb-3 @error('addKTM') is-invalid @enderror">
           @error('addKTM')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
 
           <label for="addSurat" id="labelAddSurat">Upload Surat Kehilangan Kepolisian</label>
-          <input type="file" name="addSurat" id="addSurat" class="form-control mb-3 @error('addSurat') is-invalid @enderror" value="{{ old('addSurat') }}">
+          <input type="file" name="addSurat" id="addSurat" class="form-control mb-3 @error('addSurat') is-invalid @enderror">
           @error('addSurat')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
 
           <label for="addBukti" id="labelAddBukti">Upload Bukti Pembayaran</label>
-          <input type="file" name="addBukti" id="addBukti" class="form-control mb-3 @error('addBukti') is-invalid @enderror" value="{{ old('addBukti') }}">
+          <input type="file" name="addBukti" id="addBukti" class="form-control mb-3 @error('addBukti') is-invalid @enderror">
           @error('addBukti')
               <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -273,9 +274,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="/list-pengajuan-ktm" method="post">
+          <form id="editForm" action="/list-pengajuan-ktm" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('put')
+            @method('PUT')
             
             <label for="editNIM">NIM</label>
             <input type="number" name="editNIM" id="editNIM" placeholder="NIM" class="form-control mb-3">
@@ -310,49 +311,22 @@
             <input type="date" name="editTanggal" id="editTanggal" class="form-control mb-3">
 
             <label for="editKSM" id="labelEditKSM">Upload Kartu Studi Mahasiswa (KSM)</label>
-            <div class="input-group mb-3" id="divKSM">
-              <a id="editDownloadKSM" class="text-decoration-none">
-                <button type="button" class="btn btn-outline-secondary">
-                  Download
-                </button>
-              </a>
-              <input type="file" name="editKSM" id="editKSM" class="form-control">
-            </div>
+            <input type="file" name="editKSM" id="editKSM" class="form-control mb-3">
 
             <label for="editKTM" id="labelEditKTM">Upload Kartu Tanda Mahasiswa (KTM)</label>
-            <div class="input-group mb-3" id="divKTM">
-              <a id="editDownloadKTM" class="text-decoration-none">
-                <button type="button" class="btn btn-outline-secondary">
-                  Download
-                </button>
-              </a>
-              <input type="file" name="editKTM" id="editKTM" class="form-control">
-            </div>
+            <input type="file" name="editKTM" id="editKTM" class="form-control mb-3">
 
             <label for="editSurat" id="labelEditSurat">Upload Surat Kehilangan Kepolisian</label>
-            <div class="input-group mb-3" id="divSurat">
-              <a id="editDownloadSurat" class="text-decoration-none">
-                <button type="button" class="btn btn-outline-secondary">
-                  Download
-                </button>
-              </a>
-              <input type="file" name="editSurat" id="editSurat" class="form-control">
-            </div>
+            <input type="file" name="editSurat" id="editSurat" class="form-control mb-3">
 
             <label for="editBukti" id="labelEditBukti">Upload Bukti Pembayaran</label>
-            <div class="input-group mb-3" id="divBukti">
-              <a id="editDownloadBukti" class="text-decoration-none">
-                <button type="button" class="btn btn-outline-secondary">
-                  Download
-                </button>
-              </a>
-              <input type="file" name="editBukti" id="editBukti" class="form-control">
-            </div>
+            <input type="file" name="editBukti" id="editBukti" class="form-control mb-3">
+
+        </div>
+        <div class="modal-footer">
             <button type="button" class="btn secondary-btn-color" data-bs-dismiss="modal">Close</button>
             <button type="submit" class="btn primary-btn-color">Save changes</button>
           </form>
-        </div>
-        <div class="modal-footer">
         </div>
       </div>
     </div>
@@ -364,17 +338,21 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content overflow-hidden">
         <div class="nav-overlay"></div>
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="deleteModalLabel">Hapus Pengajuan KTM</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <h2 class="fs-5 text-center text-black mb-3">Apakah anda yakin?</h2>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn secondary-btn-color fw-bold" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn primary-btn-color fw-bold">Delete</button>
-        </div>
+        <form action="" method="POST" id="deleteForm">
+          @csrf
+          @method('delete')
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="deleteModalLabel">Hapus Pengajuan KTM</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h2 class="fs-5 text-center text-black mb-3">Apakah anda yakin?</h2>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn secondary-btn-color fw-bold" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn primary-btn-color fw-bold">Delete</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -444,6 +422,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     const viewButtons = document.querySelectorAll('.view-btn');
     const editButtons = document.querySelectorAll('.edit-btn');
+    const deleteButtons = document.querySelectorAll('.delete-btn');
 
     viewButtons.forEach(function (button) {
       button.addEventListener('click', function () {
@@ -485,6 +464,7 @@
     editButtons.forEach(function (button) {
       button.addEventListener('click', function () {
         const id = button.getAttribute('data-id');
+        editForm.action = `/list-pengajuan-ktm/${id}`;
 
         fetch(`/list-pengajuan-ktm/${id}`)
           .then(response => {
@@ -516,23 +496,25 @@
               }
             }
 
-            $('#editKTM, #labelEditKTM, #divKTM, #editSurat, #labelEditSurat, #divSurat').show();
+            $('#labelEditKTM, #editKTM, #labelEditSurat, #editSurat').show();
 
             if (data.tipe == "Pengajuan Penggantian KTM"){
-              $('#editKTM, #labelEditKTM, #divKTM').hide();
+              $('#labelEditKTM, #editKTM').hide();
             } else if (data.tipe == "Pengajuan Perbaikan KTM" || data.tipe == "Pengajuan KTM Masih Bermasalah"){
-              $('#editSurat, #labelEditSurat, #divSurat').hide();
+              $('#labelEditSurat, #editSurat').hide();
             }
-
-            document.getElementById('editDownloadKSM').setAttribute('href', `/list-pengajuan-ktm/download/${id}/ksm`);
-            document.getElementById('editDownloadKTM').setAttribute('href', `/list-pengajuan-ktm/download/${id}/ktm`);
-            document.getElementById('editDownloadSurat').setAttribute('href', `/list-pengajuan-ktm/download/${id}/surat-kehilangan`);
-            document.getElementById('editDownloadBukti').setAttribute('href', `/list-pengajuan-ktm/download/${id}/bukti-pembayaran`);
 
           })
           .catch(error => console.error('Error fetching data:', error));
       });
     });
+
+    deleteButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        const id = button.getAttribute('data-id');
+        deleteForm.action = `/list-pengajuan-ktm/${id}`;
+      })
+    })
   });
 
   $(document).ready(function() {
@@ -551,8 +533,29 @@
 
     });
 
+    $('#editTipe').change(function() {
+      var selected = $(this).val();
+
+      hideEditUpload();
+
+      if (selected == "Pengajuan Penggantian KTM"){
+        $('#editKSM, #editSurat, #editBukti, #labelEditKSM, #labelEditSurat, #labelEditBukti').show();
+      } else if (selected == "Pengajuan Perbaikan KTM" || selected == "Pengajuan KTM Masih Bermasalah"){
+        $('#editKSM, #editKTM, #editBukti, #labelEditKSM, #labelEditKTM, #labelEditBukti').show();
+      }
+
+    });
+
     function hideAddUpload(){
       $('#addKSM, #addKTM, #addSurat, #addBukti, #labelAddKSM, #labelAddKTM, #labelAddSurat, #labelAddBukti').hide();
+      $('#addKTM').val(null);
+      $('#addSurat').val(null);
+    }
+
+    function hideEditUpload(){
+      $('#editKSM, #editKTM, #editSurat, #editBukti, #labelEditKSM, #labelEditKTM, #labelEditSurat, #labelEditBukti').hide();
+      $('#editKTM').val(null);
+      $('#editSurat').val(null);
     }
 
   });

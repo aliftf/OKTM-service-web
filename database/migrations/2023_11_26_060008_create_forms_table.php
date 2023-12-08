@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->string('tipe');
             $table->string('status');
+            $table->date('tanggal');
             $table->string('ktm')->nullable();
             $table->string('ksm')->nullable();
             $table->string('surat_kehilangan')->nullable();
