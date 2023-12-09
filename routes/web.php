@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\HasilController;
 use App\Http\Controllers\ListPengajuanController;
 
 /*
@@ -51,9 +52,7 @@ Route::get('/finalisasi-pengajuan-ktm', function () {
     return view('finalisasiPengajuan');
 });
 
-Route::get('/informasi-hasil', function () {
-    return view('informasi-hasil');
-});
+Route::get('/informasi-hasil', [HasilController::class, 'index'])->name('informasi-hasil');
 
 Route::resource('/list-pengajuan-ktm', ListPengajuanController::class)->name('index','list-pengajuan-ktm');
 

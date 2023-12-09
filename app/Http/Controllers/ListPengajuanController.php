@@ -101,7 +101,7 @@ class ListPengajuanController extends Controller
             'addSurat' => 'Surat Kehilangan',
             'addBukti' => 'Bukti Pembayaran',
         ]);
-    
+
         $fileNameKSM = null;
         $fileNameKTM = null;
         $fileNameSurat = null;
@@ -112,19 +112,19 @@ class ListPengajuanController extends Controller
             $fileNameKSM = pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKSM->extension();
             Storage::put('public/file/ksm/' . $fileNameKSM, file_get_contents($fileKSM));
         }
-    
+
         if ($request->file('addKTM')) {
             $fileKTM = $request->file('addKTM');
             $fileNameKTM = pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKTM->extension();
             Storage::put('public/file/ktm/' . $fileNameKTM, file_get_contents($fileKTM));
         }
-    
+
         if ($request->file('addSurat')) {
             $fileSurat = $request->file('addSurat');
             $fileNameSurat = pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileSurat->extension();
             Storage::put('public/file/surat-kehilangan/' . $fileNameSurat, file_get_contents($fileSurat));
         }
-    
+
         if ($request->file('addBukti')) {
             $fileBukti = $request->file('addBukti');
             $fileNameBukti = pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileBukti->extension();
@@ -152,7 +152,7 @@ class ListPengajuanController extends Controller
             'surat_kehilangan' => $fileNameSurat,
             'bukti_pembayaran' => $fileNameBukti,
         ]);
-        
+
         $nim = $request->input('addNIM');
         return redirect('/list-pengajuan-ktm')->with('success', "Pengajuan KTM NIM $nim berhasil ditambahkan.");
     }

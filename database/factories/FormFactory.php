@@ -24,11 +24,13 @@ class FormFactory extends Factory
         return [
             'nim' => $nim,
             'tipe' => $this->faker->randomElement(['Pengajuan Penggantian KTM', 'Pengajuan Perbaikan KTM', 'Pengajuan KTM Masih Bermasalah']),
-            'status' => $this->faker->randomElement(['Menunggu Permintaan Disetujui', 'Permintaan Diproses', 'Permintaan Ditolak', 'Selesai']),
+            'status' => $this->faker->randomElement(['Menunggu Permintaan Disetujui', 'Permintaan Diproses', 'Permintaan Tidak Disetujui', 'Selesai']),
+            'tanggal' => now(),
             'ksm' => $this->faker->randomElement(['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']),
             'ktm' => $this->faker->randomElement(['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']),
             'surat_kehilangan' => $this->faker->randomElement(['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']),
             'bukti_pembayaran' => $this->faker->randomElement(['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']),
+            'komentar'=>$this->faker->sentence()
         ];
     }
 }
