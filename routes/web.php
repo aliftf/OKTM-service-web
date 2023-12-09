@@ -55,6 +55,6 @@ Route::get('/informasi-hasil', function () {
     return view('informasi-hasil');
 });
 
-Route::resource('/list-pengajuan-ktm', ListPengajuanController::class);
+Route::resource('/list-pengajuan-ktm', ListPengajuanController::class)->name('index','list-pengajuan-ktm');
 
 Route::get('/list-pengajuan-ktm/download/{formId}/{fileType}', [DownloadController::class, 'downloadFile']);

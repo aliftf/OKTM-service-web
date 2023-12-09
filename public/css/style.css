@@ -151,6 +151,7 @@ footer {
 .primary-text-color:active  {
     background-color: #9e0000;
     color: #fff;
+    border: 1px solid #9e0000;
 }
 
 .hasil-table tr:first-child th:first-child {
@@ -188,4 +189,9 @@ footer {
 .table-sortable .th-sort-asc,
 .table-sortable .th-sort-desc {
 	background: rgba(0, 0, 0, 0.1);
+}
+
+.page-item.active .page-link {
+    background-color: #9E0000;
+    border-color: #9E0000;
 }

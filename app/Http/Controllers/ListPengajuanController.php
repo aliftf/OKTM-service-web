@@ -13,10 +13,42 @@ class ListPengajuanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $mahasiswas = Mahasiswa::all();
-        $forms = Form::latest('updated_at')->with('mahasiswa')->get();
+        $formsQuery = Form::latest('updated_at')->with('mahasiswa');
+
+        $searchQuery = $request->input('search');
+
+        if ($searchQuery) {
+            $formsQuery->where(function ($query) use ($searchQuery) {
+                $query->where('nim', 'like', "%$searchQuery%")
+                      ->orWhere('tipe', 'like', "%$searchQuery%")
+                      ->orWhere('status', 'like', "%$searchQuery%")
+                      ->orWhere('tanggal', 'like', "%$searchQuery%")
+                      ->orWhereHas('mahasiswa', function ($query) use ($searchQuery) {
+                          $query->where('nama', 'like', "%$searchQuery%")
+                                ->orWhere('prodi', 'like', "%$searchQuery%")
+                                ->orWhere('tahun', 'like', "%$searchQuery%");
+                      });
+            });
+        }
+
+        $selectedStatus = $request->input('status', 'Filter Status');
+        $selectedType = $request->input('tipe', 'Filter Tipe');
+
+        if ($selectedStatus != 'Filter Status' && $selectedType != 'Filter Tipe') {
+            $formsQuery->where(function ($query) use ($selectedStatus, $selectedType) {
+                $query->where('status', $selectedStatus)
+                      ->where('tipe', $selectedType);
+            });
+        } elseif ($selectedStatus != 'Filter Status') {
+            $formsQuery->where('status', $selectedStatus);
+        } elseif ($selectedType != 'Filter Tipe') {
+            $formsQuery->where('tipe', $selectedType);
+        }
+
+        $forms = $formsQuery->paginate(5)->withQueryString();
 
         $formattedForms = $forms->map(function ($form) {
             $form->formatted_tanggal = Carbon::parse($form->tanggal)->translatedFormat('j F Y');
@@ -26,7 +58,9 @@ class ListPengajuanController extends Controller
         return view('list-pengajuan-ktm', [
             'mahasiswas' => $mahasiswas,
             'forms' => $formattedForms,
-        ]);
+            'status' => $selectedStatus,
+            'tipe' => $selectedType,
+        ])->with('forms', $forms);
     }
 
     /**

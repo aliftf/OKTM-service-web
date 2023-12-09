@@ -25,24 +25,26 @@
       </button>
       <div class="dropdown">
         <a class="btn primary-btn-color dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Filter Jenis Pengajuan
+          {{ $tipe }}
         </a>
         <ul class="dropdown-menu primary-border-color">
-          <li><a class="dropdown-item" href="#">Perbaikan KTM</a></li>
-          <li><a class="dropdown-item" href="#">Penggantian KTM</a></li>
-          <li><a class="dropdown-item" href="#">KTM Masih Bermasalah</a></li>
+          <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm') }}">Hapus Filter Tipe Pengajuan</a></li>
+          <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm', ['tipe' => 'Pengajuan Perbaikan KTM']) }}">Perbaikan KTM</a></li>
+          <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm', ['tipe' => 'Pengajuan Penggantian KTM']) }}">Penggantian KTM</a></li>
+          <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm', ['tipe' => 'Pengajuan KTM Masih Bermasalah']) }}">KTM Masih Bermasalah</a></li>
         </ul>
       </div>
       
       <div class="dropdown">
         <a class="btn primary-btn-color dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Filter Status
+          {{ $status }}
         </a>
         <ul class="dropdown-menu primary-border-color">
-          <li><a class="dropdown-item" href="#">Permintaan Diproses</a></li>
-          <li><a class="dropdown-item" href="#">Menunggu Permintaan Disetujui</a></li>
-          <li><a class="dropdown-item" href="#">Permintaan Tidak Disetujui</a></li>
-          <li><a class="dropdown-item" href="#">Selesai</a></li>
+        <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm') }}">Hapus Filter Status</a></li>
+        <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm', ['status' => 'Permintaan Diproses']) }}">Permintaan Diproses</a></li>
+        <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm', ['status' => 'Menunggu Permintaan Disetujui']) }}">Menunggu Permintaan Disetujui</a></li>
+        <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm', ['status' => 'Permintaan Tidak Disetujui']) }}">Permintaan Tidak Disetujui</a></li>
+        <li><a class="dropdown-item filter-option" href="{{ route('list-pengajuan-ktm', ['status' => 'Selesai']) }}">Selesai</a></li>
         </ul>
       </div>
     </div>
@@ -55,7 +57,7 @@
       </button>
     </div>
   </div>
-  <table class="table mt-5 table-sortable">
+  <table id="dataTable" class="table mt-5 table-sortable">
       <thead class="table-danger">
           <tr>
               <th scope="col">#</th>
@@ -86,24 +88,8 @@
       </tbody>
   </table>
 
-  <div class="d-flex position-absolute" style="right: 3rem; bottom: 3rem;">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link primary-text-color" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link primary-text-color" href="#">1</a></li>
-        <li class="page-item"><a class="page-link primary-text-color" href="#">2</a></li>
-        <li class="page-item"><a class="page-link primary-text-color" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link primary-text-color" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+  <div class="position-absolute w-50" style="right: 3rem; bottom: 3rem;">
+    {{ $forms->links() }}
   </div>
   {{-- End-List --}}
 
@@ -364,7 +350,7 @@
   // Parse date string to Date object
   function parseDate(dateString) {
     const [day, month, year] = dateString.split(' ');
-    const monthIndex = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'].indexOf(month);
+    const monthIndex = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].indexOf(month);
 
     return new Date(`${year}-${monthIndex + 1}-${day}`);
   }
@@ -559,6 +545,14 @@
     }
 
   });
+
+  // Filter
+  document.querySelectorAll('.filter-option').forEach(function(option) {
+        option.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute('href');
+        });
+    });
   
 
 </script>
