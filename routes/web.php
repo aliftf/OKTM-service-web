@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\ListPengajuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +31,6 @@ Route::get('/pengajuan-penggantian-ktm', function(){
     return view('pengajuanPenggantian');
 });
 
-Route::get('/list-pengajuan-ktm', function () {
-    return view('list-pengajuan-ktm');
-});
-
 Route::get('/verifikasi-pengajuan-ktm', function () {
     return view('verifikasiPengajuanKtm');
 });
@@ -56,3 +54,7 @@ Route::get('/finalisasi-pengajuan-ktm', function () {
 Route::get('/informasi-hasil', function () {
     return view('informasi-hasil');
 });
+
+Route::resource('/list-pengajuan-ktm', ListPengajuanController::class)->name('index','list-pengajuan-ktm');
+
+Route::get('/list-pengajuan-ktm/download/{formId}/{fileType}', [DownloadController::class, 'downloadFile']);

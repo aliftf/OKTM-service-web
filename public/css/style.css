@@ -96,6 +96,21 @@ footer {
 .primary-btn-color {
     background-color: #9f0000;
     color: #f8f8f8;
+    border: 1px solid #9f0000 !important;
+}
+
+.primary-btn-color:hover svg {
+    fill: #9f0000;
+}
+
+.primary-border-color {
+    border: 1px solid #9f0000 !important;
+}
+
+.secondary-btn-color {
+    background-color: #6C757D;
+    border: 1px solid #6C757D !important;
+
 }
 
 .table-header th {
@@ -136,6 +151,7 @@ footer {
 .primary-text-color:active  {
     background-color: #9e0000;
     color: #fff;
+    border: 1px solid #9e0000;
 }
 
 .hasil-table tr:first-child th:first-child {
@@ -151,4 +167,31 @@ footer {
 
 .hasil-table tr:last-child td:last-child {
     border-bottom-right-radius: 17px;
+}
+
+.table-sortable th {
+	cursor: pointer;
+}
+
+.table-sortable .th-sort-asc::after {
+	content: "\25b4";
+}
+
+.table-sortable .th-sort-desc::after {
+	content: "\25be";
+}
+
+.table-sortable .th-sort-asc::after,
+.table-sortable .th-sort-desc::after {
+	margin-left: 5px;
+}
+
+.table-sortable .th-sort-asc,
+.table-sortable .th-sort-desc {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.page-item.active .page-link {
+    background-color: #9E0000;
+    border-color: #9E0000;
 }
