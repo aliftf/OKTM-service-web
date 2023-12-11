@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         //     'tahun' => 2021,
         // ]);
 
-        // Mahasiswa::factory(5)->create();
-        // Form::factory(6)->create();
+        Mahasiswa::factory(11)->create();
+        Form::factory(11)->create();
     }
 }
