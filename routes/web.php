@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\HasilController;
 use App\Http\Controllers\ListPengajuanController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,5 @@ Route::get('/informasi-hasil', [HasilController::class, 'index'])->name('informa
 Route::resource('/list-pengajuan-ktm', ListPengajuanController::class)->name('index','list-pengajuan-ktm');
 
 Route::get('/list-pengajuan-ktm/download/{formId}/{fileType}', [DownloadController::class, 'downloadFile']);
+
+Route::resource('/form', FormController::class);

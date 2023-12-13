@@ -13,6 +13,18 @@ class Form extends Model
         'id',
     ];
 
+    protected $fillable = [
+        'nim',
+        'tipe',
+        'status',
+        'tanggal',
+        'ktm',
+        'ksm',
+        'surat_kehilangan',
+        'bukti_pembayaran',
+        'komentar',
+    ];
+
     public function mahasiswa(){
         return $this->belongsTo(Mahasiswa::class, 'nim', 'nim');
     }

@@ -55,8 +55,11 @@
                 </div>
                 {{-- Form pengisian --}}
                 <div class="d-lg-flex flex-column shadow-lg p-3 ps-5 bg-body-tertiary rounded rounded-top-0">
-                    <form action="/Nunggubackend" method="post">
-                        <div class="container row">
+                    <form action="/form" method="post">
+                        @csrf
+                        @method('POST')
+
+                        <div class="container row"> 
                             <div class="row  fs-5">
                                 <div class="col-md-3">
                                     <p style="font-weight: bold;">Nama Mahasiswa</p>
@@ -102,7 +105,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3 p" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
+                                        <input type="file" class="form-control" id="inputGroupFile01" >
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +118,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
+                                        <input type="file" class="form-control" id="inputGroupFile02" >
                                     </div>
                                 </div>
                             </div>
@@ -128,13 +131,13 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
+                                        <input type="file" class="form-control" id="inputGroupFile03">
                                     </div>
                                 </div>
                             </div>
                             <div class="row  fs-5  mb-3">
                                 <div class="col text-center">
-                                <button type="button" class="btn fw-bold text-light" style="width:200px; background-color: #9D0000;">Submit</button>
+                                <button type="submit" class="btn fw-bold text-light" style="width:200px; background-color: #9D0000;">Submit</button>
                                 </div>
                             </div>
                         </div>
