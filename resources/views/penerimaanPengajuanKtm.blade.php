@@ -16,36 +16,14 @@
                 </tr>
             </thead>
             <tbody class="fs-5 align-middle">
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Regy Renanda Rahman</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
-                    <td><div class="py-3 px-2"><a href="/verifikasi-pengajuan-ktm"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></a></div></td>
-                </tr>
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Rahma Sakti Rahardian</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
-                </tr>
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Iqro Banyuanto</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Perbaikan</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
-                </tr>
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Deva Angela Felisitas Toding</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
-                </tr>
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Alif Taufiqurrahman</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Perbaikan</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></div></td>
-                </tr>
+                @foreach($result as $data)
+                    <tr class="table-light">
+                        <td><div class="py-3 px-2 border-end border-3">{{$data->mahasiswa->nama}}</div></td>
+                        <td><div class="py-3 px-2 border-end border-3">{{$data->tanggal}}</div></td>
+                        <td><div class="py-3 px-2 border-end border-3">{{$data->tipe}}</div></td>
+                        <td><div class="py-3 px-2"><a href="/verifikasi-pengajuan-ktm/{{$data->id}}/edit"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></a></div></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         <!-- Pagination -->

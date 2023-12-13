@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\HasilController;
 use App\Http\Controllers\ListPengajuanController;
+use App\Http\Controllers\PenerimaanPengajuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +45,9 @@ Route::get('/pengajuan-ktm', function () {
     return view('pengajuanKTM');
 });
 
-Route::get('/penerimaan-pengajuan-ktm', function () {
-    return view('penerimaanPengajuanKtm');
-});
+Route::get('/penerimaan-pengajuan-ktm',
+    [PenerimaanPengajuanController::class,'index']
+);
 
 Route::get('/finalisasi-pengajuan-ktm', function () {
     return view('finalisasiPengajuan');
