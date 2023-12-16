@@ -32,94 +32,92 @@
   {{-- end-carousel --}}
 
   {{-- start-mahasiswa-button --}}
-  {{-- @auth --}}
-  <div class="d-flex gap-2 gap-md-5 flex-column flex-md-row">
-    <a href="/pengajuan-ktm" class="text-decoration-none">
-      <div class="btn-card-container btn-custom-ani">
-        <div class="btn-card-logo">
-          <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">
+  @auth
+    @can('mahasiswa')
+    <div class="d-flex gap-2 gap-md-5 flex-column flex-md-row">
+      <a href="/pengajuan-ktm" class="text-decoration-none">
+        <div class="btn-card-container btn-custom-ani">
+          <div class="btn-card-logo">
+            <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">
+          </div>
+          <div class="btn-card-text">
+            <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Pengajuan KTM</p>
+          </div>
         </div>
-        <div class="btn-card-text">
-          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Pengajuan KTM</p>
+      </a>
+      <a href="/informasi-hasil" class="text-decoration-none">
+        <div class="btn-card-container btn-custom-ani">
+          <div class="btn-card-logo">
+            <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">
+          </div>
+          <div class="btn-card-text">
+            <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Informasi Hasil</p>
+          </div>
         </div>
-      </div>
-    </a>
-    <a href="/informasi-hasil" class="text-decoration-none">
-      <div class="btn-card-container btn-custom-ani">
-        <div class="btn-card-logo">
-          <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">
+      </a>
+      <a href="/pengajuan-ktm-bermasalah" class="text-decoration-none">
+        <div class="btn-card-container btn-custom-ani">
+          <div class="btn-card-logo">
+            <img src="{{ asset('images/logo-ktm-bermasalah.png') }}" style="height: 70px" alt="">
+          </div>
+          <div class="btn-card-text">
+            <p class="text-center text-white mb-0 fw-bold fs-6 py-2">KTM Bermasalah</p>
+          </div>
         </div>
-        <div class="btn-card-text">
-          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Informasi Hasil</p>
+      </a>
+    </div>
+    {{-- end-mahasiswa-button --}}
+    
+    {{-- start-admin-button --}}
+    @elsecan('admin')
+    <div class="d-flex gap-2 gap-md-5 flex-column flex-md-row">
+      <a href="/penerimaan-pengajuan-ktm" class="text-decoration-none">
+        <div class="btn-card-container btn-custom-ani">
+          <div class="btn-card-logo">
+            <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">
+          </div>
+          <div class="btn-card-text">
+            <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Request Baru</p>
+          </div>
         </div>
-      </div>
-    </a>
-    <a href="/pengajuan-ktm-bermasalah" class="text-decoration-none">
-      <div class="btn-card-container btn-custom-ani">
-        <div class="btn-card-logo">
-          <img src="{{ asset('images/logo-ktm-bermasalah.png') }}" style="height: 70px" alt="">
+      </a>
+      <a href="/finalisasi-pengajuan-ktm" class="text-decoration-none">
+        <div class="btn-card-container btn-custom-ani">
+          <div class="btn-card-logo">
+            <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">
+          </div>
+          <div class="btn-card-text">
+            <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Finalisasi Request</p>
+          </div>
         </div>
-        <div class="btn-card-text">
-          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">KTM Bermasalah</p>
+      </a>
+      <a href="/list-pengajuan-ktm" class="text-decoration-none">
+        <div class="btn-card-container btn-custom-ani">
+          <div class="btn-card-logo">
+            <img src="{{ asset('images/logo-ktm-bermasalah.png') }}" style="height: 70px" alt="">
+          </div>
+          <div class="btn-card-text">
+            <p class="text-center text-white mb-0 fw-bold fs-6 py-2">List Pengajuan</p>
+          </div>
         </div>
-      </div>
-    </a>
-  </div>
-  {{-- @endauth --}}
-  {{-- end-mahasiswa-button --}}
-
-  {{-- start-admin-button --}}
-  {{-- @auth --}}
-  <div class="d-flex gap-2 gap-md-5 flex-column flex-md-row">
-    <a href="/penerimaan-pengajuan-ktm" class="text-decoration-none">
-      <div class="btn-card-container btn-custom-ani">
-        <div class="btn-card-logo">
-          <img src="{{ asset('images/logo-pengajuanKTM.png') }}" style="height: 70px" alt="">
-        </div>
-        <div class="btn-card-text">
-          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Request Baru</p>
-        </div>
-      </div>
-    </a>
-    <a href="/finalisasi-pengajuan-ktm" class="text-decoration-none">
-      <div class="btn-card-container btn-custom-ani">
-        <div class="btn-card-logo">
-          <img src="{{ asset('images/logo-informasi-hasil.png') }}" style="height: 70px" alt="">
-        </div>
-        <div class="btn-card-text">
-          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">Finalisasi Request</p>
-        </div>
-      </div>
-    </a>
-    <a href="/list-pengajuan-ktm" class="text-decoration-none">
-      <div class="btn-card-container btn-custom-ani">
-        <div class="btn-card-logo">
-          <img src="{{ asset('images/logo-ktm-bermasalah.png') }}" style="height: 70px" alt="">
-        </div>
-        <div class="btn-card-text">
-          <p class="text-center text-white mb-0 fw-bold fs-6 py-2">List Pengajuan</p>
-        </div>
-      </div>
-    </a>
-  </div>
-  {{-- @endauth --}}
+      </a>
+    </div>
+    @endcan
   {{-- end-admin-button --}}
 
+  @else
   {{-- start-login-button --}}
-  {{-- @guest --}}
-  {{-- @auth --}}
   <a href="/login" class="text-decoration-none my-4">
     <button class="home-login-btn btn-custom-ani">
       <span class="fw-bold fs-6">Login</span>
     </button>
   </a>
-  {{-- @endauth --}}
-  {{-- @endguest --}}
+  @endif
   {{-- end-login-button --}}
 
   {{-- start-about --}}
   <div class="my-5 text-center w-50">
-    <h3 class="fw-bold">About</h3>
+    <h3 class="fw-bold">Tentang</h3>
     <p style="text-align: justify">Website ini menyediakan pelayanan untuk segala kendala terhadap KTM, mulai dari perbaikan, penggantian, dan kendala lainnya.  Proses yang telah disebutkan yang sebelumnya hanya bisa dilakukan dengan secara langsung mendatangi staff sekarang sudah bisa dilakukan secara online melalui website ini. Diharapkan website ini dapat membantu mahasiswa sekalian untuk menggunakan waktu yang dimiliki secara baik.</p>
   </div>
   {{-- end-about --}}
