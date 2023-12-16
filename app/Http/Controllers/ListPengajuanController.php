@@ -25,7 +25,7 @@ class ListPengajuanController extends Controller
                 $query->where('nim', 'like', "%$searchQuery%")
                       ->orWhere('tipe', 'like', "%$searchQuery%")
                       ->orWhere('status', 'like', "%$searchQuery%")
-                      ->orWhere('tanggal', 'like', "%$searchQuery%")
+                      ->orWhereRaw('MONTHNAME(tanggal) LIKE ?', ["%$searchQuery%"])
                       ->orWhereHas('mahasiswa', function ($query) use ($searchQuery) {
                           $query->where('nama', 'like', "%$searchQuery%")
                                 ->orWhere('prodi', 'like', "%$searchQuery%")
