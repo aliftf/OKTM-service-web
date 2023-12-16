@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Staff extends Model
+class Account extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'acc_id';
+
     protected $guarded = [
-        'nip',
+        'acc_id',
     ];
 
-    protected $primaryKey = 'nip';
-
-    public function form(){
-        return $this->hasMany(Form::class);
+    public function mahasiswa(){
+        return $this->hasOne(Mahasiswa::class);
     }
 }
