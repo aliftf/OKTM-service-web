@@ -23,24 +23,22 @@
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
-                            <form action="" method="post">
-                                <h3 class="fw-bold">Status</h3>
-                                {{-- Diisi pake java script --}}
-                                <p id="ketStatusKsm" class="fs-4"></p>
-                                <!-- Text box untuk note -->
-                                <div class="p-3 bg-light border border-secondary">
-                                    <div class="form-group">
-                                        <label for="noteForm" class="fs-4">Note:</label>
-                                        <hr class="border border-black">
-                                        <textarea class="form-control" id="noteForm" name="noteksm" rows="3"></textarea>
-                                    </div>
+                            <h3 class="fw-bold">Status</h3>
+                            {{-- Diisi pake java script --}}
+                            <p id="ketStatusKsm" class="fs-4"></p>
+                            <!-- Text box untuk note -->
+                            <div class="p-3 bg-light border border-secondary">
+                                <div class="form-group">
+                                    <label for="noteForm" class="fs-4">Note:</label>
+                                    <hr class="border border-black">
+                                    <textarea class="form-control" id="noteForm" name="noteksm" rows="3">{{$form->komen_ksm}}</textarea>
                                 </div>
-                                <!-- Button persetujuan -->
-                                <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
-                                <input type="hidden" name="persetujuanKSM" id="ksm" value="{{$form->status_ksm}}">
-                                <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg" onclick="persetujuanKSM(0)">Tidak disetujui</button>
-                                <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg" onclick="persetujuanKSM(1)">Disetujui</button>
-                            </form>
+                            </div>
+                            <!-- Button persetujuan -->
+                            <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
+                            <input type="hidden" name="ksmpersetujuan" id="ksm" value="{{$form->status_ksm}}">
+                            <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg" onclick="persetujuanKSM(0)">Tidak disetujui</button>
+                            <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg" onclick="persetujuanKSM(1)">Disetujui</button>
                         </div>
                     </div>
                 </div>
@@ -66,14 +64,14 @@
                                 <div class="form-group">
                                     <label for="noteForm" class="fs-4">Note:</label>
                                     <hr class="border border-black">
-                                    <textarea class="form-control" id="noteForm" name="binote" rows="3"></textarea>
+                                    <textarea class="form-control" id="noteForm" name="binote" rows="3">{{$bikomen}}</textarea>
                                 </div>
                             </div>
                             <!-- Button persetujuan -->
                             <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
-                                <input type="hidden" name="bistatus" id="bistatus" value="0">
-                                <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg" onclick="duaPersetujuan(0)">Tidak disetujui</button>
-                                <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg" onclick="duaPersetujuan(1)">Disetujui</button>
+                            <input type="hidden" name="bistatus" id="bistatus" value="{{$biStat}}">
+                            <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg" onclick="duaPersetujuan(0)">Tidak disetujui</button>
+                            <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg" onclick="duaPersetujuan(1)">Disetujui</button>
                         </div>
                     </div>
                 </div>
@@ -98,8 +96,8 @@
                             <div class="p-3 bg-light border border-secondary">
                                 <div class="form-group">
                                     <label for="noteForm" class="fs-4">Note:</label>
-                                    <hr class="border border-black"></hr>
-                                    <textarea class="form-control" id="noteForm" name="notebukti" rows="3"></textarea>
+                                    <hr class="border border-black">
+                                    <textarea class="form-control" id="noteForm" name="notebukti" rows="3">{{$form->komen_bukti_pembayaran}}</textarea>
                                 </div>
                             </div>
                             <!-- Button persetujuan -->
@@ -124,28 +122,18 @@
 </form>
 
 <script>
+    
+    //bagian operasi keterangan status
+    
+    //Inisiasi variable
     var tipe = '{{$form->tipe}}';
-    setuju = 'Sudah Disetujui';
+    setuju = 'Disetujui';
     tidak = 'Tidak Disetujui';
 
     document.getElementById("ketStatusKsm").innerText = tidak;
     document.getElementById("ketBiStatus").innerText = tidak;
     document.getElementById("ketStatusBukti").innerText = tidak;
-
-    function persetujuanKSM(status) {
-        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
-        document.getElementById('ksm').value = status;
-    };
-    function duaPersetujuan(status) {
-        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
-        document.getElementById('bistatus').value = status;
-    };
-    function persetujuanBukti(status) {
-        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
-        document.getElementById('bukti').value = status;
-    };
-
-
+    
     if({{$form->status_ksm}} == 1){
         document.getElementById("ketStatusKsm").innerText = setuju;
     }
@@ -161,6 +149,33 @@
             document.getElementById("ketBiStatus").innerText = setuju;
         }
     }
+
+    //bagian fungsi button status
+    function persetujuanKSM(status) {
+        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
+        document.getElementById('ksm').value = status;
+        document.getElementById("ketStatusKsm").innerText = tidak;
+        if(status == 1){
+            document.getElementById("ketStatusKsm").innerText = setuju;
+        }
+    };
+    function duaPersetujuan(status) {
+        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
+        document.getElementById('bistatus').value = status;
+        document.getElementById("ketBiStatus").innerText = tidak;
+        if(status == 1){
+            document.getElementById("ketBiStatus").innerText = setuju;
+        }
+    };
+    function persetujuanBukti(status) {
+        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
+        document.getElementById('bukti').value = status;
+        document.getElementById("ketStatusBukti").innerText = tidak;
+        if(status == 1){
+            document.getElementById("ketStatusBukti").innerText = setuju;
+        }
+    };
+    
     
 </script>
         

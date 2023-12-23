@@ -11,16 +11,22 @@ class VerifikasiPengajuan extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     //perlu di function index perlu tambahin parameter nim
     public function index()
     {
-        //
+        //nim sekarang ubah dengan variable parameter
         $data = Form::where('nim', 1302213011)->first();
         $mhs = Mahasiswa::where('nim', 1302213011)->first();
         $bihead = "KTM";
+        $statusbihead = $data->status_ktm;
+        $bikomen = $data->komen_ktm;
         if($data->tipe == "penggantian"){
             $bihead = "Surat Kehilangan";
+            $statusbihead = $data->status_surat_kehilangan;
+            $bikomen = $data->komen_surat_kehilangan;
         }
-        return view("verifikasiPengajuanKtm",['form' => $data, 'mhs' => $mhs, 'bihead'=> $bihead]);
+        return view("verifikasiPengajuanKtm",['form' => $data, 'mhs' => $mhs, 'bihead'=> $bihead, 'biStat' => $statusbihead, 'bikomen'=>$bikomen]);
     }
 
     /**
@@ -60,18 +66,21 @@ class VerifikasiPengajuan extends Controller
      */
     public function update(Request $request, string $nim)
     {
-        //
         $form = Form::where('nim', $nim)->first();
+
+        //bagian komen
         $form->komen_ksm = $request->input('noteksm');
-        //untuk komen_bukti
         $form->komen_bukti_pembayaran = $request->input('notebukti');
-        
         if($form->tipe=="penggantian"){
             $form->komen_surat_kehilangan = $request->input('binote');
         }else{
             $form->komen_ktm = $request->input('binote');
         }
-        $form->status_ksm = $request->input('persetujuanKSM');
+        
+        
+        //bagian status
+        $form->status_ksm = $request->input('ksmpersetujuan');
+        $form->status_bukti_pembayaran = $request->input('persetujuanbukti');
 
         if($form->tipe=="penggantian"){
             $form->status_surat_kehilangan = $request->input('bistatus');
@@ -79,8 +88,6 @@ class VerifikasiPengajuan extends Controller
             $form->status_ktm = $request->input('bistatus');
         }
         
-        $form->status_bukti_pembayaran = $request->input('persetujuanbukti');
-
         $form->save();
         return redirect('/penerimaan-pengajuan-ktm');
 

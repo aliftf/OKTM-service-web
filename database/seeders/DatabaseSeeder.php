@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             'komen_surat_kehilangan' => '',
             'komen_ktm' => '',
             'komen_ksm' => '',
-            'ksm' => file_get_contents("C:\Users\ASUS\Downloads\CONTOH USECASE SCENARIO.pdf"),
+            'ksm' => file_get_contents("C:\Users\ASUS\OneDrive\Pictures\Screenshot\Screenshot 2023-11-04 144208.png"),
             'bukti_pembayaran' => file_get_contents("public\images\home-1.jpg"),
             'ktm' => file_get_contents("C:\Users\ASUS\OneDrive\Pictures\Screenshot\Screenshot 2023-11-04 144208.png"),
             'surat_kehilangan' => ''
