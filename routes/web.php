@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\HasilController;
 use App\Http\Controllers\ListPengajuanController;
+use App\Http\Controllers\VerifikasiPengajuan;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,7 @@ Route::get('/pengajuan-penggantian-ktm', function(){
     return view('pengajuanPenggantian');
 });
 
-Route::get('/verifikasi-pengajuan-ktm', function () {
-    return view('verifikasiPengajuanKtm');
-});
+Route::resource('/verifikasi-pengajuan-ktm', VerifikasiPengajuan::class);
 
 Route::get('/pengajuan-perbaikan-ktm', function () {
     return view('pengajuan-perbaikan-ktm');

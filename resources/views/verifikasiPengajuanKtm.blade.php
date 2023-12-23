@@ -2,127 +2,167 @@
 
 @section('container')
 
-<div 
-class="container pt-5 px-5">
-    <h2 class="pt-5 fw-bold">Verifikasi Pengajuan KTM</h1>
-    <!-- Semua form -->
-    <div class="px-0">
-        <!-- Form KSM -->
-        <div class="py-5">
-            <div class="shadow p-0 border border-2 rounded-4 bg-light">
-                <!-- Header form -->
-                <div class="text-white px-5 pt-3 pb-1 rounded-top-4" style="background-color: #9F0000">
-                    <h5 class="fw-bold">KSM - Nama Pemilik Request</h5>
-                </div>
-                <div class="row p-5">
-                    <!-- Foto preview untuk isi file yang di submit -->
-                    <div class="col-sm my-auto">
-                        <img src="{{ asset('images/ksm-1.jpg') }}" class="img-fluid w-100" alt="Ini KSM">
-                        <p class="text-center"><a class="link-opacity-100" href="#">KSM-test.jpg</a></p>
+<form action="/verifikasi-pengajuan-ktm/{{$form->nim}}" method="post">
+    @csrf
+    @method('PUT')
+    <div class="container pt-5 px-5">
+        <h2 class="pt-5 fw-bold">Verifikasi Pengajuan KTM</h2>
+        <!-- Semua form -->
+        <div class="px-0">
+            <!-- Form KSM -->
+            <div class="py-5">
+                <div class="shadow p-0 border border-2 rounded-4 bg-light">
+                    <!-- Header form -->
+                    <div class="text-white px-5 pt-3 pb-1 rounded-top-4" style="background-color: #9F0000">
+                        <h5 class="fw-bold">KSM - {{$mhs->nama}}</h5>
                     </div>
-                    <!-- Form -->
-                    <div class="col-sm my-auto border-start border-3 px-5">
-                        <h3 class="fw-bold">Status</h3>
-                        <p id="statusKsm" class="fs-4">Belum disetujui</p>
-                        <!-- Text box untuk note -->
-                        <div class="p-3 bg-light border border-secondary">
-                            <div class="form-group">
-                                <label for="noteForm" class="fs-4">Note:</label>
-                                <hr class="border border-black"></hr>
-                                <textarea class="form-control" id="noteForm" rows="3"></textarea>
-                            </div>
+                    <div class="row p-5">
+                        <!-- Foto preview untuk isi file yang di submit -->
+                        <div class="col-sm my-auto">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->ksm)}}" class="img-fluid w-100" alt="Ini KSM">
                         </div>
-                        <!-- Button persetujuan -->
-                        <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
-                        <a class="nav-link" href="#Doc2">
-                            <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg">Tidak disetujui</button>
-                            <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Disetujui</button>
-                        </a>
+                        <!-- Form -->
+                        <div class="col-sm my-auto border-start border-3 px-5">
+                            <form action="" method="post">
+                                <h3 class="fw-bold">Status</h3>
+                                {{-- Diisi pake java script --}}
+                                <p id="ketStatusKsm" class="fs-4"></p>
+                                <!-- Text box untuk note -->
+                                <div class="p-3 bg-light border border-secondary">
+                                    <div class="form-group">
+                                        <label for="noteForm" class="fs-4">Note:</label>
+                                        <hr class="border border-black">
+                                        <textarea class="form-control" id="noteForm" name="noteksm" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <!-- Button persetujuan -->
+                                <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
+                                <input type="hidden" name="persetujuanKSM" id="ksm" value="{{$form->status_ksm}}">
+                                <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg" onclick="persetujuanKSM(0)">Tidak disetujui</button>
+                                <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg" onclick="persetujuanKSM(1)">Disetujui</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <!-- Form KTM -->
+            <div class="py-5"  id="Doc2">
+                <div class="shadow p-0 border border-2 rounded-4 bg-light">
+                    <!-- Header form -->
+                    <div class="text-white px-5 pt-3 pb-1 rounded-top-4" style="background-color: #9F0000">
+                        <h5 class="fw-bold">{{$bihead}} - {{$mhs->nama}}</h5>
+                    </div>
+                    <div class="row p-5">
+                        <!-- Foto preview untuk isi file yang di submit -->
+                        <div class="col-sm my-auto">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->ktm)}}" class="img-fluid w-100" alt="Ini KSM">
+                        </div>
+                        <!-- Form -->
+                        <div class="col-sm my-auto border-start border-3 px-5">
+                            <h3 class="fw-bold">Status</h3>
+                            <p id="ketBiStatus" class="fs-4"></p>
+                            <!-- Text box untuk note -->
+                            <div class="p-3 bg-light border border-secondary">
+                                <div class="form-group">
+                                    <label for="noteForm" class="fs-4">Note:</label>
+                                    <hr class="border border-black">
+                                    <textarea class="form-control" id="noteForm" name="binote" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <!-- Button persetujuan -->
+                            <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
+                                <input type="hidden" name="bistatus" id="bistatus" value="0">
+                                <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg" onclick="duaPersetujuan(0)">Tidak disetujui</button>
+                                <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg" onclick="duaPersetujuan(1)">Disetujui</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Form Bukti Pembayaran -->
+            <div class="py-5"  id="Doc3">
+                <div class="shadow p-0 border border-2 rounded-4 bg-light">
+                    <!-- Header form -->
+                    <div class="text-white px-5 pt-3 pb-1 rounded-top-4" style="background-color: #9F0000">
+                        <h5 class="fw-bold">Bukti Pembayaran - {{$mhs->nama}}</h5>
+                    </div>
+                    <div class="row p-5">
+                        <!-- Foto preview untuk isi file yang di submit -->
+                        <div class="col-sm my-auto">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->bukti_pembayaran)}}" class="img-fluid w-100" alt="Ini KSM">
+                        </div>
+                        <!-- Form -->
+                        <div class="col-sm my-auto border-start border-3 px-5">
+                            <h3 class="fw-bold">Status</h3>
+                            <p id="ketStatusBukti" class="fs-4"></p>
+                            <!-- Text box untuk note -->
+                            <div class="p-3 bg-light border border-secondary">
+                                <div class="form-group">
+                                    <label for="noteForm" class="fs-4">Note:</label>
+                                    <hr class="border border-black"></hr>
+                                    <textarea class="form-control" id="noteForm" name="notebukti" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <!-- Button persetujuan -->
+                            <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
+                                <input type="hidden" name="persetujuanbukti" id="bukti" value="{{$form->status_bukti_pembayaran}}">
+                                <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg" onclick="persetujuanBukti(0)">Tidak disetujui</button>
+                                <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg" onclick="persetujuanBukti(1)">Disetujui</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Form KTM -->
-        <div class="py-5"  id="Doc2">
-            <div class="shadow p-0 border border-2 rounded-4 bg-light">
-                <!-- Header form -->
-                <div class="text-white px-5 pt-3 pb-1 rounded-top-4" style="background-color: #9F0000">
-                    <h5 class="fw-bold">KTM - Nama Pemilik Request</h5>
-                </div>
-                <div class="row p-5">
-                    <!-- Foto preview untuk isi file yang di submit -->
-                    <div class="col-sm my-auto">
-                        <img src="{{ asset('images/ktm-1.jpg') }}" class="img-fluid w-100" alt="Ini KSM">
-                        <p class="text-center"><a class="link-opacity-100" href="#">KTM-test.jpg</a></p>
-                    </div>
-                    <!-- Form -->
-                    <div class="col-sm my-auto border-start border-3 px-5">
-                        <h3 class="fw-bold">Status</h3>
-                        <p id="statusKsm" class="fs-4">Belum disetujui</p>
-                        <!-- Text box untuk note -->
-                        <div class="p-3 bg-light border border-secondary">
-                            <div class="form-group">
-                                <label for="noteForm" class="fs-4">Note:</label>
-                                <hr class="border border-black"></hr>
-                                <textarea class="form-control" id="noteForm" rows="3"></textarea>
-                            </div>
-                        </div>
-                        <!-- Button persetujuan -->
-                        <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
-                        <a class="nav-link" href="#Doc3">
-                            <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg">Tidak disetujui</button>
-                            <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Disetujui</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <!-- Selesai verifikasi -->
+        <div>
+            <hr class="border border-black">
+            <label for="noteForm" class="fs-4 fw-bold">Dengan menekan submit, request akan di update</label>
         </div>
-        <!-- Form Bukti Pembayaran -->
-        <div class="py-5"  id="Doc3">
-            <div class="shadow p-0 border border-2 rounded-4 bg-light">
-                <!-- Header form -->
-                <div class="text-white px-5 pt-3 pb-1 rounded-top-4" style="background-color: #9F0000">
-                    <h5 class="fw-bold">Bukti Pembayaran - Nama Pemilik Request</h5>
-                </div>
-                <div class="row p-5">
-                    <!-- Foto preview untuk isi file yang di submit -->
-                    <div class="col-sm my-auto">
-                        <img src="{{ asset('images/bukti-pembayaran-1.jpg') }}" class="img-fluid w-100" alt="Ini KSM">
-                        <p class="text-center"><a class="link-opacity-100" href="#">bukti-pembayaran-test.jpg</a></p>
-                    </div>
-                    <!-- Form -->
-                    <div class="col-sm my-auto border-start border-3 px-5">
-                        <h3 class="fw-bold">Status</h3>
-                        <p id="statusKsm" class="fs-4">Belum disetujui</p>
-                        <!-- Text box untuk note -->
-                        <div class="p-3 bg-light border border-secondary">
-                            <div class="form-group">
-                                <label for="noteForm" class="fs-4">Note:</label>
-                                <hr class="border border-black"></hr>
-                                <textarea class="form-control" id="noteForm" rows="3"></textarea>
-                            </div>
-                        </div>
-                        <!-- Button persetujuan -->
-                        <h3 class="fw-bold pt-3">Persetujuan Pengajuan</h3>
-                        <a class="nav-link" href="#submitpengajuan">
-                            <button type="button" class="shadow-sm btn btn-light btn-lg fw-bold rounded-lg">Tidak disetujui</button>
-                            <button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Disetujui</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="pt-3 pb-5" id="submitpengajuan">
+            <button type="submit" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Submit</button>
         </div>
     </div>
-    <!-- Selesai verifikasi -->
-    <div>
-        <hr class="border border-black"></hr>
-        <label for="noteForm" class="fs-4 fw-bold">Dengan menekan submit, request akan di update</label>
-    </div>
-    <div class="pt-3" id="submitpengajuan">
-        <a href="/penerimaan-pengajuan-ktm"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Submit</button></a>
-    </div>
-    <div class="py-5"></div>
-</div>
+</form>
 
+<script>
+    var tipe = '{{$form->tipe}}';
+    setuju = 'Sudah Disetujui';
+    tidak = 'Tidak Disetujui';
+
+    document.getElementById("ketStatusKsm").innerText = tidak;
+    document.getElementById("ketBiStatus").innerText = tidak;
+    document.getElementById("ketStatusBukti").innerText = tidak;
+
+    function persetujuanKSM(status) {
+        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
+        document.getElementById('ksm').value = status;
+    };
+    function duaPersetujuan(status) {
+        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
+        document.getElementById('bistatus').value = status;
+    };
+    function persetujuanBukti(status) {
+        // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
+        document.getElementById('bukti').value = status;
+    };
+
+
+    if({{$form->status_ksm}} == 1){
+        document.getElementById("ketStatusKsm").innerText = setuju;
+    }
+    if({{$form->status_bukti_pembayaran}} == 1){
+        document.getElementById("ketStatusBukti").innerText = setuju;
+    }
+    if('{{$form->tipe}}' == "perbaikan"){
+        if({{$form->status_ktm}} == 1){
+            document.getElementById("ketBiStatus").innerText = setuju;
+        }
+    }else{
+        if({{$form->status_surat_kehilangan}} == 1){
+            document.getElementById("ketBiStatus").innerText = setuju;
+        }
+    }
+    
+</script>
+        
 
 @endsection
