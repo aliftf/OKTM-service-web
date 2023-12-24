@@ -19,19 +19,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Account::create([
-        //     'username' => 'alif',
-        //     'password' => Hash::make('123'),
-        //     'role' => 'mahasiswa',
-        // ]);
+        Account::create([
+            'username' => 'mahasiswa',
+            'password' => Hash::make('mahasiswa'),
+            'role' => 'mahasiswa',
+        ]);
 
-        // Mahasiswa::create([
-        //     'nim' => '1302213011',
-        //     'acc_id' => 1,
-        //     'nama' => 'Alif Taufiqurrahman',
-        //     'prodi' => 'S1 Rekayasa Perangkat Lunak',
-        //     'tahun' => 2021,
-        // ]);
+        Account::create([
+            'username' => 'admin',
+            'password' => Hash::make('admin'),
+            'role' => 'admin',
+        ]);
+
+        Mahasiswa::create([
+            'nim' => '0000000000',
+            'acc_id' => 1,
+            'nama' => 'Mahasiswa 1',
+            'prodi' => 'Dump',
+            'tahun' => 2021,
+        ]);
 
         Form::create([
             'nim' => '1302213011',
@@ -45,5 +51,6 @@ class DatabaseSeeder extends Seeder
             'ktm' => file_get_contents("C:\Users\ASUS\OneDrive\Pictures\Screenshot\Screenshot 2023-11-04 144208.png"),
             'surat_kehilangan' => ''
         ]);
+
     }
 }
