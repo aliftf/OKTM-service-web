@@ -15,18 +15,7 @@ class VerifikasiPengajuan extends Controller
      //perlu di function index perlu tambahin parameter nim
     public function index()
     {
-        //nim sekarang ubah dengan variable parameter
-        $data = Form::where('nim', 1302213011)->first();
-        $mhs = Mahasiswa::where('nim', 1302213011)->first();
-        $bihead = "KTM";
-        $statusbihead = $data->status_ktm;
-        $bikomen = $data->komen_ktm;
-        if($data->tipe == "penggantian"){
-            $bihead = "Surat Kehilangan";
-            $statusbihead = $data->status_surat_kehilangan;
-            $bikomen = $data->komen_surat_kehilangan;
-        }
-        return view("verifikasiPengajuanKtm",['form' => $data, 'mhs' => $mhs, 'bihead'=> $bihead, 'biStat' => $statusbihead, 'bikomen'=>$bikomen]);
+
     }
 
     /**
@@ -56,9 +45,21 @@ class VerifikasiPengajuan extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $nim)
     {
         //
+        //nim sekarang ubah dengan variable parameter
+        $data = Form::where('nim', $nim)->first();
+        $mhs = Mahasiswa::where('nim', $nim)->first();
+        $bihead = "KTM";
+        $statusbihead = $data->status_ktm;
+        $bikomen = $data->komen_ktm;
+        if($data->tipe == "penggantian"){
+            $bihead = "Surat Kehilangan";
+            $statusbihead = $data->status_surat_kehilangan;
+            $bikomen = $data->komen_surat_kehilangan;
+        }
+        return view("verifikasiPengajuanKtm",['form' => $data, 'mhs' => $mhs, 'bihead'=> $bihead, 'biStat' => $statusbihead, 'bikomen'=>$bikomen]);
     }
 
     /**
