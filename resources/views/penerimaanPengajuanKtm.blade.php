@@ -16,14 +16,20 @@
                 </tr>
             </thead>
             <tbody class="fs-5 align-middle">
-                @foreach($result as $data)
+                @if ($result)
+                    @foreach($result as $data)
+                        <tr class="table-light">
+                            <td><div class="py-3 px-2 border-end border-3">{{$data->mahasiswa->nama}}</div></td>
+                            <td><div class="py-3 px-2 border-end border-3">{{$data->tanggal}}</div></td>
+                            <td><div class="py-3 px-2 border-end border-3">{{$data->tipe}}</div></td>
+                            <td><div class="py-3 px-2"><a href="/verifikasi-pengajuan-ktm/{{$data->id}}/edit"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></a></div></td>
+                        </tr>
+                    @endforeach
+                @else
                     <tr class="table-light">
-                        <td><div class="py-3 px-2 border-end border-3">{{$data->mahasiswa->nama}}</div></td>
-                        <td><div class="py-3 px-2 border-end border-3">{{$data->tanggal}}</div></td>
-                        <td><div class="py-3 px-2 border-end border-3">{{$data->tipe}}</div></td>
-                        <td><div class="py-3 px-2"><a href="/verifikasi-pengajuan-ktm/{{$data->id}}/edit"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Process</button></a></div></td>
+                        <td>tidak ada data baru</td>
                     </tr>
-                @endforeach
+                @endif
             </tbody>
         </table>
         <!-- Pagination -->
