@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Form;
+use App\Models\Mahasiswa;
+
 
 class PenerimaanPengajuanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $form = Form::latest('updated_at')->with('mahasiswa');
-        return view('penerimaanPengajuanKtm',['result'=>$form]);
+        $form = $form->paginate(5)->withQueryString();
+        return view('penerimaanPengajuanKtm', ['result' => $form]);
     }
 
     /**
