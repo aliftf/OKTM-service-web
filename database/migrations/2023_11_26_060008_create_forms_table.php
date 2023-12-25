@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -16,6 +17,7 @@ return new class extends Migration
             $table->foreignId('nim')->constrained('mahasiswas','nim')->onDelete('cascade');
             $table->string('tipe');
             $table->string('status');
+            $table->date('tanggal');
             
             $table->string('komen_surat_kehilangan')->nullable();
             $table->string('komen_ktm')->nullable();
