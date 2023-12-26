@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="container pt-5 px-5">
-    <h2 class="pt-5 fw-bold">Finalisasi</h1>
+    <h2 class="pt-5 fw-bold">Finalisasi</h2>
     <!-- Table -->
     <div class="py-5">
         <table class="table-list table-responsive table table-header text-center table-borderless hasil-table shadow">
@@ -16,40 +16,42 @@
                 </tr>
             </thead>
             <tbody class="fs-5 align-middle">
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Regy Renanda Rahman</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Done</button></div></td>
-                </tr>
-                <tr class="table-light">
-                    <td><div class="py-3 px-2 border-end border-3">Rahma Sakti Rahardian</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">01-12-2025</div></td>
-                    <td><div class="py-3 px-2 border-end border-3">Penggantian</div></td>
-                    <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg">Done</button></div></td>
-                </tr>
+                 @foreach ($result as $data)
+                    <tr class="table-light">
+                        <td><div class="py-3 px-2 border-end border-3">{{$data->mahasiswa->nama}}</div></td>
+                        <td><div class="py-3 px-2 border-end border-3">{{$data->tanggal}}</div></td>
+                        <td><div class="py-3 px-2 border-end border-3">{{$data->tipe}}</div></td>
+                        <td><div class="py-3 px-2"><button type="button" class="shadow-sm btn btn-danger btn-lg fw-bold border rounded-lg" data-bs-toggle="modal" data-bs-target="#verifModal">Done</button></div></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         <!-- Pagination -->
-        <div class="d-flex justify-content-end py-2">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination shadow">
-                    <li class="page-item">
-                        <a class="page-link text-danger" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link text-danger" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link text-danger" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="py-2">
+            {{ $result->links() }}
         </div>
+    </div>
+    <!-- Pop up verification box -->
+    <div class="modal fade" id="verifModal" tabindex="-1" aria-labelledby="verifModalLabel" aria-hidden="true">
+        <form action="/finalisasi/{{$data->id}}" method="post">
+            @csrf
+            @method('put')
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header header-popup">
+                        <h4 class="modal-title fw-bold">Akhiri Permintaan</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="pt-3">Apakah anda yakin untuk mengakhiri permintaan KTM ini?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light button_popup shadow-sm" data-bs-dismiss="modal">Tidak</button>
+                        <button type="submit" class="btn btn-danger button_popup shadow-sm">Iya</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

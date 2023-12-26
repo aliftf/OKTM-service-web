@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="container pt-5 px-5">
-    <h2 class="pt-5 fw-bold">Verifikasi Pengajuan KTM</h1>
+    <h2 class="pt-5 fw-bold">Verifikasi Pengajuan KTM</h2>
     <!-- Table -->
     <div class="py-5">
         <table class="table-list table-responsive table table-header text-center table-borderless hasil-table shadow">
