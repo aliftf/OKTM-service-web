@@ -15,8 +15,8 @@ class PenerimaanPengajuanController extends Controller
     public function index(Request $request)
     {
         $form = Form::latest('updated_at')->with('mahasiswa');
-        $form = $form->paginate(5)->withQueryString();
-        return view('penerimaanPengajuanKtm', ['result' => $form]);
+        $forms = $form->paginate(5);
+        return view('penerimaanPengajuanKtm', ['result' => $forms]);
     }
 
     /**

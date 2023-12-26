@@ -27,24 +27,8 @@
             </tbody>
         </table>
         <!-- Pagination -->
-        <div class="d-flex justify-content-end py-2">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination shadow">
-                    <li class="page-item">
-                        <a class="page-link text-danger" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link text-danger" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link text-danger" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="py-2">
+            {{ $result->links() }}
         </div>
     </div>
 </div>
