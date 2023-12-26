@@ -24,7 +24,8 @@
 							SSO Login
 						</p>
 						<div class="px-4">
-							<form action="">
+							<form action="{{ route('login') }}" method="post">
+								@csrf
 								<div class="mt-5 mb-3">
 									<input type="text" class="form-control" name="username" id="username" placeholder="Username">
 								</div>

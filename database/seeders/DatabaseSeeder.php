@@ -19,21 +19,36 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Account::create([
-        //     'username' => 'alif',
-        //     'password' => Hash::make('123'),
-        //     'role' => 'mahasiswa',
-        // ]);
+        Account::create([
+            'username' => 'mahasiswa',
+            'password' => Hash::make('mahasiswa'),
+            'role' => 'mahasiswa',
+        ]);
 
-        // Mahasiswa::create([
-        //     'nim' => '1302213011',
-        //     'acc_id' => 1,
-        //     'nama' => 'Alif Taufiqurrahman',
-        //     'prodi' => 'S1 Rekayasa Perangkat Lunak',
-        //     'tahun' => 2021,
-        // ]);
+        Account::create([
+            'username' => 'admin',
+            'password' => Hash::make('admin'),
+            'role' => 'admin',
+        ]);
 
-        Mahasiswa::factory(11)->create();
-        Form::factory(11)->create();
+        Mahasiswa::create([
+            'nim' => '0000000000',
+            'acc_id' => 1,
+            'nama' => 'Mahasiswa 1',
+            'prodi' => 'Dump',
+            'tahun' => 2021,
+        ]);
+
+        Mahasiswa::create([
+            'nim' => '1111111111',
+            'acc_id' => 1,
+            'nama' => 'Mahasiswa 1',
+            'prodi' => 'S1 Informatika',
+            'tahun' => 2021,
+        ]);
+
+        Mahasiswa::factory()->count(2)->create();
+        Form::factory()->count(8)->create();
+
     }
 }
