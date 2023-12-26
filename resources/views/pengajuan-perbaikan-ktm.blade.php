@@ -69,8 +69,10 @@
                 </div>
                 {{-- Form --}}
                 <div class="container px-0 p-sm-4">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="/form" method="post" enctype="multipart/form-data">
                         @csrf
+                        @method('POST')
+                        <input type="text" name="tipe" value="Pengajuan Perbaikan KTM" hidden>
                         <div class="px-3 mx-4 px-md-4">
                             <!-- Tahun Ajar -->
                             <div class="row align-items-center mb-3">
@@ -91,7 +93,7 @@
                                 <label for="ksmFile" class="form-label fs-6 col-4 col-md-2">Upload KSM</label>
                                 <p class="fs-6 col-1 col-md-1">:</p>
                                 <div class="col-6 col-sm-7 col-md-7">
-                                    <input class="form-control" type="file" id="ksmFile">
+                                    <input class="form-control" type="file" id="ksmFile" name="ksm">
                                 </div>
                             </div>
 
@@ -100,7 +102,7 @@
                                 <label for="ktmForm" class="form-label fs-6 col-4 col-md-2">Upload KTM</label>
                                 <p class="fs-6 col-1 col-md-1">:</p>
                                 <div class="col-6 col-sm-7 col-md-7">
-                                    <input class="form-control" type="file" id="ktmForm">
+                                    <input class="form-control" type="file" id="ktmForm" name="ktm">
                                 </div>
                             </div>
 
@@ -110,7 +112,7 @@
                                     Pembayaran</label>
                                 <p class="fs-6 col-1 col-md-1">:</p>
                                 <div class="col-6 col-sm-7 col-md-7">
-                                    <input class="form-control" type="file" id="pembayaranFile">
+                                    <input class="form-control" type="file" id="pembayaranFile" name="bukti_pembayaran">
                                 </div>
                             </div>
                         </div>

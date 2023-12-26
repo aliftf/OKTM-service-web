@@ -55,10 +55,10 @@
                 </div>
                 {{-- Form pengisian --}}
                 <div class="d-lg-flex flex-column shadow-lg p-3 ps-5 bg-body-tertiary rounded rounded-top-0">
-                    <form action="/form" method="post">
+                    <form action="/form" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
-                        <input type="text" name="tipe" value="Pengajuan Penggantian KTM">
+                        <input type="text" name="tipe" value="Pengajuan Penggantian KTM" hidden>
 
                         <div class="container row"> 
                             <div class="row  fs-5">

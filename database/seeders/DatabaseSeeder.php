@@ -19,25 +19,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Account::create([
-        //     'username' => 'mahasiswa',
-        //     'password' => Hash::make('mahasiswa'),
-        //     'role' => 'mahasiswa',
-        // ]);
+        Account::create([
+            'username' => 'mahasiswa',
+            'password' => Hash::make('mahasiswa'),
+            'role' => 'mahasiswa',
+        ]);
 
-        // Account::create([
-        //     'username' => 'admin',
-        //     'password' => Hash::make('admin'),
-        //     'role' => 'admin',
-        // ]);
+        Account::create([
+            'username' => 'admin',
+            'password' => Hash::make('admin'),
+            'role' => 'admin',
+        ]);
 
-        // Mahasiswa::create([
-        //     'nim' => '1111111111',
-        //     'acc_id' => 1,
-        //     'nama' => 'Mahasiswa',
-        //     'prodi' => 'Dump',
-        //     'tahun' => 2021,
-        // ]);
+        Mahasiswa::create([
+            'nim' => '1111111111',
+            'acc_id' => 1,
+            'nama' => 'Mahasiswa',
+            'prodi' => 'Dump',
+            'tahun' => 2021,
+        ]);
+    
 
         Form::create([
             'nim' => '1111111111',

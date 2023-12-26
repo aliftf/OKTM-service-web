@@ -90,7 +90,10 @@
             {{--content--}}
             <div class="p-4 p-sm-5">
                 <div>
-                <form>
+                <form action="/form" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
+                    <input type="text" name="tipe" value="Pengajuan KTM Bermasalah" hidden>
                     <div class="form-group row ">
                         <label for="inputNama" class="fw-bold col-lg-2 col-form-label">Nama Mahasiswa</label>
                         <div class="col-lg-5 ">
@@ -116,20 +119,20 @@
                     <div class="form-group row pt-2">
                         <label for="inputKSM" class="fw-bold col-lg-2 col-form-label">Upload KSM</label>
                         <div class="col-lg-5">
-                        <input type="file" class="form-control" id="inputKSM" placeholder="KSM">
+                        <input type="file" class="form-control" id="inputKSM" name="ksm" placeholder="KSM">
                         </div>
                     </div>
                     <div class="form-group row pt-2">
                         <label for="inputKSM" class="fw-bold col-lg-2 col-form-label">Upload KTM</label>
                         <div class="col-lg-5">
-                        <input type="file" class="form-control" id="inputKTM" placeholder="KTM">
+                        <input type="file" class="form-control" id="inputKTM" name="ktm" placeholder="KTM">
                         </div>
                     </div>
                     <div class="form-group row pt-2 ">
                         <label for="inputBukti" class="fw-bold col-lg-2 col-form-label">Upload Bukti Pembayaran</label>
                         <div class="col-lg-5">
                             <div class="d-flex justify-content-center">
-                            <input type="file" class="form-control" id="inputBukti" placeholder="Bukti">
+                            <input type="file" class="form-control" id="inputBukti" name="bukti_pembayaran" placeholder="Bukti">
                             </div>
 
                         </div>
@@ -139,7 +142,7 @@
                         <div class="col-sm-12 col-lg-8">
                             <div class="d-flex justify-content-end ">
                                 <a href="/informasi-hasil">
-                                    <button type="button" class="btn shadow text-white" style="width:200px ; background-color: #9D0000;">Submit</button>
+                                    <button type="submit" class="btn shadow text-white" style="width:200px ; background-color: #9D0000;">Submit</button>
                                 </a>
                             </div>
                         </div>
