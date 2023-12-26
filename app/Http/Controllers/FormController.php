@@ -22,6 +22,17 @@ class FormController extends Controller
         $bukti_pembayaran = $request->input('bukti_pembayaran');
         $komentar = $request->input('komentar');
 
+        // Using null coalescing operator to set default values as null if not provided
+        $nim = $nim ?? null;
+        $tipe = $tipe ?? null;
+        $status = $status ?? null;
+        $tanggal = $tanggal ?? null;
+        $ktm = $ktm ?? null;
+        $ksm = $ksm ?? null;
+        $surat_kehilangan = $surat_kehilangan ?? null;
+        $bukti_pembayaran = $bukti_pembayaran ?? null;
+        $komentar = $komentar ?? null;
+
         Form::create([
             'nim' => $nim,
             'tipe' => $tipe,

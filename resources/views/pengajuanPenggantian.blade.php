@@ -65,13 +65,13 @@
                                     <p style="font-weight: bold;">Nama Mahasiswa</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p style="font-weight: normal;">Iqro Banyuanto</p>
+                                    <p style="font-weight: normal;">{{auth()->user()->mahasiswa->nama}}</p>
                                 </div>
                                 <div class="col-md-1">
                                     <p style="font-weight: bold;">NIM</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <p style="font-weight: normal;">1302213061</p>
+                                    <p style="font-weight: normal;">{{auth()->user()->mahasiswa->nim}}</p>
                                 </div>
                             </div>
                             <div class="row  fs-5">
@@ -82,7 +82,7 @@
                                      <p style="font-weight: normal;">:</p>
                                 </div>
                                 <div class="col-8">
-                                    <p style="font-weight: normal;">2021</p>
+                                    <p style="font-weight: normal;">{{auth()->user()->mahasiswa->tahun}}</p>
                                 </div>
                             </div>
                             <div class="row  fs-5 mb-3">
@@ -93,7 +93,7 @@
                                      <p style="font-weight: normal;">:</p>
                                 </div>
                                 <div class="col-8">
-                                    <p style="font-weight: normal;">S1 Rekayasa Perangkat Lunak</p>
+                                    <p style="font-weight: normal;">{{auth()->user()->mahasiswa->prodi}}</p>
                                 </div>
                             </div>
                             <div class="row  fs-5  mb-3">
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3 p" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile01" >
+                                        <input type="file" class="form-control" id="inputGroupFile01" name="ksm" >
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile02" >
+                                        <input type="file" class="form-control" id="inputGroupFile02" name="surat_kehilangan">
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile03">
+                                        <input type="file" class="form-control" id="inputGroupFile03" name="bukti_pembayaran">
                                     </div>
                                 </div>
                             </div>

@@ -69,6 +69,6 @@ Route::middleware('mahasiswa')->group(function() {
     Route::get('/pengajuan-ktm', function () {
         return view('pengajuanKTM');
     });
-
+    
     Route::get('/informasi-hasil', [HasilController::class, 'index'])->name('informasi-hasil');
 });
