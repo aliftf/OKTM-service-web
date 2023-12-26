@@ -14,20 +14,20 @@ class DownloadController extends Controller
         if ($form){
             switch ($fileType) {
                 case 'ksm':
-                    $file = 'public/file/ksm/' . $form->ksm;
-                    return Storage::download($file);
+                    // $file = 'public/file/ksm/' . $form->ksm;
+                    return Storage::download($form->ksm);
                     break;
                 case 'ktm':
-                    $file = 'public/file/ktm/' . $form->ktm;
-                    return Storage::download($file);
+                    // $file = 'public/file/ktm/' . $form->ktm;
+                    return Storage::download($form->ktm);
                     break;
                 case 'surat-kehilangan':
-                    $file = 'public/file/surat-kehilangan/' . $form->surat_kehilangan;
-                    return Storage::download($file);
+                    // $file = 'public/file/surat-kehilangan/' . $form->surat_kehilangan;
+                    return Storage::download($form->surat_kehilangan);
                     break;
                 case 'bukti-pembayaran':
-                    $file = 'public/file/bukti-pembayaran/' . $form->bukti_pembayaran;
-                    return Storage::download($file);
+                    // $file = 'public/file/bukti-pembayaran/' . $form->bukti_pembayaran;
+                    return Storage::download($form->bukti_pembayaran);
                     break;
                 default:
                     return response()->json(['error' => 'File not found.'], 404);

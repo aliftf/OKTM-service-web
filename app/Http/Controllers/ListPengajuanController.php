@@ -109,26 +109,26 @@ class ListPengajuanController extends Controller
 
         if ($request->file('addKSM')) {
             $fileKSM = $request->file('addKSM');
-            $fileNameKSM = pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKSM->extension();
-            Storage::put('public/file/ksm/' . $fileNameKSM, file_get_contents($fileKSM));
+            $fileNameKSM = 'public/file/ksm/' . pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKSM->extension();
+            Storage::put($fileNameKSM, file_get_contents($fileKSM));
         }
 
         if ($request->file('addKTM')) {
             $fileKTM = $request->file('addKTM');
-            $fileNameKTM = pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKTM->extension();
-            Storage::put('public/file/ktm/' . $fileNameKTM, file_get_contents($fileKTM));
+            $fileNameKTM = 'public/file/ktm/' . pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKTM->extension();
+            Storage::put($fileNameKTM, file_get_contents($fileKTM));
         }
 
         if ($request->file('addSurat')) {
             $fileSurat = $request->file('addSurat');
-            $fileNameSurat = pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileSurat->extension();
-            Storage::put('public/file/surat-kehilangan/' . $fileNameSurat, file_get_contents($fileSurat));
+            $fileNameSurat = 'public/file/surat-kehilangan/' . pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileSurat->extension();
+            Storage::put($fileNameSurat, file_get_contents($fileSurat));
         }
 
         if ($request->file('addBukti')) {
             $fileBukti = $request->file('addBukti');
-            $fileNameBukti = pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileBukti->extension();
-            Storage::put('public/file/bukti-pembayaran/' . $fileNameBukti, file_get_contents($fileBukti));
+            $fileNameBukti = 'public/file/bukti-pembayaran/' . pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileBukti->extension();
+            Storage::put($fileNameBukti, file_get_contents($fileBukti));
         }
 
         $mahasiswa = Mahasiswa::where('nim', $validatedData['addNIM'])->first();
@@ -222,7 +222,7 @@ class ListPengajuanController extends Controller
     {
         $mahasiswa = Mahasiswa::where('nim', $request->editNIM)->first();
         $form = Form::where('id', $id)->with('mahasiswa')->first();
-        $filePath = 'public/file/';
+        // $filePath = 'public/file/';
 
         $validatedData = $request->validate([
             'editNIM' => 'required|digits:10|numeric',
@@ -263,44 +263,44 @@ class ListPengajuanController extends Controller
 
         if ($request->editTipe == 'Pengajuan Penggantian KTM' && ($form->tipe == 'Pengajuan Perbaikan KTM' || $form->tipe == 'Pengajuan KTM Masih Bermasalah'))
         {
-            Storage::delete($filePath . 'ktm/' . $form->ktm);
+            Storage::delete($form->ktm);
             $fileNameKTM = null;
         } elseif (($request->editTipe == 'Pengajuan Perbaikan KTM' || $request->editTipe == 'Pengajuan KTM Masih Bermasalah') && $form->tipe == 'Pengajuan Penggantian KTM')
         {
-            Storage::delete($filePath . 'surat-kehilangan/' . $form->surat_kehilangan);
+            Storage::delete($form->surat_kehilangan);
             $fileNameSurat = null;
         }
 
         if ($request->file('editKSM')) {
-            Storage::delete($filePath . 'ksm/' . $form->ksm);
+            Storage::delete($form->ksm);
 
             $fileKSM = $request->file('editKSM');
-            $fileNameKSM = pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileKSM->extension();
-            Storage::put('public/file/ksm/' . $fileNameKSM, file_get_contents($fileKSM));
+            $fileNameKSM = 'public/file/ksm/' . pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileKSM->extension();
+            Storage::put($fileNameKSM, file_get_contents($fileKSM));
         }
 
         if ($request->file('editKTM')) {
-            Storage::delete($filePath . 'ksm/' . $form->ktm);
+            Storage::delete($form->ktm);
 
             $fileKTM = $request->file('editKTM');
-            $fileNameKTM = pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileKTM->extension();
-            Storage::put('public/file/ktm/' . $fileNameKTM, file_get_contents($fileKTM));
+            $fileNameKTM = 'public/file/ktm/' . pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileKTM->extension();
+            Storage::put($fileNameKTM, file_get_contents($fileKTM));
         }
 
         if ($request->file('editSurat')) {
-            Storage::delete($filePath . 'surat-kehilangan/' . $form->surat_kehilangan);
+            Storage::delete($form->surat_kehilangan);
 
             $fileSurat = $request->file('editSurat');
-            $fileNameSurat = pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileSurat->extension();
-            Storage::put('public/file/surat-kehilangan/' . $fileNameSurat, file_get_contents($fileSurat));
+            $fileNameSurat = 'public/file/surat-kehilangan/' . pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileSurat->extension();
+            Storage::put($fileNameSurat, file_get_contents($fileSurat));
         }
 
         if ($request->file('editBukti')) {
-            Storage::delete($filePath . 'bukti-pembayaran/' . $form->bukti_pembayaran);
+            Storage::delete($form->bukti_pembayaran);
 
             $fileBukti = $request->file('editBukti');
-            $fileNameBukti = pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileBukti->extension();
-            Storage::put('public/file/bukti-pembayaran/' . $fileNameBukti, file_get_contents($fileBukti));
+            $fileNameBukti = 'public/file/bukti-pembayaran/' . pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileBukti->extension();
+            Storage::put($fileNameBukti, file_get_contents($fileBukti));
         }
 
         Mahasiswa::where('nim', $form->nim)->update([
@@ -329,31 +329,31 @@ class ListPengajuanController extends Controller
     {
         $form = Form::where('id', $id)->firstOrFail();
         $nim = $form->nim;
-        $filePath = 'public/file/';
+        // $filePath = 'public/file/';
 
         if($form->tipe == 'Pengajuan Penggantian KTM')
         {
-            $ksmFilePath = $filePath . 'ksm/' . $form->ksm;
-            $suratFilePath = $filePath . 'surat-kehilangan/' . $form->surat_kehilangan;
-            $buktiFilePath = $filePath . 'bukti-pembayaran/' . $form->bukti_pembayaran;
+            // $ksmFilePath = $filePath . 'ksm/' . $form->ksm;
+            // $suratFilePath = $filePath . 'surat-kehilangan/' . $form->surat_kehilangan;
+            // $buktiFilePath = $filePath . 'bukti-pembayaran/' . $form->bukti_pembayaran;
 
-            if (Storage::exists($ksmFilePath) && Storage::exists($suratFilePath) && Storage::exists($buktiFilePath))
+            if (Storage::exists($form->ksm) && Storage::exists($form->surat_kehilangan) && Storage::exists($form->bukti_pembayaran))
             {
-                Storage::delete($ksmFilePath);
-                Storage::delete($suratFilePath);
-                Storage::delete($buktiFilePath);
+                Storage::delete($form->ksm);
+                Storage::delete($form->surat_kehilangan);
+                Storage::delete($form->bukti_pembayaran);
             }
         } elseif ($form->tipe == 'Pengajuan Perbaikan KTM' || $form->tipe == 'Pengajuan KTM Masih Bermasalah')
         {
-            $ksmFilePath = $filePath . 'ksm/' . $form->ksm;
-            $ktmFilePath = $filePath . 'ktm/' . $form->ktm;
-            $buktiFilePath = $filePath . 'bukti-pembayaran/' . $form->bukti_pembayaran;
+            // $ksmFilePath = $filePath . 'ksm/' . $form->ksm;
+            // $ktmFilePath = $filePath . 'ktm/' . $form->ktm;
+            // $buktiFilePath = $filePath . 'bukti-pembayaran/' . $form->bukti_pembayaran;
 
-            if (Storage::exists($ksmFilePath) && Storage::exists($ktmFilePath) && Storage::exists($buktiFilePath))
+            if (Storage::exists($form->ksm) && Storage::exists($form->ktm) && Storage::exists($form->bukti_pembayaran))
             {
-                Storage::delete($ksmFilePath);
-                Storage::delete($ktmFilePath);
-                Storage::delete($buktiFilePath);
+                Storage::delete($form->ksm);
+                Storage::delete($form->ktm);
+                Storage::delete($form->bukti_pembayaran);
             }
         }
 
