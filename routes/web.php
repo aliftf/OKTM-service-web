@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HasilController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\FinalisasiRequestController;
 use App\Http\Controllers\ListPengajuanController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PenerimaanPengajuanController;
@@ -48,9 +49,11 @@ Route::middleware('admin')->group(function () {
         [PenerimaanPengajuanController::class,'index']
     );
 
-    Route::get('/finalisasi-pengajuan-ktm', function () {
-        return view('finalisasiPengajuan');
-    });
+    Route::get('/finalisasi-pengajuan-ktm',
+        [FinalisasiRequestController::class,'index']
+    );
+
+    Route::resource('/finalisasi',FinalisasiRequestController::class);
 });
 
 Route::middleware('mahasiswa')->group(function() {

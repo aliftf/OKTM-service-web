@@ -195,3 +195,13 @@ footer {
     background-color: #9E0000;
     border-color: #9E0000;
 }
+
+.header-popup {
+    background-color: #9f0000;
+    color: #ffffff;
+}
+
+.button_popup {
+    min-width: 80px;
+    max-width: 80px;
+}
