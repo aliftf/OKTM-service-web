@@ -19,32 +19,39 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Account::create([
-            'username' => 'mahasiswa',
-            'password' => Hash::make('mahasiswa'),
-            'role' => 'mahasiswa',
-        ]);
+        // Account::create([
+        //     'username' => 'mahasiswa',
+        //     'password' => Hash::make('mahasiswa'),
+        //     'role' => 'mahasiswa',
+        // ]);
 
-        Account::create([
-            'username' => 'admin',
-            'password' => Hash::make('admin'),
-            'role' => 'admin',
-        ]);
+        // Account::create([
+        //     'username' => 'admin',
+        //     'password' => Hash::make('admin'),
+        //     'role' => 'admin',
+        // ]);
 
-        Mahasiswa::create([
-            'nim' => '0000000000',
-            'acc_id' => 1,
-            'nama' => 'Mahasiswa 1',
-            'prodi' => 'Dump',
-            'tahun' => 2021,
-        ]);
+        // Mahasiswa::create([
+        //     'nim' => '1111111111',
+        //     'acc_id' => 1,
+        //     'nama' => 'Mahasiswa',
+        //     'prodi' => 'Dump',
+        //     'tahun' => 2021,
+        // ]);
 
-        Mahasiswa::create([
+        Form::create([
             'nim' => '1111111111',
-            'acc_id' => 1,
-            'nama' => 'Mahasiswa 1',
-            'prodi' => 'S1 Informatika',
-            'tahun' => 2021,
+            'tipe' => 'perbaikan',
+            'tanggal'=> '2023-12-02',
+            'status' => 'belum selesai',
+            'komen_surat_kehilangan' => '',
+            'komen_ktm' => '',
+            'komen_ksm' => '',
+            'ksm' => "storage\app\public\file\ksm\Learning under concept drift.pdf",
+            'bukti_pembayaran' => "storage\app\public\file\bukti-pembayaran\Screenshot 2023-11-04 144208.png",
+            'ktm' => "storage\app\public\file\ktm\Screenshot 2023-11-04 144208.png",
+            'surat_kehilangan' => ''
+
         ]);
 
         Mahasiswa::factory()->count(2)->create();
