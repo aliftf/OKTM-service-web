@@ -90,6 +90,9 @@
                                     @if ($form->komen_bukti_pembayaran)
                                         <div>Bukti Pembayaran : {{$form->komen_bukti_pembayaran}}</div>
                                     @endif
+                                    @if ($form->status=="Selesai")
+                                        <div>Silakan Ambil di BSLA GKU Lantai 2</div>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
