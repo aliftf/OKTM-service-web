@@ -47,7 +47,6 @@ class VerifikasiPengajuan extends Controller
      */
     public function edit(string $nim)
     {
-        //
         //nim sekarang ubah dengan variable parameter
         $data = Form::where('nim', $nim)->first();
         $mhs = Mahasiswa::where('nim', $nim)->first();
@@ -69,7 +68,7 @@ class VerifikasiPengajuan extends Controller
     {
         $form = Form::where('nim', $nim)->first();
 
-        //bagian komen
+        //Bagian komen
         $form->komen_ksm = $request->input('noteksm');
         $form->komen_bukti_pembayaran = $request->input('notebukti');
         if($form->tipe=="penggantian"){
@@ -78,8 +77,7 @@ class VerifikasiPengajuan extends Controller
             $form->komen_ktm = $request->input('binote');
         }
         
-        
-        //bagian status
+        //Bagian status
         $form->status_ksm = $request->input('ksmpersetujuan');
         $form->status_bukti_pembayaran = $request->input('persetujuanbukti');
 
@@ -89,6 +87,7 @@ class VerifikasiPengajuan extends Controller
             $form->status_ktm = $request->input('bistatus');
         }
         
+        //Update Data
         $form->save();
         return redirect('/penerimaan-pengajuan-ktm');
 
@@ -100,9 +99,5 @@ class VerifikasiPengajuan extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function toggleStatus(){
-        
     }
 }

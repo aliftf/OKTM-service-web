@@ -24,7 +24,6 @@
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
                             <h3 class="fw-bold">Status</h3>
-                            {{-- Diisi pake java script --}}
                             <p id="ketStatusKsm" class="fs-4"></p>
                             <!-- Text box untuk note -->
                             <div class="p-3 bg-light border border-secondary">
@@ -123,7 +122,7 @@
 
 <script>
     
-    //bagian operasi keterangan status
+    //Bagian operasi keterangan status
     
     //Inisiasi variable
     var tipe = '{{$form->tipe}}';
@@ -150,7 +149,7 @@
         }
     }
 
-    //bagian fungsi button status
+    //Bagian fungsi button status
     function persetujuanKSM(status) {
         // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
         document.getElementById('ksm').value = status;
