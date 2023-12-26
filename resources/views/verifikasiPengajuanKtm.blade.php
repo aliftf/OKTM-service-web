@@ -19,12 +19,11 @@
                     <div class="row p-5">
                         <!-- Foto preview untuk isi file yang di submit -->
                         <div class="col-sm my-auto">
-                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->ksm)}}" class="img-fluid w-100" alt="Ini KSM">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($ksm)}}" class="img-fluid w-100" alt="Ini KSM">
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
                             <h3 class="fw-bold">Status</h3>
-                            {{-- Diisi pake java script --}}
                             <p id="ketStatusKsm" class="fs-4"></p>
                             <!-- Text box untuk note -->
                             <div class="p-3 bg-light border border-secondary">
@@ -53,7 +52,7 @@
                     <div class="row p-5">
                         <!-- Foto preview untuk isi file yang di submit -->
                         <div class="col-sm my-auto">
-                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->ktm)}}" class="img-fluid w-100" alt="Ini KSM">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($bifile)}}" class="img-fluid w-100" alt="Ini KSM">
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
@@ -86,7 +85,7 @@
                     <div class="row p-5">
                         <!-- Foto preview untuk isi file yang di submit -->
                         <div class="col-sm my-auto">
-                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->bukti_pembayaran)}}" class="img-fluid w-100" alt="Ini KSM">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($bukti)}}" class="img-fluid w-100" alt="Ini KSM">
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
@@ -123,7 +122,7 @@
 
 <script>
     
-    //bagian operasi keterangan status
+    //Bagian operasi keterangan status
     
     //Inisiasi variable
     var tipe = '{{$form->tipe}}';
@@ -150,7 +149,7 @@
         }
     }
 
-    //bagian fungsi button status
+    //Bagian fungsi button status
     function persetujuanKSM(status) {
         // Mengubah nilai input tersembunyi sesuai dengan tombol yang ditekan
         document.getElementById('ksm').value = status;

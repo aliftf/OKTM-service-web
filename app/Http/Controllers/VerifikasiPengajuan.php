@@ -15,18 +15,7 @@ class VerifikasiPengajuan extends Controller
      //perlu di function index perlu tambahin parameter nim
     public function index()
     {
-        //nim sekarang ubah dengan variable parameter
-        $data = Form::where('nim', 1302213011)->first();
-        $mhs = Mahasiswa::where('nim', 1302213011)->first();
-        $bihead = "KTM";
-        $statusbihead = $data->status_ktm;
-        $bikomen = $data->komen_ktm;
-        if($data->tipe == "penggantian"){
-            $bihead = "Surat Kehilangan";
-            $statusbihead = $data->status_surat_kehilangan;
-            $bikomen = $data->komen_surat_kehilangan;
-        }
-        return view("verifikasiPengajuanKtm",['form' => $data, 'mhs' => $mhs, 'bihead'=> $bihead, 'biStat' => $statusbihead, 'bikomen'=>$bikomen]);
+
     }
 
     /**
@@ -56,9 +45,36 @@ class VerifikasiPengajuan extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $nim)
     {
-        //
+        //nim sekarang ubah dengan variable parameter
+        $data = Form::where('nim', 1111111111)->first();
+        $mhs = Mahasiswa::where('nim', 1111111111)->first();
+        
+        $ksm = file_get_contents($data->ksm);
+        $bukti = file_get_contents($data->bukti_pembayaran);
+        $bifile = file_get_contents($data->ktm);
+        $bihead = "KTM";
+        $statusbihead = $data->status_ktm;
+        $bikomen = $data->komen_ktm;
+        
+        if($data->tipe == "penggantian"){
+            $bihead = "Surat Kehilangan";
+            $statusbihead = $data->status_surat_kehilangan;
+            $bikomen = $data->komen_surat_kehilangan;
+            $bifile = file_get_contents(base_path($data->surat_kehilangan));
+        }
+        
+        return view("verifikasiPengajuanKtm",[
+            'form' => $data,
+            'mhs' => $mhs,
+            'bihead'=> $bihead,
+            'biStat' => $statusbihead,
+            'bikomen'=>$bikomen,
+            'bifile'=>$bifile,
+            'bukti'=>$bukti,
+            'ksm'=>$ksm
+        ]);
     }
 
     /**
@@ -68,7 +84,7 @@ class VerifikasiPengajuan extends Controller
     {
         $form = Form::where('nim', $nim)->first();
 
-        //bagian komen
+        //Bagian komen
         $form->komen_ksm = $request->input('noteksm');
         $form->komen_bukti_pembayaran = $request->input('notebukti');
         if($form->tipe=="penggantian"){
@@ -77,8 +93,7 @@ class VerifikasiPengajuan extends Controller
             $form->komen_ktm = $request->input('binote');
         }
         
-        
-        //bagian status
+        //Bagian status
         $form->status_ksm = $request->input('ksmpersetujuan');
         $form->status_bukti_pembayaran = $request->input('persetujuanbukti');
 
@@ -88,6 +103,7 @@ class VerifikasiPengajuan extends Controller
             $form->status_ktm = $request->input('bistatus');
         }
         
+        //Update Data
         $form->save();
         return redirect('/penerimaan-pengajuan-ktm');
 
@@ -99,9 +115,5 @@ class VerifikasiPengajuan extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function toggleStatus(){
-        
     }
 }

@@ -77,7 +77,22 @@
                                     <div class="border-end border-2 p-4" style="height: 100px;">{{ $form->status }}</div>
                                 </td>
                                 <td class="px-0">
-                                    <div class="p-4">{{ $form->komentar }}</div>
+                                    {{-- <div class="p-4">{{ $form->komentar }}</div> --}}
+                                    @if ($form->komen_ksm)
+                                        <div>KSM : {{$form->komen_ksm}}</div>
+                                    @endif
+                                    @if ($form->komen_ktm)
+                                        <div>KTM : {{$form->komen_ktm}}</div>
+                                    @endif
+                                    @if ($form->komen_surat_kehilangan)
+                                        <div>Surat Kehilangan : {{$form->komen_surat_kehilangan}}</div>
+                                    @endif
+                                    @if ($form->komen_bukti_pembayaran)
+                                        <div>Bukti Pembayaran : {{$form->komen_bukti_pembayaran}}</div>
+                                    @endif
+                                    @if ($form->status=="Selesai")
+                                        <div>Silakan Ambil di BSLA GKU Lantai 2</div>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

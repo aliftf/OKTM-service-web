@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HasilController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ListPengajuanController;
+use App\Http\Controllers\PenerimaanPengajuanController;
 use App\Http\Controllers\VerifikasiPengajuan;
 
 /*
@@ -36,17 +37,15 @@ Route::resource('/verifikasi-pengajuan-ktm', VerifikasiPengajuan::class);
 Route::middleware('admin')->group(function () {
     Route::resource('/list-pengajuan-ktm', ListPengajuanController::class)->name('index','list-pengajuan-ktm');
 
-
     Route::get('/list-pengajuan-ktm/download/{formId}/{fileType}', [DownloadController::class, 'downloadFile']);
 
     Route::get('/verifikasi-pengajuan-ktm', function () {
         return view('verifikasiPengajuanKtm');
     });
     
-
-    Route::get('/penerimaan-pengajuan-ktm', function () {
-        return view('penerimaanPengajuanKtm');
-    });
+    Route::get('/penerimaan-pengajuan-ktm',
+        [PenerimaanPengajuanController::class,'index']
+    );
 
     Route::get('/finalisasi-pengajuan-ktm', function () {
         return view('finalisasiPengajuan');

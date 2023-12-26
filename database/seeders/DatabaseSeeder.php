@@ -9,7 +9,7 @@ use App\Models\Form;
 use App\Models\Mahasiswa;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Staff;
+
 use function PHPSTORM_META\map;
 
 class DatabaseSeeder extends Seeder
@@ -19,25 +19,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Account::create([
-        //     'username' => 'mahasiswa',
-        //     'password' => Hash::make('mahasiswa'),
-        //     'role' => 'mahasiswa',
-        // ]);
+        // // Account::create([
+        // //     'username' => 'mahasiswa',
+        // //     'password' => Hash::make('mahasiswa'),
+        // //     'role' => 'mahasiswa',
+        // // ]);
 
-        // Account::create([
-        //     'username' => 'admin',
-        //     'password' => Hash::make('admin'),
-        //     'role' => 'admin',
-        // ]);
+        // // Account::create([
+        // //     'username' => 'admin',
+        // //     'password' => Hash::make('admin'),
+        // //     'role' => 'admin',
+        // // ]);
 
-        // Mahasiswa::create([
-        //     'nim' => '0000000000',
-        //     'acc_id' => 1,
-        //     'nama' => 'Mahasiswa',
-        //     'prodi' => 'Dump',
-        //     'tahun' => 2021,
-        // ]);
+        Mahasiswa::create([
+            'nim' => '1111111111',
+            'acc_id' => 1,
+            'nama' => 'Mahasiswa',
+            'prodi' => 'Dump',
+            'tahun' => 2021,
+        ]);
 
         Staff::create([
             "nip"=> "11111111111111",
