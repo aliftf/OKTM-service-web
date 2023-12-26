@@ -55,20 +55,24 @@
                 </div>
                 {{-- Form pengisian --}}
                 <div class="d-lg-flex flex-column shadow-lg p-3 ps-5 bg-body-tertiary rounded rounded-top-0">
-                    <form action="/Nunggubackend" method="post">
-                        <div class="container row">
+                    <form action="/form" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
+                        <input type="text" name="tipe" value="Pengajuan Penggantian KTM" hidden>
+
+                        <div class="container row"> 
                             <div class="row  fs-5">
                                 <div class="col-md-3">
                                     <p style="font-weight: bold;">Nama Mahasiswa</p>
                                 </div>
                                 <div class="col-md-6">
-                                    <p style="font-weight: normal;">Iqro Banyuanto</p>
+                                    <p style="font-weight: normal;">{{auth()->user()->mahasiswa->nama}}</p>
                                 </div>
                                 <div class="col-md-1">
                                     <p style="font-weight: bold;">NIM</p>
                                 </div>
                                 <div class="col-md-2">
-                                    <p style="font-weight: normal;">1302213061</p>
+                                    <p style="font-weight: normal;">{{auth()->user()->mahasiswa->nim}}</p>
                                 </div>
                             </div>
                             <div class="row  fs-5">
@@ -79,7 +83,7 @@
                                      <p style="font-weight: normal;">:</p>
                                 </div>
                                 <div class="col-8">
-                                    <p style="font-weight: normal;">2021</p>
+                                    <p style="font-weight: normal;">{{auth()->user()->mahasiswa->tahun}}</p>
                                 </div>
                             </div>
                             <div class="row  fs-5 mb-3">
@@ -90,7 +94,7 @@
                                      <p style="font-weight: normal;">:</p>
                                 </div>
                                 <div class="col-8">
-                                    <p style="font-weight: normal;">S1 Rekayasa Perangkat Lunak</p>
+                                    <p style="font-weight: normal;">{{auth()->user()->mahasiswa->prodi}}</p>
                                 </div>
                             </div>
                             <div class="row  fs-5  mb-3">
@@ -102,7 +106,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3 p" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
+                                        <input type="file" class="form-control" id="inputGroupFile01" name="ksm" >
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +119,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
+                                        <input type="file" class="form-control" id="inputGroupFile02" name="surat_kehilangan">
                                     </div>
                                 </div>
                             </div>
@@ -128,13 +132,13 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="input-group mb-3" style="width:auto">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
+                                        <input type="file" class="form-control" id="inputGroupFile03" name="bukti_pembayaran">
                                     </div>
                                 </div>
                             </div>
                             <div class="row  fs-5  mb-3">
                                 <div class="col text-center">
-                                <button type="button" class="btn fw-bold text-light" style="width:200px; background-color: #9D0000;">Submit</button>
+                                <button type="submit" class="btn fw-bold text-light" style="width:200px; background-color: #9D0000;">Submit</button>
                                 </div>
                             </div>
                         </div>

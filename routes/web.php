@@ -6,6 +6,7 @@ use App\Http\Controllers\HasilController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\FinalisasiRequestController;
 use App\Http\Controllers\ListPengajuanController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\PenerimaanPengajuanController;
 use App\Http\Controllers\VerifikasiPengajuan;
 
@@ -71,6 +72,8 @@ Route::middleware('mahasiswa')->group(function() {
     Route::get('/pengajuan-ktm', function () {
         return view('pengajuanKTM');
     });
-
+    
     Route::get('/informasi-hasil', [HasilController::class, 'index'])->name('informasi-hasil');
+
+    Route::resource('/form', FormController::class);
 });
