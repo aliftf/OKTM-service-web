@@ -51,6 +51,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/finalisasi-pengajuan-ktm',
         [FinalisasiRequestController::class,'index']
     );
+
+    Route::resource('/finalisasi',FinalisasiRequestController::class);
 });
 
 Route::middleware('mahasiswa')->group(function() {

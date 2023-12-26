@@ -13,7 +13,7 @@ class FinalisasiRequestController extends Controller
      */
     public function index()
     {
-        $form = Form::latest('updated_at')->where('status','=','Permintaan Diproses')->with('mahasiswa');
+        $form = Form::latest('updated_at')->where('status','Permintaan Diproses')->with('mahasiswa');
         $forms = $form->paginate(5);
         return view('finalisasiPengajuan', ['result' => $forms]);
     }
@@ -55,7 +55,10 @@ class FinalisasiRequestController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $formUpdated = Form::find($id);
+        $formUpdated->status = 'Selesai';
+        $formUpdated->save();
+        return redirect('/finalisasiPengajuan');
     }
 
     /**
