@@ -48,17 +48,33 @@ class VerifikasiPengajuan extends Controller
     public function edit(string $nim)
     {
         //nim sekarang ubah dengan variable parameter
-        $data = Form::where('nim', $nim)->first();
-        $mhs = Mahasiswa::where('nim', $nim)->first();
+        $data = Form::where('nim', 1111111111)->first();
+        $mhs = Mahasiswa::where('nim', 1111111111)->first();
+        
+        $ksm = file_get_contents($data->ksm);
+        $bukti = file_get_contents($data->bukti_pembayaran);
+        $bifile = file_get_contents($data->ktm);
         $bihead = "KTM";
         $statusbihead = $data->status_ktm;
         $bikomen = $data->komen_ktm;
+        
         if($data->tipe == "penggantian"){
             $bihead = "Surat Kehilangan";
             $statusbihead = $data->status_surat_kehilangan;
             $bikomen = $data->komen_surat_kehilangan;
+            $bifile = file_get_contents(base_path($data->surat_kehilangan));
         }
-        return view("verifikasiPengajuanKtm",['form' => $data, 'mhs' => $mhs, 'bihead'=> $bihead, 'biStat' => $statusbihead, 'bikomen'=>$bikomen]);
+        
+        return view("verifikasiPengajuanKtm",[
+            'form' => $data,
+            'mhs' => $mhs,
+            'bihead'=> $bihead,
+            'biStat' => $statusbihead,
+            'bikomen'=>$bikomen,
+            'bifile'=>$bifile,
+            'bukti'=>$bukti,
+            'ksm'=>$ksm
+        ]);
     }
 
     /**

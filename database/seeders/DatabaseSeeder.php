@@ -19,36 +19,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Account::create([
-            'username' => 'mahasiswa',
-            'password' => Hash::make('mahasiswa'),
-            'role' => 'mahasiswa',
-        ]);
+        // Account::create([
+        //     'username' => 'mahasiswa',
+        //     'password' => Hash::make('mahasiswa'),
+        //     'role' => 'mahasiswa',
+        // ]);
 
-        Account::create([
-            'username' => 'admin',
-            'password' => Hash::make('admin'),
-            'role' => 'admin',
-        ]);
+        // Account::create([
+        //     'username' => 'admin',
+        //     'password' => Hash::make('admin'),
+        //     'role' => 'admin',
+        // ]);
 
-        Mahasiswa::create([
-            'nim' => '0000000000',
-            'acc_id' => 1,
-            'nama' => 'Mahasiswa 1',
-            'prodi' => 'Dump',
-            'tahun' => 2021,
-        ]);
+        // Mahasiswa::create([
+        //     'nim' => '1111111111',
+        //     'acc_id' => 1,
+        //     'nama' => 'Mahasiswa',
+        //     'prodi' => 'Dump',
+        //     'tahun' => 2021,
+        // ]);
 
         Form::create([
-            'nim' => '1302213011',
+            'nim' => '1111111111',
             'tipe' => 'perbaikan',
+            'tanggal'=> '2023-12-02',
             'status' => 'belum selesai',
             'komen_surat_kehilangan' => '',
             'komen_ktm' => '',
             'komen_ksm' => '',
-            'ksm' => file_get_contents("C:\Users\ASUS\OneDrive\Pictures\Screenshot\Screenshot 2023-11-04 144208.png"),
-            'bukti_pembayaran' => file_get_contents("public\images\home-1.jpg"),
-            'ktm' => file_get_contents("C:\Users\ASUS\OneDrive\Pictures\Screenshot\Screenshot 2023-11-04 144208.png"),
+            'ksm' => "storage\app\public\file\ksm\Learning under concept drift.pdf",
+            'bukti_pembayaran' => "storage\app\public\file\bukti-pembayaran\Screenshot 2023-11-04 144208.png",
+            'ktm' => "storage\app\public\file\ktm\Screenshot 2023-11-04 144208.png",
             'surat_kehilangan' => ''
         ]);
 
