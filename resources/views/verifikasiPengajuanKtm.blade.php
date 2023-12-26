@@ -19,7 +19,7 @@
                     <div class="row p-5">
                         <!-- Foto preview untuk isi file yang di submit -->
                         <div class="col-sm my-auto">
-                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->ksm)}}" class="img-fluid w-100" alt="Ini KSM">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($ksm)}}" class="img-fluid w-100" alt="Ini KSM">
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
@@ -52,7 +52,7 @@
                     <div class="row p-5">
                         <!-- Foto preview untuk isi file yang di submit -->
                         <div class="col-sm my-auto">
-                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->ktm)}}" class="img-fluid w-100" alt="Ini KSM">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($bifile)}}" class="img-fluid w-100" alt="Ini KSM">
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
@@ -85,7 +85,7 @@
                     <div class="row p-5">
                         <!-- Foto preview untuk isi file yang di submit -->
                         <div class="col-sm my-auto">
-                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($form->bukti_pembayaran)}}" class="img-fluid w-100" alt="Ini KSM">
+                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($bukti)}}" class="img-fluid w-100" alt="Ini KSM">
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
