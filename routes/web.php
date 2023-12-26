@@ -71,4 +71,6 @@ Route::middleware('mahasiswa')->group(function() {
     });
     
     Route::get('/informasi-hasil', [HasilController::class, 'index'])->name('informasi-hasil');
+
+    Route::resource('/form', FormController::class);
 });

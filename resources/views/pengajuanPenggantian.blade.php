@@ -58,6 +58,7 @@
                     <form action="/form" method="post">
                         @csrf
                         @method('POST')
+                        <input type="text" name="tipe" value="Pengajuan Penggantian KTM">
 
                         <div class="container row"> 
                             <div class="row  fs-5">
