@@ -33,7 +33,7 @@
     </div>
     <!-- Pop up verification box -->
     <div class="modal fade" id="verifModal" tabindex="-1" aria-labelledby="verifModalLabel" aria-hidden="true">
-        <form action="/finalisasi/{{$result->id}}" method="post">
+        <form action="/finalisasi/{{$data->id}}" method="post">
             @csrf
             @method('put')
             <div class="modal-dialog modal-dialog-centered">
