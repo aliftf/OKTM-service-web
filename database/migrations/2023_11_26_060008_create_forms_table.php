@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->string('ktm')->nullable(); //Untuk naro address file
             $table->string('bukti_pembayaran')->nullable(); //Untuk naro address file
             $table->string('surat_kehilangan')->nullable(); //Untuk naro address file
+
             
             $table->string('komen_surat_kehilangan')->nullable();
             $table->string('komen_ktm')->nullable();

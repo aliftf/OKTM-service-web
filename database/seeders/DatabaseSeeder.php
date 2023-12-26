@@ -51,7 +51,11 @@ class DatabaseSeeder extends Seeder
             'bukti_pembayaran' => "storage\app\public\file\bukti-pembayaran\Screenshot 2023-11-04 144208.png",
             'ktm' => "storage\app\public\file\ktm\Screenshot 2023-11-04 144208.png",
             'surat_kehilangan' => ''
+
         ]);
+
+        Mahasiswa::factory()->count(2)->create();
+        Form::factory()->count(8)->create();
 
     }
 }

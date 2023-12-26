@@ -9,7 +9,7 @@ use App\Models\Mahasiswa;
 class HasilController extends Controller
 {
     public function index(Request $request){
-        $forms = Form::latest('updated_at')->with('mahasiswa');
+        $forms = Form::where('nim', auth()->user()->mahasiswa->nim)->latest('updated_at')->with('mahasiswa');
 
         $tipe = $request->input('tipe', 'Filter Tipe');
 
