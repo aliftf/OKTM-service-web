@@ -139,7 +139,7 @@
     if({{$form->status_bukti_pembayaran}} == 1){
         document.getElementById("ketStatusBukti").innerText = setuju;
     }
-    if('{{$form->tipe}}' == "perbaikan"){
+    if('{{$form->tipe}}' == "Pengajuan Perbaikan KTM"){
         if({{$form->status_ktm}} == 1){
             document.getElementById("ketBiStatus").innerText = setuju;
         }
