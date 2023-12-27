@@ -97,7 +97,7 @@
                     <div class="form-group row ">
                         <label for="inputNama" class="fw-bold col-lg-2 col-form-label">Nama Mahasiswa</label>
                         <div class="col-lg-5 ">
-                            <span class="align-middle text-uppercase">Regy Renanda Rahman<span>
+                            <span class="align-middle text-uppercase">{{auth()->user()->mahasiswa->nama}}<span>
                         </div>
                         <label for="inputNIM" class="fw-bold col-lg-1 col-form-label">NIM</label>
                         <div class="col-lg-4">
@@ -107,13 +107,13 @@
                     <div class="form-group row pt-2">
                         <label for="inputTahun" class="fw-bold col-lg-2 col-form-label">Tahun Ajaran</label>
                         <div class="col-lg-5">
-                            <span class="align-middle text-uppercase">2021<span>
+                            <span class="align-middle text-uppercase">{{auth()->user()->mahasiswa->tahun}}<span>
                         </div>
                     </div>
                     <div class="form-group row pt-2">
                         <label for="inputProgram" class="fw-bold col-lg-2 col-form-label">Program Study</label>
                         <div class="col-lg-5">
-                            <span class="align-middle text-uppercase">S1 Rekayasa Perangkat Lunak<span>
+                            <span class="align-middle text-uppercase">{{auth()->user()->mahasiswa->prodi}}<span>
                         </div>
                     </div>
                     <div class="form-group row pt-2">

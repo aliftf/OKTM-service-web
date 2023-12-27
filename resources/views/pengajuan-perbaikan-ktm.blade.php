@@ -57,13 +57,13 @@
                             Nama Mahasiswa
                         </div>
                         <div class="col-sm-4 text-left fs-6 mb-2">
-                            REGY RENANDA RAHMAN
+                        {{auth()->user()->mahasiswa->nama}}
                         </div>
                         <div class="col-sm-2 text-left fs-6 fw-bold">
                             NIM
                         </div>
                         <div class="col-sm-3 text-left fs-6 mb-2 mb-4">
-                            0000000000
+                        {{auth()->user()->mahasiswa->nim}}
                         </div>
                     </div>
                 </div>
@@ -78,14 +78,14 @@
                             <div class="row align-items-center mb-3">
                                 <p class="col-4 fs-6 col-md-2">Tahun Ajar</p>
                                 <p class="col-1 fs-6 col-md-1">:</p>
-                                <p class="col-6 fs-6 col-sm-7 col-md-7">2021</p>
+                                <p class="col-6 fs-6 col-sm-7 col-md-7">{{auth()->user()->mahasiswa->tahun}}</p>
                             </div>
 
                             <!-- Program Studi -->
                             <div class="row align-items-center mb-3">
                                 <p class="col-4 fs-6 col-md-2">Program Studi</p>
                                 <p class="col-1 fs-6 col-md-1">:</p>
-                                <p class="col-6 fs-6 col-sm-7 col-md-7">S1 Rekayasa Perangkat Lunak</p>
+                                <p class="col-6 fs-6 col-sm-7 col-md-7">{{auth()->user()->mahasiswa->prodi}}</p>
                             </div>
 
                             <!-- Input KSM -->
