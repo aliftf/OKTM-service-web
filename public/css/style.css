@@ -205,3 +205,16 @@ footer {
     min-width: 80px;
     max-width: 80px;
 }
+
+.table-sortable .th-asc::after {
+	content: "\25b4";
+}
+
+.table-sortable .th-desc::after {
+	content: "\25be";
+}
+
+.table-sortable .th-asc,
+.table-sortable .th-desc {
+	background: #db2424;
+}
