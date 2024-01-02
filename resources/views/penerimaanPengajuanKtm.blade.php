@@ -3,9 +3,9 @@
 @section('container')
 
 <div class="container pt-5 px-5">
-    <h2 class="pt-5 fw-bold">Verifikasi Pengajuan KTM</h2>
+    <h2 class="py-5 fw-bold">Verifikasi Pengajuan KTM</h2>
     <!-- Table -->
-    <div class="py-5">
+    <div class="pt-2">
         <table id="dataTable" class="table-list table-sortable table-responsive table table-header text-center table-borderless hasil-table shadow">
             <thead class="h5 fw-bold align-middle m">
                 <tr>
