@@ -4,9 +4,26 @@
 
 <div class="container pt-5 px-5">
     {{$data = null}}
-    <h2 class="pt-5 fw-bold">Finalisasi</h2>
+    <h2 class="py-5 fw-bold">Finalisasi</h2>
+    <!-- Pop up success -->
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+            <h5>{{ session()->get('message') }}</h5>
+            <div class="row w-75">
+                <div class="col">
+                    <p>Nama: {{ session()->get('updatedForm')->mahasiswa->nama}}</p>
+                    <p>NIM: {{ session()->get('updatedForm')->nim}}</p>
+                </div>
+                <div class="col">
+                    <p>Tanggal Pengajuan: {{ session()->get('updatedForm')->tanggal}}</p>
+                    <p>Jenis Pengajuan: {{ session()->get('updatedForm')->tipe}}</p>
+                </div>
+            </div>
+        </div>
+    @endif
     <!-- Table -->
-    <div class="py-5">
+    <div class="pt-2">
         <table id="dataTable" class="table-list table-sortable table-responsive table table-header text-center table-borderless hasil-table shadow">
             <thead class="h5 fw-bold align-middle m">
                 <tr>
@@ -49,7 +66,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light button_popup shadow-sm" data-bs-dismiss="modal">Tidak</button>
-                            <button type="submit" class="btn btn-danger button_popup shadow-sm">Iya</button>
+                            <button type="submit" class="btn btn-danger button_popup shadow-sm" data-bs-toggle="modal" data-bs-target="#successModal">Iya</button>
                         </div>
                     </div>
                 </div>

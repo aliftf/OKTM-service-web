@@ -58,7 +58,9 @@ class FinalisasiRequestController extends Controller
         $formUpdated = Form::find($id);
         $formUpdated->status = 'Selesai';
         $formUpdated->save();
-        return redirect('/finalisasi-pengajuan-ktm');
+        return redirect('/finalisasi-pengajuan-ktm')
+        ->with('message',"Pengajuan KTM ini selesai")
+        ->with('updatedForm', $formUpdated);
     }
 
     /**
