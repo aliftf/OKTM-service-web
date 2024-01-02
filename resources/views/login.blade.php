@@ -25,17 +25,32 @@
 						</p>
 						<div class="px-4">
 							<form action="{{ route('login') }}" method="post">
-								@csrf
-								<div class="mt-5 mb-3">
-									<input type="text" class="form-control" name="username" id="username" placeholder="Username">
-								</div>
-								<div class="mb-5">
-									<input type="password" class="form-control" name="password" id="password" placeholder="Password">
-								</div>
-								<div class="d-flex flex-row-reverse">
-									<button type="submit" class="btn btn-light">Login</button>
-								</div>
-							</form>
+                                @csrf
+                                <div class="mt-5 mb-3">
+                                    <input type="text" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" name="username" id="username" placeholder="Username">
+                                    @error('username')
+                                        <div class="invalid-feedback text-white">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-5">
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" name="password" id="password" placeholder="Password">
+                                    @error('password')
+                                        <div class="invalid-feedback text-white">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                @if (Session::has('error'))
+                                    <div class="text-white text-end mb-2">
+                                        {{ Session::get('error') }}
+                                    </div>
+                                @endif
+                                <div class="d-flex flex-row-reverse">
+                                    <button type="submit" class="btn btn-light">Login</button>
+                                </div>
+                            </form>
 						</div>
 					</div>
 				</div>
