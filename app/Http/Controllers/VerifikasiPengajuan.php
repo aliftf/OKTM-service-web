@@ -115,12 +115,12 @@ class VerifikasiPengajuan extends Controller
         if($form->tipe == 'Pengajuan Penggantian KTM'){
             $form->status = "Permintaan Ditolak";
             if($status_ksm == 1 && $status_bukti == 1 && $status_kehilangan == 1){
-                $form->status = "Permintaan Disetujui";
+                $form->status = "Permintaan Diproses";
             }
         }else{
             $form->status = "Permintaan Ditolak";
             if($status_ksm == 1 && $status_bukti == 1 && $status_ktm == 1){
-                $form->status = "Permintaan Disetujui";
+                $form->status = "Permintaan Diproses";
             }
         }
         
