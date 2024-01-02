@@ -3,10 +3,11 @@
 @section('container')
 
 <div class="container pt-5 px-5">
+    {{$data = null}}
     <h2 class="pt-5 fw-bold">Finalisasi</h2>
     <!-- Table -->
     <div class="py-5">
-        <table class="table-list table-responsive table table-header text-center table-borderless hasil-table shadow">
+        <table id="dataTable" class="table-list table-sortable table-responsive table table-header text-center table-borderless hasil-table shadow">
             <thead class="h5 fw-bold align-middle m">
                 <tr>
                     <th class="w-25">Nama Mahasiswa</th>
@@ -33,26 +34,64 @@
     </div>
     <!-- Pop up verification box -->
     <div class="modal fade" id="verifModal" tabindex="-1" aria-labelledby="verifModalLabel" aria-hidden="true">
-        <form action="/finalisasi/{{$data->id}}" method="post">
-            @csrf
-            @method('put')
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header header-popup">
-                        <h4 class="modal-title fw-bold">Akhiri Permintaan</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h5 class="pt-3">Apakah anda yakin untuk mengakhiri permintaan KTM ini?</h5>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light button_popup shadow-sm" data-bs-dismiss="modal">Tidak</button>
-                        <button type="submit" class="btn btn-danger button_popup shadow-sm">Iya</button>
+        @if($data != null){
+            <form action="/finalisasi/{{$data->id}}" method="post">
+                @csrf
+                @method('put')
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header header-popup">
+                            <h4 class="modal-title fw-bold">Akhiri Permintaan</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h5 class="pt-3">Apakah anda yakin untuk mengakhiri permintaan KTM ini?</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light button_popup shadow-sm" data-bs-dismiss="modal">Tidak</button>
+                            <button type="submit" class="btn btn-danger button_popup shadow-sm">Iya</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        }
+        @endif
     </div>
 </div>
+
+<script>
+    function sortTableByColumn(table, column, asc = true) {
+        const dirModifier = asc ? 1 : -1;
+        const tBody = table.tBodies[0];
+        const rows = Array.from(tBody.querySelectorAll("tr"));
+
+        const sortedRows = rows.sort((a, b) => {
+            const aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+            const bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+            return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
+        });
+
+        while (tBody.firstChild) {
+            tBody.removeChild(tBody.firstChild);
+        }
+
+        tBody.append(...sortedRows);
+
+        table.querySelectorAll("th").forEach(th => th.classList.remove("th-asc", "th-desc"));
+        table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-asc", asc);
+        table.querySelector(`th:nth-child(${column + 1})`).classList.toggle("th-desc", !asc);
+    }
+
+    document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+        headerCell.addEventListener("click", () => {
+            const tableElement = headerCell.parentElement.parentElement.parentElement;
+            const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+            const currentIsAscending = headerCell.classList.contains("th-asc");
+            if(headerIndex != 3){
+                sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+            }
+        });
+    });
+</script>
 
 @endsection
