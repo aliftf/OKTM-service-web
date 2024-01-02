@@ -88,20 +88,40 @@ class VerifikasiPengajuan extends Controller
         //Bagian komen
         $form->komen_ksm = $request->input('noteksm');
         $form->komen_bukti_pembayaran = $request->input('notebukti');
-        if($form->tipe=="penggantian"){
+        if($form->tipe=="Pengajuan Penggantian KTM"){
             $form->komen_surat_kehilangan = $request->input('binote');
         }else{
             $form->komen_ktm = $request->input('binote');
         }
         
-        //Bagian status
-        $form->status_ksm = $request->input('ksmpersetujuan');
-        $form->status_bukti_pembayaran = $request->input('persetujuanbukti');
+        //Bagian status document
+        $status_ksm = $request->input('ksmpersetujuan');
+        $status_bukti = $request->input('persetujuanbukti');
+        $status_kehilangan = 0;
+        $status_ktm = 0;
 
-        if($form->tipe=="penggantian"){
-            $form->status_surat_kehilangan = $request->input('bistatus');
+        $form->status_ksm = $status_ksm;
+        $form->status_bukti_pembayaran = $status_bukti;
+
+        if($form->tipe=="Pengajuan Penggantian KTM"){
+            $status_kehilangan = $request->input('bistatus');
+            $form->status_surat_kehilangan = $status_kehilangan;
         }else{
-            $form->status_ktm = $request->input('bistatus');
+            $status_ktm = $request->input('bistatus');
+            $form->status_ktm = $status_ktm;
+        }
+
+        //bagian status permintaan
+        if($form->tipe == 'Pengajuan Penggantian KTM'){
+            $form->status = "Permintaan Ditolak";
+            if($status_ksm == 1 && $status_bukti == 1 && $status_kehilangan == 1){
+                $form->status = "Permintaan Disetujui";
+            }
+        }else{
+            $form->status = "Permintaan Ditolak";
+            if($status_ksm == 1 && $status_bukti == 1 && $status_ktm == 1){
+                $form->status = "Permintaan Disetujui";
+            }
         }
         
         //Update Data
