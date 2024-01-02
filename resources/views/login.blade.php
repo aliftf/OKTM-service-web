@@ -14,7 +14,7 @@
 							Online KTM Service
 						</p>
 						<p class="mt-3 ps-3">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ratione blanditiis animi dolore nesciunt, ullam, culpa atque harum, eos dignissimos illo dolor repudiandae quos. Maxime, dolor doloribus nostrum incidunt accusantium, placeat dolorem omnis ratione, alias tenetur ipsam beatae veniam sit.
+							Website ini menyediakan pelayanan untuk segala kendala terhadap KTM, mulai dari perbaikan, penggantian, dan kendala lainnya.  Proses yang telah disebutkan yang sebelumnya hanya bisa dilakukan dengan secara langsung mendatangi staff sekarang sudah bisa dilakukan secara online melalui website ini. Diharapkan website ini dapat membantu mahasiswa sekalian untuk menggunakan waktu yang dimiliki secara baik.
 						</p>
 					</div>
 
