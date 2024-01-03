@@ -50,6 +50,14 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('alif'),
             'role' => 'mahasiswa',
         ]);
+
+        Mahasiswa::create([
+            'nim' => 1302213011,
+            'acc_id' => 4,
+            'nama' => 'alif',
+            'prodi' => 'S1 Rekayasa Perangkat Lunak',
+            'tahun' => 2021,
+        ]);
     }
 }
  
