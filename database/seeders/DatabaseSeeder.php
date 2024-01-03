@@ -38,6 +38,18 @@ class DatabaseSeeder extends Seeder
             'prodi' => 'Dump',
             'tahun' => 2021,
         ]);
+
+        Account::create([
+            'username' => 'deva',
+            'password' => Hash::make('deva'),
+            'role' => 'mahasiswa',
+        ]);
+
+        Account::create([
+            'username' => 'alif',
+            'password' => Hash::make('alif'),
+            'role' => 'mahasiswa',
+        ]);
     }
 }
  

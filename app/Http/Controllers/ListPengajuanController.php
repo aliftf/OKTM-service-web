@@ -102,6 +102,8 @@ class ListPengajuanController extends Controller
             'addBukti' => 'Bukti Pembayaran',
         ]);
 
+        $latestId = optional(Form::latest('id')->first())->id + 1 ?? 1;
+
         $fileNameKSM = null;
         $fileNameKTM = null;
         $fileNameSurat = null;
@@ -109,25 +111,25 @@ class ListPengajuanController extends Controller
 
         if ($request->file('addKSM')) {
             $fileKSM = $request->file('addKSM');
-            $fileNameKSM = 'public/file/ksm/' . pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKSM->extension();
+            $fileNameKSM = 'public/file/ksm/' . pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '-' . $latestId . '.' . $fileKSM->extension();
             Storage::put($fileNameKSM, file_get_contents($fileKSM));
         }
 
         if ($request->file('addKTM')) {
             $fileKTM = $request->file('addKTM');
-            $fileNameKTM = 'public/file/ktm/' . pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileKTM->extension();
+            $fileNameKTM = 'public/file/ktm/' . pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '-' . $latestId . '.' . $fileKTM->extension();
             Storage::put($fileNameKTM, file_get_contents($fileKTM));
         }
 
         if ($request->file('addSurat')) {
             $fileSurat = $request->file('addSurat');
-            $fileNameSurat = 'public/file/surat-kehilangan/' . pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileSurat->extension();
+            $fileNameSurat = 'public/file/surat-kehilangan/' . pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '-' . $latestId . '.' . $fileSurat->extension();
             Storage::put($fileNameSurat, file_get_contents($fileSurat));
         }
 
         if ($request->file('addBukti')) {
             $fileBukti = $request->file('addBukti');
-            $fileNameBukti = 'public/file/bukti-pembayaran/' . pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '.' . $fileBukti->extension();
+            $fileNameBukti = 'public/file/bukti-pembayaran/' . pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['addNIM'] . '-' . $latestId . '.' . $fileBukti->extension();
             Storage::put($fileNameBukti, file_get_contents($fileBukti));
         }
 
@@ -275,7 +277,7 @@ class ListPengajuanController extends Controller
             Storage::delete($form->ksm);
 
             $fileKSM = $request->file('editKSM');
-            $fileNameKSM = 'public/file/ksm/' . pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileKSM->extension();
+            $fileNameKSM = 'public/file/ksm/' . pathinfo($fileKSM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '-' . $form->id . '.' . $fileKSM->extension();
             Storage::put($fileNameKSM, file_get_contents($fileKSM));
         }
 
@@ -283,7 +285,7 @@ class ListPengajuanController extends Controller
             Storage::delete($form->ktm);
 
             $fileKTM = $request->file('editKTM');
-            $fileNameKTM = 'public/file/ktm/' . pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileKTM->extension();
+            $fileNameKTM = 'public/file/ktm/' . pathinfo($fileKTM->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '-' . $form->id . '.' . $fileKTM->extension();
             Storage::put($fileNameKTM, file_get_contents($fileKTM));
         }
 
@@ -291,7 +293,7 @@ class ListPengajuanController extends Controller
             Storage::delete($form->surat_kehilangan);
 
             $fileSurat = $request->file('editSurat');
-            $fileNameSurat = 'public/file/surat-kehilangan/' . pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileSurat->extension();
+            $fileNameSurat = 'public/file/surat-kehilangan/' . pathinfo($fileSurat->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '-' . $form->id . '.' . $fileSurat->extension();
             Storage::put($fileNameSurat, file_get_contents($fileSurat));
         }
 
@@ -299,7 +301,7 @@ class ListPengajuanController extends Controller
             Storage::delete($form->bukti_pembayaran);
 
             $fileBukti = $request->file('editBukti');
-            $fileNameBukti = 'public/file/bukti-pembayaran/' . pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '.' . $fileBukti->extension();
+            $fileNameBukti = 'public/file/bukti-pembayaran/' . pathinfo($fileBukti->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $validatedData['editNIM'] . '-' . $form->id . '.' . $fileBukti->extension();
             Storage::put($fileNameBukti, file_get_contents($fileBukti));
         }
 
