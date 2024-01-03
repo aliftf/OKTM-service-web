@@ -19,7 +19,9 @@
                     <div class="row p-5">
                         <!-- Foto preview untuk isi file yang di submit -->
                         <div class="col-sm my-auto">
-                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($ksm)}}" class="img-fluid w-100" alt="Ini KSM">
+                            @if($ksm != null)
+                                <img src="data:{{'image.jpg'}};base64,{{base64_encode($ksm)}}" class="img-fluid w-100" alt="Ini KSM">
+                            @endif
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">
@@ -52,7 +54,9 @@
                     <div class="row p-5">
                         <!-- Foto preview untuk isi file yang di submit -->
                         <div class="col-sm my-auto">
-                            <img src="data:{{'image.jpg'}};base64,{{base64_encode($bifile)}}" class="img-fluid w-100" alt="Ini KSM">
+                            @if($ksm != null)
+                                <img src="data:{{'image.jpg'}};base64,{{base64_encode($bifile)}}" class="img-fluid w-100" alt="Ini KSM">
+                            @endif
                         </div>
                         <!-- Form -->
                         <div class="col-sm my-auto border-start border-3 px-5">

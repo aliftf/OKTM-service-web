@@ -50,20 +50,32 @@ class VerifikasiPengajuan extends Controller
         //nim sekarang ubah dengan variable parameter
         $data = Form::where('nim', $nim)->first();
         $mhs = Mahasiswa::where('nim', $nim)->first();
-        
-        $ksm = file_get_contents(storage_path("app/".$data->ksm));
-        $bukti = file_get_contents(storage_path("app/".$data->bukti_pembayaran));
-        
+
+        $ksm = @file_get_contents(storage_path("app/".$data->ksm));
+        if ($ksm == false) {
+            $ksm = null;
+        }
+        $bukti = @file_get_contents(storage_path("app/".$data->bukti_pembayaran));
+        if ($bukti == false) {
+            $bukti = null;
+        }
+
         if($data->tipe == "Pengajuan Penggantian KTM"){
             $bihead = "Surat Kehilangan";
             $statusbihead = $data->status_surat_kehilangan;
             $bikomen = $data->komen_surat_kehilangan;
-            $bifile = file_get_contents(storage_path("app/".$data->surat_kehilangan));
+            $bifile = @file_get_contents(storage_path("app/".$data->surat_kehilangan));
+            if ($bifile == false) {
+                $bifile = null;
+            }
         }else{
-            $bifile = file_get_contents(storage_path("app/".$data->ktm));
             $bihead = "KTM";
             $statusbihead = $data->status_ktm;
             $bikomen = $data->komen_ktm;
+            $bifile = @file_get_contents(storage_path("app/".$data->ktm));
+            if ($bifile == false) {
+                $bifile = null;
+            }
         }
         
         return view("verifikasiPengajuanKtm",[
