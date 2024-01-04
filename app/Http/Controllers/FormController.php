@@ -12,8 +12,12 @@ class FormController extends Controller
     //
     public function store(Request $request)
     {
-        $latestId = Form::latest('id')->first()->id + 1;
-
+        dd($request->all());
+        if (Form::latest('id')->first() != null){
+            $latestId = Form::latest('id')->first()->id + 1;
+        }else{
+            $latestId = 0;
+        }
         $tipe = $request->input('tipe');
         
         $ksmfile = $request->file('ksm');
